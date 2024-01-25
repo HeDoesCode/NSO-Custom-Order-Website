@@ -1,7 +1,9 @@
 <?php
+require __DIR__.'/auth.php';
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeaturedProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/admin/featuredproducts', [FeaturedProductsController::class, 'featuredProducts'])->name('admin.featuredProducts');
