@@ -3,7 +3,7 @@ require __DIR__.'/auth.php';
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FeaturedProductsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +24,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::controller(ProfileController::class)->group(function() {
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', 'edit')->name('profile.edit');
+        Route::patch('/profile', 'update')->name('profile.update');
+        Route::delete('/profile', 'destroy')->name('profile.destroy');
+    });
 });
 
-Route::get('/admin/featuredproducts', [FeaturedProductsController::class, 'featuredProducts'])->name('admin.featuredProducts');
+Route::controller(AdminController::class)->group(function() {
+    Route::get('/admin/featured-products', 'displayFeaturedProductsDashboard')->name('admin.featuredproducts');
+    Route::get('/admin/create-featured-products', 'displayCreateFeaturedProducts')->name('admin.createfeaturedproducts');
+
+    Route::post('/admin/create-featured-products/save', 'save')->name('admin.save');
+    Route::delete('/admin/featured-products/{product}/delete', 'delete')->name('admin.delete');
+});
