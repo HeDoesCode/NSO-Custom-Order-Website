@@ -11,6 +11,9 @@
 
             <!-- Right side form holder -->
             <div class="register-formHolder">
+                <div class="login-title-bar">
+                    <h2>NOT SO ORDINARY</h2>
+                </div>
                 <!-- Step 1: Username, Email, Password -->
                 <div class="register-step" id="step1">
                     <x-input-label for="username" :value="__('Username')" />
