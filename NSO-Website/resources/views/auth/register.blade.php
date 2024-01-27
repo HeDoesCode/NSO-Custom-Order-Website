@@ -17,15 +17,15 @@
                 <!-- Step 1: Username, Email, Password -->
                 <div class="register-step" id="step1">
                     <x-input-label for="username" :value="__('Username')" />
-                    <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('name')" required autofocus autocomplete="name" />
+                    <x-text-input id="username"  type="text" name="username" :value="old('name')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
 
                     <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                    <x-text-input id="email"  type="email" name="email" :value="old('email')" required autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
                     <x-input-label for="password" :value="__('Password')" />
-                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                    <x-text-input id="password"  type="password" name="password" required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
                     <button type="button" onclick="nextStep()">Next</button>
