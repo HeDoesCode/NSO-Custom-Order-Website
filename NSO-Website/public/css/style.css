@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
 .BodyLogin {
     margin: 0;
     padding: 0;
@@ -44,13 +47,38 @@
     line-height: normal;
     letter-spacing: 1.68px;
 }
-.login-title-bar {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-bottom: 40px;
+
+.title-barFP {
+    margin-top: 0;
 }
 
-.container label {
+.title-barFP h1 {
+    color: #1c1c1c;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.login-title-bar h2 {
+    margin: 0;
+    font-size: 32px;
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.container .usernameLabel {
     color: #212529;
     text-align: center;
     font-family: Inter;
