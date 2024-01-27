@@ -1,4 +1,5 @@
 <x-guest-layout>
+    
     <body class="BodyLogin">
         <!-- Session Status -->
         <x-auth-session-status :status="session('status')" />
@@ -12,12 +13,12 @@
                 <form id="form1" class="form1" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="login-title-bar">
-                        <h2>NOT SO ORDINARY</h2>
+                        <h2 class=nso-header>NOT SO ORDINARY</h2>
                     </div>
 
                     <div class="container containerlogin">
                         <!-- Username -->
-                        <div>
+                        <div class=usernameLabel>
                             <x-input-label for="username" :value="__('Username')" />
                             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
                                 :value="old('username')" required autofocus autocomplete="username" />
