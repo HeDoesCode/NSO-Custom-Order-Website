@@ -1,0 +1,61 @@
+.BodyLogin {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+}
+
+.half {
+    flex: 1;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+.login-imageHolder {
+    /* Style for the left image container */
+    background: url("/images/login.png") center/cover no-repeat; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+}
+
+.login-credentialsHolder {
+    /* Style for the right login form container */
+    padding: 20px;
+}
+
+.divider {
+    /* Optional: Add a visual divider between the image and form */
+    width: 2px;
+    background-color: #ccc;
+}
+.login-title .btnlogin {
+    background-color: #000000;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    border-radius: 18px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.68px;
+}
+.login-title-bar {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.container label {
+    color: #212529;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
