@@ -33,9 +33,13 @@ Route::controller(ProfileController::class)->group(function() {
 });
 
 Route::controller(AdminController::class)->group(function() {
-    Route::get('/admin/featured-products', 'displayFeaturedProductsDashboard')->name('admin.featuredproducts');
-    Route::get('/admin/create-featured-products', 'displayCreateFeaturedProducts')->name('admin.createfeaturedproducts');
-
-    Route::post('/admin/create-featured-products/save', 'save')->name('admin.save');
-    Route::delete('/admin/featured-products/{product}/delete', 'delete')->name('admin.delete');
+    // views
+    Route::get('/admin/featured-products/', 'displayFeaturedProductsDashboard')->name('admin.featured products.index');
+    Route::get('/admin/featured-products/create', 'displayCreateFeaturedProducts')->name('admin.featured products.create');
+    Route::get('/admin/featured-products/edit/{product}', 'displayEditFeaturedProducts')->name('admin.featured products.edit');
+    
+    // operations
+    Route::post('/admin/featured-products/save', 'save')->name('admin.featured products.save');
+    Route::put('/admin/featured-products/update/{product}', 'update')->name('admin.featured products.update');
+    Route::delete('/admin/featured-products/delete/{product}', 'delete')->name('admin.featured products.delete');
 });
