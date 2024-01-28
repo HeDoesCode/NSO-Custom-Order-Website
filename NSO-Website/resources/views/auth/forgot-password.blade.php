@@ -1,12 +1,16 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.') }}
+    <body class="bodyforgotPassword">
+        
+    <div class="forgotPassword containerforgotpassword"></div>
+    <div class="forgotPassword title-barFP">
+    {!! __('<h1>Forgot your password?</h1> No problem. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.') !!}
     </div>
+
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('password.email') }}">
+    <form method="POST" class ="form2"action="{{ route('password.email') }}">
         @csrf
 
         <!-- Username -->
@@ -17,10 +21,11 @@
     </div>
 
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
+        <div class="buttonHolder">
+            <x-primary-button class="btnNextFP">
                 {{ __('Email Password Reset Link') }}
             </x-primary-button>
         </div>
     </form>
+    </body>
 </x-guest-layout>
