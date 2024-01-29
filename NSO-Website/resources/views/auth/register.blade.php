@@ -49,7 +49,7 @@
                     <x-text-input id="deliveryAddress" class="block mt-1 w-full" type="text" name="deliveryAddress" :value="old('deliveryAddress')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('deliveryAddress')" class="mt-2" />
 
-                    <button type="button" onclick="prevStep()">Previous</button>
+                    <button type="button" onclick="prevStep()">Previouss</button>
                     <button type="submit">Register</button>
                 </div>
             </div>
