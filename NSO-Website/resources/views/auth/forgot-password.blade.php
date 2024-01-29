@@ -1,9 +1,9 @@
 <x-guest-layout>
     <body class="bodyforgotPassword">
-        
-    <div class="forgotPassword containerforgotpassword"></div>
+    <div class="forgotPassword containerforgotpassword">
+    
     <div class="forgotPassword title-barFP">
-    {!! __('<h1>Forgot your password?</h1> No problem. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.') !!}
+    {!! __('<h1>Forgot your password?</h1> <p>No problem. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.</p>') !!}
     </div>
 
 
@@ -27,5 +27,6 @@
             </x-primary-button>
         </div>
     </form>
+    </div>    
     </body>
 </x-guest-layout>
