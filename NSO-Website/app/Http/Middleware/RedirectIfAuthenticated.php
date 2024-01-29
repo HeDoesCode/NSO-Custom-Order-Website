@@ -15,16 +15,43 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string ...$guards): Response
-    {
-        $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
-        }
 
-        return $next($request);
-    }
+     public function handle(Request $request, Closure $next, string ...$guards): Response
+     {
+         $guards = empty($guards) ? [null] : $guards;
+     
+         foreach ($guards as $guard) {
+             if ($guard == "admin" && Auth::guard($guard)->check()) {
+                 // Log information about the admin guard being checked
+                 \Log::info("Admin guard is checked and user is authenticated.");
+                 return redirect(RouteServiceProvider::ADMIN_DASHBOARD);
+             }
+             if (Auth::guard($guard)->check()) {
+                 // Log information about the regular guard being checked
+                 \Log::info("Regular guard is checked and user is authenticated.");
+                 return redirect(RouteServiceProvider::HOME);
+             }
+         }
+     
+         return $next($request);
+     }
+     
+
+
+    // public function handle(Request $request, Closure $next, string ...$guards): Response
+    // {
+    //     $guards = empty($guards) ? [null] : $guards;
+
+    //     foreach ($guards as $guard) {
+    //         if ($guard=="admin" && Auth::guard($guard)->check()) {
+    //             return redirect(RouteServiceProvider::ADMIN_DASHBOARD);
+    //         }
+    //         if (Auth::guard($guard)->check()) {
+    //             return redirect(RouteServiceProvider::HOME);
+    //         }
+    //     }
+
+    //     return $next($request);
+    // }
 }
