@@ -1,5 +1,7 @@
 <x-guest-layout>
     <div class="fp-form - col">
+
+        <h1 class="fp-title">Forgot Password?</h1>
         <div >
             {{ __('Forgot your password? No problem. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.') }}
         </div>

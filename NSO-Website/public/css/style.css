@@ -353,4 +353,8 @@ button {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
+.fp-title {
+    font-weight: bold;
+    font-size: 35px;
+}
 /* Add more styling as needed */
