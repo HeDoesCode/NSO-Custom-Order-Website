@@ -348,6 +348,12 @@ button {
     border-radius: 20px;
     justify-content: center;
 }
+.resend-button-layout {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
 .verify_email_content {
     text-align: center;

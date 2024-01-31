@@ -12,12 +12,12 @@
     @endif
     </section>
     <section class="ve_button_log">
-    <div class="flex row items-center">
+    <div class="flex col items-center">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf
 
-            <div class="resend-button">
-                <x-primary-button class="resend-button-text">
+            <div class="resend-button-layout">
+                <x-primary-button class="resend-button">
                     {{ __('Resend Verification Email') }}
                 </x-primary-button>
             </div>
@@ -25,10 +25,11 @@
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <div class="resend-button-layout">
+            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">
                 {{ __('Log Out') }}
             </button>
+            </div>
         </form>
     </div>
 </section>
