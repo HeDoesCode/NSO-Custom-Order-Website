@@ -28,6 +28,10 @@
                     <x-text-input id="password"  type="password" name="password" required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
+                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
                     <button type="button" onclick="nextStep()">Next</button>
                 </div>
 
@@ -48,9 +52,14 @@
                     <x-input-label for="deliveryAddress" :value="__('Delivery Address')" />
                     <x-text-input id="deliveryAddress" class="block mt-1 w-full" type="text" name="deliveryAddress" :value="old('deliveryAddress')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('deliveryAddress')" class="mt-2" />
+                    
+                    <input type="checkbox" id="terms_service" onclick="checkTermsService()">
+                    <label for="terms_service">By ticking this box, you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Data Privacy</a>.</label>
 
-                    <button type="button" onclick="prevStep()">Previouss</button>
-                    <button type="submit">Register</button>
+                    <br>
+
+                    <button type="button" onclick="prevStep()">Back</button>
+                    <button type="submit" id="btn-register" disabled>Register</button>
                 </div>
             </div>
         </form>
@@ -64,6 +73,17 @@
             function prevStep() {
                 document.getElementById('step2').style.display = 'none';
                 document.getElementById('step1').style.display = 'block';
+            }
+
+            function checkTermsService() {
+                const terms_service = document.getElementById('terms_service');
+                const btn_register = document.getElementById('btn-register');
+
+                if (terms_service.checked) {
+                    btn_register.removeAttribute("disabled");;
+                } else {
+                    btn_register.setAttribute("disabled", "");
+                }
             }
         </script>
     </body>
