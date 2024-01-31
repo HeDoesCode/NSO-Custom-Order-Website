@@ -1,19 +1,22 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
+    <section class="verify_email_content">
+    <div class="containerforgotpassword titlebar">
         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
-
+    </section>
+    <section class="verification">
     @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
+        <div class="mb-4 font-medium text-sm text-green-600 col">
             {{ __('A new verification link has been sent to the email address you provided during registration.') }}
         </div>
     @endif
-
-    <div class="mt-4 flex items-center justify-between">
+    </section>
+    <section class="ve_button_log">
+    <div class="mt-4 flex row">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf
 
-            <div>
+            <div class="resend-button col">
                 <x-primary-button>
                     {{ __('Resend Verification Email') }}
                 </x-primary-button>
@@ -28,4 +31,6 @@
             </button>
         </form>
     </div>
+</section>
+ 
 </x-guest-layout>
