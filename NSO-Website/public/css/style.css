@@ -315,6 +315,8 @@ button {
     background: rgba(225, 225, 225, 0);
 }
 
+/* forgot password */
+
 .fp-form {
     display: flex;
     align-items: center;
