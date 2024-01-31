@@ -306,4 +306,15 @@ button {
     background: rgba(225, 225, 225, 0);
 }
 
+.fp-form {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Add more styling as needed */
