@@ -43,6 +43,6 @@ class AuthenticatedSessionController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/admin/login'); // Adjusted redirection URL
+        return redirect('/admin/login'); 
     }
 }
