@@ -14,4 +14,5 @@
             </div>
         </div>
     </div>
+    <a href="{{route('order.create')}}"><button>+ Create Order</button></a>
 </x-app-layout>

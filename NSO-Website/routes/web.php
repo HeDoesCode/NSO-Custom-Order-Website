@@ -24,6 +24,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/order/create', function() {
+    return view('order.create');
+})->middleware(['auth', 'verified'])->name('order.create');
+
 Route::controller(ProfileController::class)->group(function() {
     Route::middleware('auth')->group(function () {
         Route::get('/profile', 'edit')->name('profile.edit');
