@@ -43,3 +43,11 @@ Route::controller(AdminController::class)->group(function() {
     Route::put('/admin/featured-products/update/{product}', 'update')->name('admin.featured products.update');
     Route::delete('/admin/featured-products/delete/{product}', 'delete')->name('admin.featured products.delete');
 });
+require __DIR__.'/auth.php';
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
+
+require __DIR__.'/adminauth.php';
