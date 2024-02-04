@@ -15,7 +15,6 @@
                     <div class="login-title-bar">
                         <h2 class=nso-header>NOT SO ORDINARY</h2>
                     </div>
-
                     <div class="container containerlogin">
                         <div class="login-formHolder">
                         <!-- Username -->
@@ -65,7 +64,6 @@
                             <button class="btnLogin">
                                 {{ __('Log in') }}
                             </button>
-                            
                             </div>
                     </div>
                 </form>

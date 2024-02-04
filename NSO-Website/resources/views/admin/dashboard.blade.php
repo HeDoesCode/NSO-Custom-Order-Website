@@ -2,9 +2,14 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             
-            {{ __('Admin Dashboard') }}
+            {{ __(' Dashboard') }}
         </h2>
 
+        <form method="POST" action="{{ route('admin.logout') }}">
+    @csrf
+    <button type="submit">Logout</button>
+    
+</form>
     </x-slot>
 
     <div class="py-12">
@@ -17,3 +22,4 @@
         </div>
     </div>
 </x-app-layout>
+
