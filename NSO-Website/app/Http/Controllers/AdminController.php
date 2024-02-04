@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function save(Request $request) {
         $request->validate([
-            'image' => 'required|mimes:jpg,jpeg,png|max:5120', // max of 5mb image
+            'image' => 'required|mimes:jpg,jpeg,png|max:5120', 
             'description' => 'required',
             'link' => 'required|url'
         ]);
