@@ -581,3 +581,29 @@ button {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+footer {
+    background-color: #232323;
+}
+.welcome-copyright {
+    text-align: center;
+}
+.footer-p {
+    padding: 20px;
+}
+.footer-links {
+    text-decoration: none; /* Remove underline from links */
+    list-style-type: none;
+    color: white;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+}
+.footer-links ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0; /* Remove default list padding */
+}
+.welcome-copyright {
+    color: white;
+}
+.footer-nav {
+    justify-content: space-around;
+}

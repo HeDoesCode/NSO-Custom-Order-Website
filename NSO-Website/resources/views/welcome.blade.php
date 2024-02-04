@@ -65,7 +65,7 @@
 
     <div class="card-container wrap">
         <div class="card col">
-            <img src="images/SampleShirt2.png" alt="Shirt Image 1">
+            <img src="images/SampleShirt.png" alt="Shirt Image 1">
             <div class="card-content">
                 <h2>Stylish Shirt 1</h2>
                 <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="card col">
-            <img src="images/SampleShirt2.png" alt="Shirt Image 2">
+            <img src="images/SampleShirt.png" alt="Shirt Image 2">
             <div class="card-content">
                 <h2>Stylish Shirt 2</h2>
                 <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
@@ -82,7 +82,7 @@
         </div>
 
         <div class="card col">
-            <img src="images/SampleShirt2.png" alt="Shirt Image 1">
+            <img src="images/SampleShirt.png" alt="Shirt Image 1">
             <div class="card-content">
                 <h2>Stylish Shirt 3</h2>
                 <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
@@ -97,20 +97,19 @@
                 <div class="footer-img row">
                     <img class="footer-logo" src="/images/footer-logo.png" alt="">
                 </div>
-                
+                        
                 <div class="footer-links row">
                     <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Shopee</a></li>
-                    </ul> 
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Shopee</li>
+                    </ul>
                 </div>
-               
             </div>
-                    
-                   
-                    <div> <p class="footer-p"> &#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href=""> Terms And Condition</a></p></div>
-                   
-                </footer>
+            <hr>
+            <div class="welcome-copyright"> 
+                <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="">Terms And Condition</a></p>
+            </div>
+        </footer>
     </body>
 </html>
