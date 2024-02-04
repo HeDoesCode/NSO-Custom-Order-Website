@@ -317,14 +317,24 @@ button {
 }
 
 /* Add more styling as needed */
-
-.verify_email_content {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    height: 50vh;
+@media only screen and (max-width: 768px) {
+    .containerforgotpassword {
+        padding: 50px;
+    }
+    .resend-button-layout {
+        width: 100%;
+    }
 }
+.verify_email_content {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 20px;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -343,11 +353,9 @@ button {
     background-color: #000;
     width: 100%;
     text-align: center;
-    display: flex;
-    margin: auto;
     border-radius: 20px;
-    justify-content: center;
 }
+
 .resend-button-layout {
     width: 80%;
     max-width: 600px;
@@ -373,17 +381,11 @@ button {
     /* padding: 700px; */
 }
 
-.ve_button_log {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+.ve_button_log,
 .verification {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 /* forgot password */
 

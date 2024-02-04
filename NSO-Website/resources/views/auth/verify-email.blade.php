@@ -1,9 +1,10 @@
-<x-guest-layout>
+<x-guest-layout class="x-guest-layout">
+
     <section class="verify_email_content">
     <div class="containerforgotpassword titlebar">
        <p>{{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}</p> 
     </div>
-    </section>
+    
     <section class="verification">
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600 col">
@@ -12,7 +13,7 @@
     @endif
     </section>
     <section class="ve_button_log">
-    <div class="flex col items-center">
+    <div class="flex col align-items-center">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf
 
@@ -32,6 +33,7 @@
             </div>
         </form>
     </div>
+</section>
 </section>
  
 </x-guest-layout>

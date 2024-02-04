@@ -52,10 +52,10 @@
                     <x-input-label for="deliveryAddress" :value="__('Delivery Address')" />
                     <x-text-input id="deliveryAddress" class="block mt-1 w-full" type="text" name="deliveryAddress" :value="old('deliveryAddress')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('deliveryAddress')" class="mt-2" />
-                    
+                    <div class="clickbox-gr wrap row">
                     <input type="checkbox" id="terms_service" onclick="checkTermsService()">
                     <label for="terms_service">By ticking this box, you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Data Privacy</a>.</label>
-
+                    </div>
                     <br>
 
                     <button type="button" onclick="prevStep()">Back</button>
