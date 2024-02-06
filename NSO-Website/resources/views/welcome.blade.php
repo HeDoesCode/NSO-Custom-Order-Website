@@ -48,6 +48,7 @@
                     @endauth
                     </div>
                   </div>
+                  
             </div>
         </ul>
     </nav>

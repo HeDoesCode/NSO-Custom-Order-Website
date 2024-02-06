@@ -600,7 +600,6 @@ button {
 .featured-products .card-container .card:hover {
     transform: scale(1.1);
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -614,6 +613,7 @@ button {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left: -140px; /* Updated to position the menu to the left */
+    transition: display 0.3s; /* Add transition property */
 }
 
 .dropdown-content a {
@@ -621,6 +621,7 @@ button {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s; /* Add transition property */
 }
 
 .dropdown-content a:hover {
@@ -634,6 +635,7 @@ button {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
 footer {
     background-color: #232323;
 }
