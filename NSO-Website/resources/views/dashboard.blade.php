@@ -14,5 +14,8 @@
             </div>
         </div>
     </div>
+    @if (session()->has('success')) 
+        <span>{{session('success')}}</span>
+    @endif
     <a href="{{route('order.create')}}"><button>+ Create Order</button></a>
 </x-app-layout>

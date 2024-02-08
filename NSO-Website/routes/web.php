@@ -4,6 +4,7 @@ require __DIR__.'/auth.php';
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/order/create', function() {
-    return view('order.create');
-})->middleware(['auth', 'verified'])->name('order.create');
-
-Route::controller(ProfileController::class)->group(function() {
-    Route::middleware('auth')->group(function () {
+    Route::controller(ProfileController::class)->group(function() {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::patch('/profile', 'update')->name('profile.update');
         Route::delete('/profile', 'destroy')->name('profile.destroy');
+    }); 
+
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('/order/create', 'displayOrderForm')->name('order.create');
+        Route::post('/order/place', 'place')->name('order.place');
     });
 });
 

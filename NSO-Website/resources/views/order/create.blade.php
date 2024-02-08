@@ -1,3 +1,7 @@
+<?php
+    $user = auth()->user();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +22,18 @@
 <body>
     <a href="{{route('dashboard')}}"><button>Cancel</button></a>
     <h1>Create Order</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
+    <ul>
+        <?php
+            foreach ($errors->all() as $message) {
+                echo "<li>$message</li>";
+            }
+        ?>
+    </ul>
+
+    <form action="{{route('order.place')}}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
         @method('post')
+        <input type="hidden" name="username" value="{{$user->username}}">
         <div>
             <label for="type">Shirt Type:</label>
             <select name="type" id="type" onchange="populateSize()">
@@ -31,13 +44,13 @@
         </div>
         <div>
             <label for="desc">Design Description:</label>
-            <textarea name="design-text" id="desc" cols="30" rows="10"></textarea>
+            <textarea name="design_text" id="desc" cols="30" rows="10"></textarea>
         </div>
         <div>
             <label for="img">{{__('Design (if applicable):')}}</label>
-            <input type="file" name="design-image" id="img" class="@error('design-image') is-invalid @enderror">
+            <input type="file" name="design_img" id="img" class="@error('design_img') is-invalid @enderror">
 
-            @error('design-image')
+            @error('design_img')
                 <span class="alert alert-danger">{{ $message }}</span>
             @enderror
         </div>
@@ -52,9 +65,9 @@
             <input type="number" name="quantity" id="qty">
         </div>
         <label for="MOD">Mode of Payment:</label>
-            <select name="mode-of-payment" id="MOD">
+            <select name="mode_of_payment" id="MOD">
                 <option value=""></option>
-                <option value="">{{__('Gcash')}}</option>
+                <option value="Gcash">{{__('Gcash')}}</option>
             </select>
         </div>
         <div>

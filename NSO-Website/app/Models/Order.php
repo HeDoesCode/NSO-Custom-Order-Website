@@ -9,17 +9,19 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $table = 'order_details';
+
     protected $fillable = [
-        'userID',
+        'username',
         'type',
-        'design-text',
-        'design-img',
+        'design_text',
+        'design_img',
         'size',
         'quantity',
         'price',
-        'mode-of-payment',
-        'order-date',
-        'recieved-date',
+        'mode_of_payment',
+        'order_date',
+        'recieved_date',
         'status',
     ];
 }
