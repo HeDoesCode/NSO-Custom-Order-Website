@@ -1,9 +1,11 @@
 <?php
 // require __DIR__.'/auth.php';
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeedbackController;
+use App\Models\Feedback;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/admin/featured-products/', 'displayFeaturedProductsDashboard')->name('admin.featured products.index');
     Route::get('/admin/featured-products/create', 'displayCreateFeaturedProducts')->name('admin.featured products.create');
     Route::get('/admin/featured-products/edit/{product}', 'displayEditFeaturedProducts')->name('admin.featured products.edit');
+    Route::get('/admin/view-feedback/', 'displayFeedbackDashboard')->name('admin.view feedback.index');
     
     // operations
     Route::post('/admin/featured-products/save', 'save')->name('admin.featured products.save');
@@ -51,3 +54,10 @@ Route::get('/admin/dashboard', function () {
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
 require __DIR__.'/adminauth.php';
+
+Route::controller(FeedbackController::class)->group(function() {
+    //view
+    Route::get('/feedback/create','create')->name('feedback.create');
+    //operation
+    Route::post('/feedback/store',  'store')->name('feedback.store');
+});
