@@ -1,9 +1,12 @@
 <?php
 require __DIR__.'/auth.php';
+require __DIR__.'/adminauth.php';
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeedbackController;
+use App\Models\Feedback;
 use App\Http\Controllers\OrderController;
 
 /*
@@ -43,9 +46,21 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('/admin/featured-products/', 'displayFeaturedProductsDashboard')->name('admin.featured products.index');
     Route::get('/admin/featured-products/create', 'displayCreateFeaturedProducts')->name('admin.featured products.create');
     Route::get('/admin/featured-products/edit/{product}', 'displayEditFeaturedProducts')->name('admin.featured products.edit');
+    Route::get('/admin/view-feedback/', 'displayFeedbackDashboard')->name('admin.view feedback.index');
     
     // operations
     Route::post('/admin/featured-products/save', 'save')->name('admin.featured products.save');
     Route::put('/admin/featured-products/update/{product}', 'update')->name('admin.featured products.update');
     Route::delete('/admin/featured-products/delete/{product}', 'delete')->name('admin.featured products.delete');
+});
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
+Route::controller(FeedbackController::class)->group(function() {
+    //view
+    Route::get('/feedback/create','create')->name('feedback.create');
+    //operation
+    Route::post('/feedback/store',  'store')->name('feedback.store');
 });

@@ -35,12 +35,31 @@ return [
     |
     */
 
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+    //     'admin' => [
+    //         'driver' => 'session',
+    //         'provider' => 'admin',
+    //     ],
+    // ],
+
+
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+            'storage_key' => 'admin_session', // Use the session name defined in session.php
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +82,13 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+            // 'table' => 'admin', 
+
         ],
 
         // 'users' => [
@@ -111,5 +137,8 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    'admin_session' => 'admin_session', // Use a different session name for admin
+
 
 ];

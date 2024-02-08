@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FeaturedProducts;
+use App\Models\Feedback;
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
@@ -14,6 +15,8 @@ class AdminController extends Controller
         $this->featuredProductsImagesPath = public_path('images\\featured products\\'); 
     }
 
+
+    //for featured products
     public function displayFeaturedProductsDashboard() {
         $featuredProducts = FeaturedProducts::all();
         return view('admin.featured products.index', ['featuredProducts' => $featuredProducts]);
@@ -29,7 +32,7 @@ class AdminController extends Controller
 
     public function save(Request $request) {
         $request->validate([
-            'image' => 'required|mimes:jpg,jpeg,png|max:5120', // max of 5mb image
+            'image' => 'required|mimes:jpg,jpeg,png|max:5120', 
             'description' => 'required',
             'link' => 'required|url'
         ]);
@@ -83,5 +86,12 @@ class AdminController extends Controller
         $product->delete(); // delete db record
         
         return redirect(route('admin.featured products.index'))->with('success', 'product successfully deleted');
+    }
+
+
+    //for view feedback
+    public function displayFeedbackDashboard() {
+        $feedbacks = Feedback::all();
+        return view('admin.view feedback.index', ['feedbacks' => $feedbacks]);
     }
 }

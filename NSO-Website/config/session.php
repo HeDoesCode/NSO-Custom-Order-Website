@@ -4,6 +4,26 @@ use Illuminate\Support\Str;
 
 return [
 
+
+    'defaults' => [
+        'guard' => 'web',
+        'passwords' => 'users',
+    ],
+
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+            'cookie' => 'admin_session', // Use a different session name for admin
+        ],
+    ],
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Default Session Driver
