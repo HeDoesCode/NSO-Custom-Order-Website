@@ -41,7 +41,7 @@ class AdminController extends Controller
             File::makeDirectory($this->featuredProductsImagesPath, 0777, true); 
         }
 
-        $newImageName = time() . "_" . uniqid("", true) . $request->image->extension();
+        $newImageName = time() . "_" . uniqid("", true) . "." . $request->image->extension();
         $request->image->move($this->featuredProductsImagesPath, $newImageName);
         
         FeaturedProducts::create([ // adds record to db

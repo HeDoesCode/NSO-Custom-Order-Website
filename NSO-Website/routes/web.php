@@ -1,11 +1,13 @@
 <?php
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
+require __DIR__.'/adminauth.php';
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +24,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::controller(ProfileController::class)->group(function() {
-    Route::middleware('auth')->group(function () {
+    Route::controller(ProfileController::class)->group(function() {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::patch('/profile', 'update')->name('profile.update');
         Route::delete('/profile', 'destroy')->name('profile.destroy');
+    }); 
+
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('/order/create', 'displayOrderForm')->name('order.create');
+        Route::post('/order/place', 'place')->name('order.place');
     });
 });
 
@@ -47,13 +54,9 @@ Route::controller(AdminController::class)->group(function() {
     Route::delete('/admin/featured-products/delete/{product}', 'delete')->name('admin.featured products.delete');
 });
 
-require __DIR__.'/auth.php';
-
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
-
-require __DIR__.'/adminauth.php';
 
 Route::controller(FeedbackController::class)->group(function() {
     //view
