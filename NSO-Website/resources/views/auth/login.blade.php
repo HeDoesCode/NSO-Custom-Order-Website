@@ -70,4 +70,4 @@
             </div>
         </div>
     </body>
-</x-guest-layout>
+</x-guest-layout> 

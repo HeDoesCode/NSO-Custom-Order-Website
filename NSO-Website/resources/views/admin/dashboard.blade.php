@@ -1,15 +1,14 @@
-<x-app-layout>
+<head>
+    <!-- Other meta tags and title -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-            {{ __(' Dashboard') }}
+            {{ __(' Admin Dashboard') }}
         </h2>
-
-        <form method="POST" action="{{ route('admin.logout') }}">
-    @csrf
-    <button type="submit">Logout</button>
-    
-</form>
+        
     </x-slot>
 
     <div class="py-12">
@@ -21,5 +20,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
-
+</x-admin-layout>
+ 

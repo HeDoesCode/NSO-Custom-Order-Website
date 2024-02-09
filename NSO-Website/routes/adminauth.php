@@ -19,17 +19,17 @@ Route::middleware('guest:admin')->group(function () {
 
     Route::post('admin/login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::get('admin/forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('admin.password.request');
+    // Route::get('admin/forgot-password', [PasswordResetLinkController::class, 'create'])
+    //             ->name('admin.password.request');
 
-    Route::post('admin/forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('admin.password.email');
+    // Route::post('admin/forgot-password', [PasswordResetLinkController::class, 'store'])
+    //             ->name('admin.password.email');
 
-    Route::get('admin/reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name('admin.password.reset');
+    // Route::get('admin/reset-password/{token}', [NewPasswordController::class, 'create'])
+    //             ->name('admin.password.reset');
 
-    Route::post('admin/reset-password', [NewPasswordController::class, 'store'])
-                ->name('admin.password.store');
+    // Route::post('admin/reset-password', [NewPasswordController::class, 'store'])
+    //             ->name('admin.password.store');
 });
 
 Route::middleware('auth:admin')->group(function () {
