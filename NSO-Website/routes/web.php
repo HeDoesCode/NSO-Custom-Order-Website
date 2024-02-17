@@ -55,8 +55,8 @@ Route::controller(AdminController::class)->group(function() {
 });
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+    return view('admin.home');
+})->middleware(['auth:admin', 'verified'])->name('admin.home');
 
 Route::controller(FeedbackController::class)->group(function() {
     //view

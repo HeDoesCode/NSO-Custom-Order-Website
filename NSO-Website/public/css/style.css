@@ -342,7 +342,7 @@ button {
 .fp-btn-reset {
     background-color: #000;
 }
-.x-guest-layout {
+-guest-layout {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -458,6 +458,14 @@ button {
     background-color: #000;
 }
 .x-guest-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.x-admin-layout {
     display: flex;
     align-items: center;
     justify-content: center;
