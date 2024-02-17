@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --font: "Noto Sans", ui-sans-serif;
+    --p: 1rem;
+    --h: 1.2rem;
+    --white: #fff;
+    --black: #1d1d1d;
+    --beige: #eeeae2;
+    --light-beige: #faf7f3;
+}
 
 .row {
     display: flex;
@@ -486,7 +508,7 @@ button {
 }
 
 /* welcome page */
-.navbar {
+/* .navbar {
     width: 100%;
     height: 60px;
 }
@@ -529,12 +551,12 @@ button {
 .navbar ul .dashboard-user a:hover {
     background-color: black;
     color: white;
-}
+} */
 
 .home-welcome {
     width: 100%;
     height: calc(100vh - 60px);
-    background: url("/images/NSO.png");
+    background: url("/images/YEAR2_collection_banner.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -545,8 +567,8 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.418);
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -554,8 +576,12 @@ button {
 }
 .home-welcome .overlay h1 {
     z-index: 2;
-    font-size: 4rem;
-    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 5vw;
+    font-weight: 400;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: 0.25em;
 }
 
 .featured-products {
@@ -568,7 +594,7 @@ button {
     font-family: "Inter", sans-serif;
     margin: 60px 0;
 }
-.featured-products .card-container {
+/* .featured-products .card-container {
     padding: 40px;
     justify-content: space-around;
     align-items: center;
@@ -599,7 +625,7 @@ button {
 }
 .featured-products .card-container .card:hover {
     transform: scale(1.1);
-}
+} */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -661,4 +687,87 @@ footer {
 }
 .footer-nav {
     justify-content: space-around;
+}
+
+/* Nav Bar */
+
+nav {
+    background-color: var(--light-beige);
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: 0.07em;
+    color: #3d3d3d;
+}
+
+.left-nav a {
+    margin-right: 15px;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+.center-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 1.5vw;
+    letter-spacing: 0.02em;
+    color: var(--black);
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .center-nav {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        font-size: 3.5vw;
+    }
+
+    .left-nav a {
+        font-size: 3.5vw;
+        margin: 10px;
+        margin-right: -10px;
+    }
+    .right-nav a {
+        font-size: 3.5vw;
+        margin: 10px;
+    }
+}
+
+.details {
+    border: 1.5px solid grey;
+    color: #212121;
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    height: auto;
+    box-shadow: 0px 0px 10px #212121;
+}
+
+.card {
+    width: 30%;
+    margin: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-bottom: 10px;
 }

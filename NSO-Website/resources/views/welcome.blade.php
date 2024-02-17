@@ -2,9 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <title>Not So Ordinary</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,49 +16,72 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class>
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 
                 </div>
             @endif
- <nav class="navbar">
-        <ul class="row">
-            <div class="nav-links row">
-                <li><a href="#">Anniversary</a></li>
-                <li><a href="#">Essential</a></li>
-                <li><a href="#">Custom</a></li>
-            </div>
-            <li class="store-title" style="font-size: 25px" class="logo"><a href="#">NOT SO ORDINARY</a></li>
-            <div class="dashboard-user row">
-                <li style="float: right;"><a href="#">Orders</a></li>
-                <div class="dropdown">
-                    <i class="fa-solid fa-circle-user" style="font-size: 24px;"></i>
-                    <div class="dropdown-content">
-                        @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                    </div>
-                  </div>
-                  
+
+
+
+    <nav class="navbar">
+            <div class="left-nav">
+                <a >ANNIVERSARY</a>
+                <a >ESSENTIALS</a>
+                <a >CUSTOMS</a>
             </div>
-        </ul>
+    
+            <div class="center-nav">
+                <a>NOT SO ORDINARY</a>
+            </div>
+    
+           
+
+            <div class="right-nav">
+                    <div class="dropdown">
+                        <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                        <div class="dropdown-content">
+                            @auth
+                            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-responsive-nav-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-responsive-nav-link>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+        
+           
+      
     </nav>
 
 
-<section class="home-welcome">
 
+
+
+<section class="home-welcome">
     <div class="overlay">
         <h1>YEAR II COLLECTION</h1>
     </div>
-
 </section>
+
+    
+
 <section class="featured-products col">
     <h2 class="featured-products-title">featured products </h2>
 
@@ -90,8 +111,10 @@
             </div>
         </div>
     </div>
+
+
+    
 </section>
-        </div>
 
 
 
