@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FeaturedProducts;
 use App\Models\Feedback;
+use App\Models\Order;
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
@@ -94,4 +95,38 @@ class AdminController extends Controller
         $feedbacks = Feedback::all();
         return view('admin.view feedback.index', ['feedbacks' => $feedbacks]);
     }
+
+
+    //for orders
+
+    public function displayOrdersDashboard() {
+        $orders = Order::all();
+        return view('admin.home', ['orders' => $orders]);
+    }
+
+    public function showOrderDetail($id)
+    {
+        $order = Order::find($id); 
+    
+        return view('admin.orderdetails', ['order' => $order]);
+    }
+
+    public function updateOrder(Request $request, $id)
+{
+    $request->validate([
+        'price' => 'numeric', 
+        'status' => 'in:Order Placed,Processing Order,To Ship,Order Completed,Order Cancelled', 
+    ]);
+
+    $order = Order::findOrFail($id);
+
+    $order->update([
+        'price' => $request->input('price'),
+        'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
+    ]);
+
+    return redirect()->back()->with('order_updated', 'Order updated successfully');
+}
+
+
 }

@@ -34,6 +34,7 @@
         {{ csrf_field() }}
         @method('post')
         <input type="hidden" name="username" value="{{$user->username}}">
+        <input type="hidden" name="deliveryAddress" value="{{$user->deliveryAddress}}">
         <div>
             <label for="type">Shirt Type:</label>
             <select name="type" id="type" onchange="populateSize()">
