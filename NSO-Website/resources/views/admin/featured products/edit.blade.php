@@ -1,55 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <style>
-        .is-invalid {
-            border: 1px solid red;
-        }
-
-        span {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <a href="{{route('admin.featured products.index')}}"><button>Cancel</button></a>
-    <h1>Edit {{ $product->description }}</h1>
-    
-    <form action="{{route('admin.featured products.update', ['product' => $product])}}" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('put')
-        <div>
-            <label for="img">Image: </label>
-            <input type="file" name="image" id="img" class="@error('image') is-invalid @enderror">
-
-            @error('image')
-                <span class="alert alert-danger">{{ $message }}</span>
-            @enderror
+<x-app-layout>
+    <div class="grid grid-cols-12">
+        <div class="col-span-2 p-5 bg-black text-white min-h-screen">
+            <div class="mb-8">
+                <p class="text-3xl font-bold">Dashboard</p>
+            </div>
+            <div class="mb-6">
+                <p class="text-xl">
+                    <a href="{{ route('admin.home') }}">Orders</a>
+                </p>
+            </div>
+            <div class="mb-6">
+                <p class="text-xl">
+                    <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
+                </p>
+            </div>
+            <div class="mb-6">
+                <p class="text-xl">
+                    <a href="{{ route('admin.featured products.index') }}">Featured</a>
+                </p>
+            </div>
         </div>
-        <div>
-            <label for="desc">Description: </label>
-            <input type="text" name="description" id="desc" class="@error('description') is-invalid @enderror"  value="{{ $product->description }}">
 
-            @error('description')
-                <span class="alert alert-danger">{{ $message }}</span>
-            @enderror
-        </div>
-        <div>
-            <label for="link">Link</label>
-            <input type="text" name="link" id="link" class="@error('link') is-invalid @enderror"  value="{{ $product->link }}">
+        <div class="col-span-10 p-5">
+            <div class="ml-6">
+                <p class="text-3xl font-bold mb-7">
+                    Edit Featured Products Dashboard
+                </p>
+            </div>
 
-            @error('link')
-                <span class="alert alert-danger">{{ $message }}</span>
-            @enderror
+            
+            <div class="container mx-auto p-6">
+
+                <form action="{{ route('admin.featured products.update', ['product' => $product]) }}" method="post"
+                    enctype="multipart/form-data" class="max-w-4xl mx-auto bg-white p-8 rounded-md shadow-md">
+
+                    @csrf
+                    @method('put')
+
+                    <div class="mb-6">
+                        <label for="img" class="block text-sm font-medium text-gray-600">Image:</label>
+                        <input type="file" name="image" id="img"
+                            class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('image') is-invalid @enderror">
+
+                        @error('image')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="title" class="block text-sm font-medium text-gray-600">Title:</label>
+                        <input type="text" name="title" id="title"
+                            class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('title') is-invalid @enderror"
+                            value="{{ $product->title }}">
+
+                        @error('description')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="desc" class="block text-sm font-medium text-gray-600">Description:</label>
+                        <input type="text" name="description" id="desc"
+                            class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('description') is-invalid @enderror"
+                            value="{{ $product->description }}">
+
+                        @error('description')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="link" class="block text-sm font-medium text-gray-600">Link:</label>
+                        <input type="text" name="link" id="link"
+                            class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('link') is-invalid @enderror"
+                            value="{{ $product->link }}">
+
+                        @error('link')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <input type="submit"
+                            class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+                            value="Edit Product">
+                    </div>
+                </form>
+            </div>
+            <div class="flex justify-end">
+                <a href="{{ route('admin.featured products.index') }}" class=" mr-5 bg-gray-700 text-white font-bold py-2 px-4 rounded hover:bg-gray-900">Return to Orders</a>
+              </div>
         </div>
-        <div>
-            <input type="submit" value="Edit Product">
-        </div>
-    </form>
-</body>
-</html>
+    </div>
+</x-app-layout>

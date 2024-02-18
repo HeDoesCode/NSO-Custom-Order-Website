@@ -1,6 +1,6 @@
 <x-app-layout>
     <div  class="grid grid-cols-12">
-        <div class="col-span-2 p-5 bg-black text-white h-dvh">
+        <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
               <div class="mb-8">
                 <p class="text-3xl font-bold">Dashboard</p>
               </div>
@@ -11,12 +11,12 @@
               </div>
               <div class="mb-6">
                 <p class="text-xl">
-                  <a href="">Feedback</a>
+                  <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
                 </p>
               </div>
               <div class="mb-6">
                 <p class="text-xl">
-                  <a href=""></a>Featured
+                  <a href="{{ route('admin.featured products.index') }}">Featured</a>
                 </p>
               </div>
           </div>
@@ -48,7 +48,14 @@
 
                     <div class="col-span-2">
                       <p class="text-gray-600">Design Image:</p>
-                      <p class="font-bold">{{ $order->design_img }}</p>
+                      <div class="flex justify-center">
+                        <div class="w-60 h-60 flex items-center justify-center border border-gray-300 rounded-md">
+                          <img src="{{ asset('images/order design images/'.$order->design_img) }}"
+                          class="w-full h-full object-cover object-center">
+                        </div>
+                      </div>
+                      
+                      
                   </div>
 
                     <div class="col-span-2">
