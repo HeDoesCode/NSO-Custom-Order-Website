@@ -42,13 +42,13 @@
                 <tbody>
                     @foreach ($feedbacks as $feedback)
                         <tr class="even:bg-gray-100">
-                            <td class="px-4 py-2 flex justify-center">
+                            <td class="px-4 py-5 flex justify-center">
                                 <div class="w-40 h-40 flex items-center justify-center">
                                     <img src="{{ asset('images/feedback images/'.$feedback->image) }}"
                                          class="w-full h-full object-cover object-center">
                                 </div>
                             </td>
-                            <td class="px-4 py-2">
+                            <td class="px-4 py-5">
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $feedback->rating)
                                         <i class="material-icons text-yellow-500">star</i>
@@ -57,7 +57,7 @@
                                     @endif
                                 @endfor
                             </td>
-                            <td class="px-4 py-2">{{ $feedback->message }}</td>
+                            <td class="px-4 py-5">{{ $feedback->message }}</td>
                         </tr>
                     @endforeach
                 </tbody>

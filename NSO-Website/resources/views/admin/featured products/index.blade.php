@@ -46,22 +46,22 @@
             <tbody>
                 @foreach ($featuredProducts as $product)
                     <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2 flex justify-center">
+                        <td class="px-4 py-5 flex justify-center">
                             <div class="w-40 h-40 flex items-center justify-center">
                                 <img src="{{ asset('images/featured products/'.$product->image) }}"
                                      class="w-full h-full object-cover object-center">
                             </div>
                         </td>
-                        <td class="px-4 py-2">{{ $product->title }}</td>
-                        <td class="px-4 py-2">{{ $product->description }}</td>
-                        <td class="px-4 py-2"><a href="{{$product->link}}">{{ $product->link }}</a></td>
+                        <td class="px-4 py-5">{{ $product->title }}</td>
+                        <td class="px-4 py-5">{{ $product->description }}</td>
+                        <td class="px-4 py-5"><a href="{{$product->link}}">{{ $product->link }}</a></td>
                         
 
-                        <td class=" px-4 py-2 font-bold underline underline-offset-2">
+                        <td class=" px-4 py-5 font-bold underline underline-offset-2">
                             <a href="{{ route('admin.featured products.edit', ['product' => $product]) }}" class="text-blue-500 hover:underline">Edit</a>
                         </td>
 
-                        <td class="px-4 py-2 font-bold underline underline-offset-2 text-red-500">
+                        <td class="px-4 py-5 font-bold underline underline-offset-2 text-red-500">
                             <form action="{{ route('admin.featured products.delete', ['product' => $product]) }}" method="post">
                                 @csrf
                                 @method('delete')

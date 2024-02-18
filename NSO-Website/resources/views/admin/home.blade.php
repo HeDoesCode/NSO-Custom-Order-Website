@@ -62,14 +62,14 @@
                     
                   @foreach ($orders as $order)
                   <tr class="even:bg-gray-100">
-                      <td>{{$order->username}}</td>
-                      <td>{{$order->deliveryAddress}}</td>
-                      <td>{{$order->mode_of_payment}}</td>
-                      <td>{{ $order->price ? '₱' . $order->price : "Not Yet Set" }}</td>
-                      <td>
+                      <td class="py-5">{{$order->username}}</td>
+                      <td class="py-5">{{$order->deliveryAddress}}</td>
+                      <td class="py-5">{{$order->mode_of_payment}}</td>
+                      <td class="py-5">{{ $order->price ? '₱' . $order->price : "Not Yet Set" }}</td>
+                      <td class="py-5">
                         <span class="{{ getStatusStyle($order->status) }}">{{$order->status}}</span>
                     </td>
-                      <td class="font-bold underline underline-offset-2">
+                      <td class="py-5 font-bold underline underline-offset-2">
                         <a href="{{ route('admin.orderdetails', ['id' => $order->id]) }}">View Details</a>
                     </td>
                   </tr>

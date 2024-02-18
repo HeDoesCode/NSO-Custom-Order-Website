@@ -25,4 +25,10 @@ class Order extends Model
         'recieved_date',
         'status',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'username', 'username');
+    }
 }

@@ -16,8 +16,16 @@ class AdminController extends Controller
         $this->featuredProductsImagesPath = public_path('images\\featured products\\'); 
     }
 
+    //for featured products in home
+    public function displayHomePage()
+{
+    $featuredProducts = FeaturedProducts::all(); 
 
-    //for featured products
+    return view('welcome', ['featuredProducts' => $featuredProducts]);
+}
+
+
+    //for featured products dashboard
     public function displayFeaturedProductsDashboard() {
         $featuredProducts = FeaturedProducts::all();
         return view('admin.featured products.index', ['featuredProducts' => $featuredProducts]);
@@ -53,7 +61,7 @@ class AdminController extends Controller
             'link' => $request->link
         ]);
 
-        return redirect(route('admin.featured products.index'))->with('success', 'product successfully added');
+        return redirect(route('admin.featured products.index'))->with('success', 'Product Successfully Added');
     }
 
     public function update(FeaturedProducts $product, Request $request) {

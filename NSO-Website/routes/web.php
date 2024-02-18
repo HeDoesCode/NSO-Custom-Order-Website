@@ -2,12 +2,13 @@
 require __DIR__.'/auth.php';
 require __DIR__.'/adminauth.php';
 
+use App\Models\Feedback;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FeedbackController;
-use App\Models\Feedback;
-use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,7 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AdminController::class, 'displayHomePage'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function() {
@@ -40,6 +39,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/order/place', 'place')->name('order.place');
         
     });
+    Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
+
 });
 
 Route::controller(AdminController::class)->group(function() {
