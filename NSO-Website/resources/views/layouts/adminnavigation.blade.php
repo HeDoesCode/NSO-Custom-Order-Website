@@ -65,9 +65,9 @@ Include Bootstrap JS and Popper.js for dropdowns
 
 
 
-<nav x-data="{ open: false }">
-    <nav>
-        <div class="navbar">
+<nav x-data="{ open: false }" >
+    <nav class="shadow-md">
+        <div class="navbar ">
             <div class="left-nav">
                 <a >ANNIVERSARY</a>
                 <a >ESSENTIALS</a>

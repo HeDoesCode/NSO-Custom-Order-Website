@@ -34,6 +34,7 @@ class AdminController extends Controller
     public function save(Request $request) {
         $request->validate([
             'image' => 'required|mimes:jpg,jpeg,png|max:5120', 
+            'title' => 'required',
             'description' => 'required',
             'link' => 'required|url'
         ]);
@@ -47,6 +48,7 @@ class AdminController extends Controller
         
         FeaturedProducts::create([ // adds record to db
             'image' => $newImageName,
+            'title' => 'required',
             'description' => $request->description,
             'link' => $request->link
         ]);
@@ -57,6 +59,7 @@ class AdminController extends Controller
     public function update(FeaturedProducts $product, Request $request) {
         $request->validate([
             'image' => 'nullable|mimes:jpg,jpeg,png|max:5120', // max of 5mb image
+            'title' => 'required',
             'description' => 'required',
             'link' => 'required|url'
         ]);
@@ -79,14 +82,14 @@ class AdminController extends Controller
 
         $product->save();
 
-        return redirect(route('admin.featured products.index'))->with('success', 'product successfully update');
+        return redirect(route('admin.featured products.index'))->with('success', 'Product Successfully Updated');
     }
 
     public function delete(FeaturedProducts $product) {
         unlink($this->featuredProductsImagesPath.$product->image); // delete image in file folder
         $product->delete(); // delete db record
         
-        return redirect(route('admin.featured products.index'))->with('success', 'product successfully deleted');
+        return redirect(route('admin.featured products.index'))->with('success', 'Product Successfully Deleted');
     }
 
 

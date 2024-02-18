@@ -1,44 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Featured Products</title>
-</head>
-<body> 
-    <h1>Featured Products</h1>
-    <a href="{{route('admin.featured products.create')}}"><button>+Add Featured Product</button></a>
+<x-app-layout>
+    <div  class="grid grid-cols-12 ">
+        <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
+              <div class="mb-8">
+                <p class="text-3xl font-bold">Dashboard</p>
+              </div>
+              <div class="mb-6">
+                <p class="text-xl">
+                  <a href="{{ route('admin.home') }}">Orders</a>
+                </p>
+              </div>
+              <div class="mb-6">
+                <p class="text-xl">
+                  <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
+                </p>
+              </div>
+              <div class="mb-6">
+                <p class="text-xl">
+                  <a href="{{ route('admin.featured products.index') }}">Featured</a>
+                </p>
+              </div>
+          </div>
 
-    @if (session()->has('success')) 
-        <span>{{ session('success') }}</span>
-    @endif
+          <div class="col-span-10 p-5">
+            <div class="ml-6">
+                <p class="text-3xl font-bold mb-7">
+                    Featured Products Dashboard
+                </p>
+            </div>
+            <a href="{{ route('admin.featured products.create') }}" class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-block">+ Add Featured Product</a>
+        @if (session()->has('success'))
+            <div class="text-green-500 mb-4">{{ session('success') }}</div>
+        @endif
 
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Link</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        @foreach ($featuredProducts as $product)
-            <tr>
-                <td><img src="{{asset('images/featured products/'.$product->image)}}"></td>
-                <td>{{$product->description}}</td>
-                <td>{{$product->link}}</td>
-                <td>
-                    <a href="{{route('admin.featured products.edit', ['product' => $product])}}"><button>Edit</button></a>
-                </td>
-                <td>
-                    <form action="{{route('admin.featured products.delete', ['product' => $product])}}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" value="Delete">
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
-</body>
-</html>
+        <table class="w-full bg-white shadow-md rounded-lg overflow-hidden text-center">
+            <thead class="bg-gray-300">
+                <tr>
+                    <th class="px-4 py-2">Image</th>
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Link</th>
+                    <th class="px-4 py-2">Edit</th>
+                    <th class="px-4 py-2">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($featuredProducts as $product)
+                    <tr class="even:bg-gray-100">
+                        <td class="px-4 py-2 flex justify-center">
+                            <div class="w-40 h-40 flex items-center justify-center">
+                                <img src="{{ asset('images/featured products/'.$product->image) }}"
+                                     class="w-full h-full object-cover object-center">
+                            </div>
+                        </td>
+                        <td class="px-4 py-2">{{ $product->description }}</td>
+                        <td class="px-4 py-2"><a href="{{$product->link}}">{{ $product->link }}</a></td>
+                        
+
+                        <td class=" px-4 py-2 font-bold underline underline-offset-2">
+                            <a href="{{ route('admin.featured products.edit', ['product' => $product]) }}" class="text-blue-500 hover:underline">Edit</a>
+                        </td>
+
+                        <td class="px-4 py-2 font-bold underline underline-offset-2 text-red-500">
+                            <form action="{{ route('admin.featured products.delete', ['product' => $product]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="block text-red-500 hover:underline focus:outline-none">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    </div>
+</x-app-layout>

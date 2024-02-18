@@ -11,14 +11,14 @@
             case 'Order Completed':
                 return 'bg-green-500 rounded-full px-2 py-1';
             case 'Order Cancelled':
-                return 'bg-red-200 rounded-full px-2 py-1';
+                return 'bg-red-400 rounded-full px-2 py-1';
             default:
                 return 'bg-gray-200 rounded-full px-2 py-1'; 
         }
     }
     @endphp
     <div  class="grid grid-cols-12">
-        <div class="col-span-2 p-5 bg-black text-white h-dvh">
+        <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
               <div class="mb-8">
                 <p class="text-3xl font-bold">Dashboard</p>
               </div>
@@ -29,12 +29,12 @@
               </div>
               <div class="mb-6">
                 <p class="text-xl">
-                  <a href="">Feedback</a>
+                  <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
                 </p>
               </div>
               <div class="mb-6">
                 <p class="text-xl">
-                  <a href="">Featured</a>
+                  <a href="{{ route('admin.featured products.index') }}">Featured</a>
                 </p>
               </div>
           </div>
@@ -74,16 +74,8 @@
                     </td>
                   </tr>
               @endforeach
-
-
-              
-
-
                 </tbody>
               </table>
-
-        
-            
           </div>
     </div>
 
