@@ -39,8 +39,8 @@
             <label for="type">Shirt Type:</label>
             <select name="type" id="type" onchange="populateSize()">
                 <option value=""></option>
-                <option value="regular">REGULAR</option>
-                <option value="premium">PREMIUM</option>
+                <option value="Regular">REGULAR</option>
+                <option value="Premium">PREMIUM</option>
             </select>
         </div>
         <div>
@@ -86,14 +86,14 @@
     function populateSize() {
         sizeSelect.innerHTML = "";
 
-        if (tpyeSelect.value == 'regular') {
+        if (tpyeSelect.value == 'Regular') {
             for(let i = 0; i < regularSizes.length; i++) {
                 var option = document.createElement("option");
                 option.textContent = regularSizes[i];
                 option.value = regularSizes[i];
                 sizeSelect.appendChild(option);
             }
-        } else if (tpyeSelect.value == 'premium') {
+        } else if (tpyeSelect.value == 'Premium') {
             for(let i = 0; i < premiumSizes.length; i++) {
                 var option = document.createElement("option");
                 option.textContent = premiumSizes[i];

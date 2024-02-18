@@ -48,6 +48,19 @@
                         @enderror
                     </div>
 
+
+                    <div class="mb-6">
+                        <label for="title" class="block text-sm font-medium text-gray-600">Title:</label>
+                        <input type="text" name="title" id="title"
+                               class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('title') is-invalid @enderror"
+                               value="{{ old('title') }}">
+
+                        @error('title')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+
                     <div class="mb-6">
                         <label for="desc" class="block text-sm font-medium text-gray-600">Description:</label>
                         <input type="text" name="description" id="desc"

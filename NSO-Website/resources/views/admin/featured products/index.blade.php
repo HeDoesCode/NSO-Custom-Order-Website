@@ -36,6 +36,7 @@
             <thead class="bg-gray-300">
                 <tr>
                     <th class="px-4 py-2">Image</th>
+                    <th class="px-4 py-2">Title</th>
                     <th class="px-4 py-2">Description</th>
                     <th class="px-4 py-2">Link</th>
                     <th class="px-4 py-2">Edit</th>
@@ -51,6 +52,7 @@
                                      class="w-full h-full object-cover object-center">
                             </div>
                         </td>
+                        <td class="px-4 py-2">{{ $product->title }}</td>
                         <td class="px-4 py-2">{{ $product->description }}</td>
                         <td class="px-4 py-2"><a href="{{$product->link}}">{{ $product->link }}</a></td>
                         

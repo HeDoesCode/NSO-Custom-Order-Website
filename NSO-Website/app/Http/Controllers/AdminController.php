@@ -48,7 +48,7 @@ class AdminController extends Controller
         
         FeaturedProducts::create([ // adds record to db
             'image' => $newImageName,
-            'title' => 'required',
+            'title' => $request->title,
             'description' => $request->description,
             'link' => $request->link
         ]);
@@ -76,7 +76,7 @@ class AdminController extends Controller
 
             $product->image = $newImageName;
         }
-
+        $product->title = $request->title;
         $product->description = $request->description;
         $product->link = $request->link;
 
