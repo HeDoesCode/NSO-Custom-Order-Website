@@ -49,10 +49,19 @@
                     <div class="col-span-2">
                       <p class="text-gray-600">Design Image:</p>
                       <div class="flex justify-center">
+                        
+
                         <div class="w-60 h-60 flex items-center justify-center border border-gray-300 rounded-md">
-                          <img src="{{ asset('images/order design images/'.$order->design_img) }}"
-                          class="w-full h-full object-cover object-center">
-                        </div>
+                          @if ($order->design_img)
+                              <img src="{{ asset('images/order design images/'.$order->design_img) }}"
+                                   class="w-full h-full object-cover object-center"
+                                   onclick="zoomImage('{{ asset('images/order design images/'.$order->design_img) }}', '{{ $order->design_text }}')"
+                                   style="cursor: pointer;">
+                          @else
+                              <span class="text-gray-500">Image not available</span>
+                          @endif
+                      </div>
+
                       </div>
                       
                       

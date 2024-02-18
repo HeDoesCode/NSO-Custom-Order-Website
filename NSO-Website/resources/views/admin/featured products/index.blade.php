@@ -46,12 +46,20 @@
             <tbody>
                 @foreach ($featuredProducts as $product)
                     <tr class="even:bg-gray-100">
+                        
                         <td class="px-4 py-5 flex justify-center">
                             <div class="w-40 h-40 flex items-center justify-center">
-                                <img src="{{ asset('images/featured products/'.$product->image) }}"
-                                     class="w-full h-full object-cover object-center">
+                                @if ($product->image)
+                                    <img src="{{ asset('images/featured products/'.$product->image   ) }}"
+                                         class="w-full h-full object-cover object-center"
+                                         onclick="zoomImage('{{ asset('images/featured products/'.$product->image) }}', '{{ $product->image }}')"
+                                         style="cursor: pointer;">
+                                @else
+                                    <span class="text-gray-500">Image not available</span>
+                                @endif
                             </div>
                         </td>
+
                         <td class="px-4 py-5">{{ $product->title }}</td>
                         <td class="px-4 py-5">{{ $product->description }}</td>
                         <td class="px-4 py-5"><a href="{{$product->link}}">{{ $product->link }}</a></td>

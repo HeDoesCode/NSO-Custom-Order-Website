@@ -42,12 +42,21 @@
                 <tbody>
                     @foreach ($feedbacks as $feedback)
                         <tr class="even:bg-gray-100">
+                            
+
                             <td class="px-4 py-5 flex justify-center">
                                 <div class="w-40 h-40 flex items-center justify-center">
-                                    <img src="{{ asset('images/feedback images/'.$feedback->image) }}"
-                                         class="w-full h-full object-cover object-center">
+                                    @if ($feedback->image)
+                                        <img src="{{ asset('images/feedback images/'.$feedback->image   ) }}"
+                                             class="w-full h-full object-cover object-center"
+                                             onclick="zoomImage('{{ asset('images/feedback images/'.$feedback->image) }}', '{{ $feedback->image }}')"
+                                             style="cursor: pointer;">
+                                    @else
+                                        <span class="text-gray-500">Image not available</span>
+                                    @endif
                                 </div>
                             </td>
+
                             <td class="px-4 py-5">
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $feedback->rating)
