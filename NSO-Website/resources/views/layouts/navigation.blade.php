@@ -17,7 +17,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-            </div>
+            </div> 
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
@@ -128,13 +128,9 @@
                         <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
                         <div class="dropdown-content">
                             @auth
-
-                            
-                            <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                            <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-                                <form method="POST" action="{{ route('logout') }}">
+                            <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Home</a>
+                            <a :href="route('profile.edit')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                            <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <x-responsive-nav-link :href="route('logout')"
                                         onclick="event.preventDefault();
