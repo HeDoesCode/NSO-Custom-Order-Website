@@ -1,22 +1,5 @@
 <x-app-layout>
-  @php
-    function getStatusStyle($status) {
-        switch ($status) {
-            case 'Order Placed':
-                return 'bg-green-200 rounded-full px-2 py-1'; 
-            case 'Processing Order':
-                return 'bg-blue-200 rounded-full px-2 py-1';
-            case 'To Ship':
-                return 'bg-yellow-200 rounded-full px-2 py-1';
-            case 'Order Completed':
-                return 'bg-green-500 rounded-full px-2 py-1';
-            case 'Order Cancelled':
-                return 'bg-red-400 rounded-full px-2 py-1';
-            default:
-                return 'bg-gray-200 rounded-full px-2 py-1'; 
-        }
-    }
-    @endphp
+
     <div  class="grid grid-cols-12">
         <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
               <div class="mb-8">
@@ -62,14 +45,13 @@
                     
                   @foreach ($orders as $order)
                   <tr class="even:bg-gray-100">
-                      <td class="py-5">{{$order->username}}</td>
-                      <td class="py-5">{{$order->deliveryAddress}}</td>
-                      <td class="py-5">{{$order->mode_of_payment}}</td>
-                      <td class="py-5">{{ $order->price ? '₱' . $order->price : "Not Yet Set" }}</td>
-                      <td class="py-5">
-                        <span class="{{ getStatusStyle($order->status) }}">{{$order->status}}</span>
+                      <td>{{$order->username}}</td>
+                      <td>{{$order->deliveryAddress}}</td>
+                      <td>{{$order->mode_of_payment}}</td>
+                      <td>{{ $order->price ? '₱' . $order->price : "Not Yet Set" }}</td>
+                      <td>
                     </td>
-                      <td class="py-5 font-bold underline underline-offset-2">
+                      <td class="font-bold underline underline-offset-2">
                         <a href="{{ route('admin.orderdetails', ['id' => $order->id]) }}">View Details</a>
                     </td>
                   </tr>
