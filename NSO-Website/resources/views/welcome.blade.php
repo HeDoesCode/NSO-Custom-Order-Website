@@ -65,9 +65,6 @@
                 </div>
             </div>
         </div>
-        
-           
-      
     </nav>
 
 
@@ -87,27 +84,27 @@
 
     <div class="card-container wrap">
         <div class="card col">
-            <img src="images/SampleShirt.png" alt="Shirt Image 1">
+            <img src="images/SampleShirt.png" alt="">
             <div class="card-content">
-                <h2>Stylish Shirt 1</h2>
-                <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
+                <h2 class="card-title">Stylish Shirt 1</h2>
+                <p class="card-text" >A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
             </div>
         </div>
 
         <div class="card col">
-            <img src="images/SampleShirt.png" alt="Shirt Image 2">
+            <img src="images/SampleShirt.png" alt="">
             <div class="card-content">
-                <h2>Stylish Shirt 2</h2>
-                <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
+                <h2 class="card-title">Stylish Shirt 2</h2>
+                <p class="card-text">A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
 
             </div>
         </div>
 
         <div class="card col">
-            <img src="images/SampleShirt.png" alt="Shirt Image 1">
+            <img src="images/SampleShirt2.jpg" alt="">
             <div class="card-content">
-                <h2>Stylish Shirt 3</h2>
-                <p>A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
+                <h2 class="card-title">Stylish Shirt 3</h2>
+                <p class="card-text">A comfortable and fashionable shirt for any occasion. Made with high-quality fabric to ensure a perfect fit.</p>
             </div>
         </div>
     </div>
@@ -115,7 +112,6 @@
 
     
 </section>
-
 
 
         
