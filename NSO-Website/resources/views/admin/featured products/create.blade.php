@@ -86,7 +86,7 @@
                     <div>
                         <input type="submit"
                                class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-                               value="+ Add Product">
+                               value="+ Add Featured Product">
                     </div>
                 </form>
             </div>

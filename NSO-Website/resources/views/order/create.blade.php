@@ -2,109 +2,112 @@
     $user = auth()->user();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .is-invalid {
-            border: 1px solid red;
-        }
+<x-app-layout>
+    <div class="col-span-10 p-5">
+        <div class="ml-6">
+            <p class="text-3xl font-bold mb-7">
+                My Custom Orders
+            </p>
+        </div>
 
-        span {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <a href="{{route('dashboard')}}"><button>Cancel</button></a>
-    <h1>Create Order</h1>
-    <ul>
-        <?php
-            foreach ($errors->all() as $message) {
-                echo "<li>$message</li>";
+        <div class="max-w-5xl mx-auto bg-white shadow-md p-6 rounded-md mb-4">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-2xl font-bold">Create Order</h2>
+                
+                <a href="{{ route('dashboard') }}" class="bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-800" >Cancel</a>
+            </div>
+    
+            <ul class="text-red-500">
+                @foreach ($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+    
+            <form action="{{ route('order.place') }}" method="post" enctype="multipart/form-data" class="space-y-6">
+                @csrf
+                @method('post')
+                <input type="hidden" name="username" value="{{ $user->username }}">
+                <input type="hidden" name="deliveryAddress" value="{{ $user->deliveryAddress }}">
+    
+                <div class="mb-4">
+                    <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:</label>
+                    <select name="type" id="type" onchange="populateSize()" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+                        <option value=""></option>
+                        <option value="Regular">REGULAR</option>
+                        <option value="Premium">PREMIUM</option>
+                    </select>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:</label>
+                    <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="img" class="block text-sm font-medium text-gray-600">{{ __('Design (if applicable):') }}</label>
+                    <input type="file" name="design_img" id="img" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('design_img') is-invalid @enderror">
+    
+                    @error('design_img')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+    
+                <div class="mb-4">
+                    <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:</label>
+                    <select name="size" id="size" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></select>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="qty" class="block text-sm font-medium text-gray-600">Quantity:</label>
+                    <input type="number" name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="MOD" class="block text-sm font-medium text-gray-600">Mode of Payment:</label>
+                    <select name="mode_of_payment" id="MOD" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        <option value=""></option>
+                        <option value="Gcash">{{ __('Gcash') }}</option>
+                    </select>
+                </div>
+    
+                <div>
+                    <input type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800" value="+ Add Product">
+                </div>
+            </form>
+        </div>
+    
+        <script>
+            const regularSizes = ['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];        
+            const premiumSizes = ['Small', 'Medium', 'Large', 'XLarge'];
+    
+            const typeSelect = document.getElementById('type');
+            const sizeSelect = document.getElementById('size');
+    
+            function populateSize() {
+                sizeSelect.innerHTML = "";
+    
+                if (typeSelect.value === 'Regular') {
+                    regularSizes.forEach(size => appendOption(size));
+                } else if (typeSelect.value === 'Premium') {
+                    premiumSizes.forEach(size => appendOption(size));
+                } else {
+                    appendOption("Select a shirt type first");
+                }
             }
-        ?>
-    </ul>
-
-    <form action="{{route('order.place')}}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        @method('post')
-        <input type="hidden" name="username" value="{{$user->username}}">
-        <input type="hidden" name="deliveryAddress" value="{{$user->deliveryAddress}}">
-        <div>
-            <label for="type">Shirt Type:</label>
-            <select name="type" id="type" onchange="populateSize()">
-                <option value=""></option>
-                <option value="Regular">REGULAR</option>
-                <option value="Premium">PREMIUM</option>
-            </select>
-        </div>
-        <div>
-            <label for="desc">Design Description:</label>
-            <textarea name="design_text" id="desc" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            <label for="img">{{__('Design (if applicable):')}}</label>
-            <input type="file" name="design_img" id="img" class="@error('design_img') is-invalid @enderror">
-
-            @error('design_img')
-                <span class="alert alert-danger">{{ $message }}</span>
-            @enderror
-        </div>
-        <div>
-            <label for="size">Shirt Size:</label>
-            <select name="size" id="size">
-                <option value="">Select a shirt type first</option>
-            </select>
-        </div>
-        <div>
-            <label for="qty">Quantity:</label>
-            <input type="number" name="quantity" id="qty">
-        </div>
-        <label for="MOD">Mode of Payment:</label>
-            <select name="mode_of_payment" id="MOD">
-                <option value=""></option>
-                <option value="Gcash">{{__('Gcash')}}</option>
-            </select>
-        </div>
-        <div>
-            <input type="submit" value="+Add Product">
-        </div>
-    </form>
-</body>
-<script>
-    const regularSizes = ['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];        
-    const premiumSizes = ['Small', 'Medium', 'Large', 'XLarge'];
-
-    const tpyeSelect = document.getElementById('type');
-    const sizeSelect = document.getElementById('size');
-
-    function populateSize() {
-        sizeSelect.innerHTML = "";
-
-        if (tpyeSelect.value == 'Regular') {
-            for(let i = 0; i < regularSizes.length; i++) {
-                var option = document.createElement("option");
-                option.textContent = regularSizes[i];
-                option.value = regularSizes[i];
+    
+            function appendOption(value) {
+                const option = document.createElement("option");
+                option.textContent = value;
+                option.value = value;
                 sizeSelect.appendChild(option);
             }
-        } else if (tpyeSelect.value == 'Premium') {
-            for(let i = 0; i < premiumSizes.length; i++) {
-                var option = document.createElement("option");
-                option.textContent = premiumSizes[i];
-                option.value = premiumSizes[i];
-                sizeSelect.appendChild(option);
-            }
-        } else {
-            var option = document.createElement("option");
-            option.textContent = "Select a shirt type first";
-            sizeSelect.appendChild(option);
-        }
-    }
-</script>
-</html>
+        </script>
+
+
+
+
+    @if (session()->has('success')) 
+        <span>{{ session('success') }}</span>
+    @endif
+    
+</x-app-layout>
