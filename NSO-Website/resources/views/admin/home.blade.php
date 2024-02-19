@@ -17,27 +17,30 @@
         }
     }
     @endphp
-    <div  class="grid grid-cols-12">
-        <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
-              <div class="mb-8">
-                <p class="text-3xl font-bold">Dashboard</p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.home') }}">Orders</a>
-                </p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
-                </p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.featured products.index') }}">Featured</a>
-                </p>
-              </div>
+    <div class="grid grid-cols-12">
+      <div class="col-span-2 p-5 bg-black text-white min-h-screen">
+          <div class="mb-8">
+              <p class="text-3xl font-bold">Admin Dashboard</p>
           </div>
+          <div class="mb-6">
+              <a href="{{ route('admin.home') }}" class="block text-xl 
+                  {{ request()->routeIs('admin.home', 'admin.orderdetails') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
+                  Orders
+              </a>
+          </div>
+          <div class="mb-6">
+              <a href="{{ route('admin.view feedback.index') }}" class="block text-xl 
+                  {{ request()->routeIs('admin.view feedback.index') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
+                  Feedback
+              </a>
+          </div>
+          <div class="mb-6">
+              <a href="{{ route('admin.featured products.index') }}" class="block text-xl 
+                  {{ request()->routeIs('admin.featured products.index', 'admin.featured products.create', 'admin.featured products.edit' ) ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4' : 'pl-4 py-1' }}">
+                  Featured
+              </a>
+          </div>
+      </div>
 
           <div class="col-span-10 p-5">
             <div class="ml-6">

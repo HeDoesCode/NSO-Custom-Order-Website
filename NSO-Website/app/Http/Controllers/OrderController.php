@@ -28,6 +28,7 @@ class OrderController extends Controller
             'design_img' => 'nullable|mimes:jpg,jpeg,png|max:5120', // max of 5 mb image
             'size' => 'required',
             'quantity' => 'required|integer',
+            'quantity' => 'required|integer',
             'mode_of_payment' => 'required'
         ]);
 
