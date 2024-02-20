@@ -28,9 +28,8 @@
 
     <nav class="navbar">
             <div class="left-nav">
-                <a >ANNIVERSARY</a>
-                <a >ESSENTIALS</a>
-                <a >CUSTOMS</a>
+                <a >HOME</a>
+
             </div>
     
             <div class="center-nav">

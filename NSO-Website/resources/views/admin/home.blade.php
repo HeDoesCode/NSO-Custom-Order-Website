@@ -1,4 +1,6 @@
-<x-app-layout>
+
+
+<x-admin-layout>
 
     <div  class="grid grid-cols-12">
         <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
@@ -61,4 +63,4 @@
           </div>
     </div>
 
-</x-app-layout>
+</x-admin-layout>

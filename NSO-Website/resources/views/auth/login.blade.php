@@ -64,8 +64,11 @@
                             <button class="btnLogin">
                                 {{ __('Log in') }}
                             </button>
+                        
+
                             </div>
                     </div>
+                    
                 </form>
             </div>
         </div>
