@@ -44,7 +44,7 @@ public function store(Request $request)
         'message' => $request->message,
     ]);
 
-    return redirect()->route('feedback.create')->with('status', 'Feedback submitted successfully!');
+    return redirect()->route('dashboard')->with('status', 'Feedback Submitted Successfully!');
 }
 
 

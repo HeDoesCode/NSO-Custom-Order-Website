@@ -1,25 +1,28 @@
 <x-app-layout>
-    <div  class="grid grid-cols-12 ">
-        <div class="col-span-2 p-5 bg-black text-white  min-h-screen">
-              <div class="mb-8">
-                <p class="text-3xl font-bold">Dashboard</p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.home') }}">Orders</a>
-                </p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.view feedback.index') }}">Feedback</a>
-                </p>
-              </div>
-              <div class="mb-6">
-                <p class="text-xl">
-                  <a href="{{ route('admin.featured products.index') }}">Featured</a>
-                </p>
-              </div>
-          </div>
+    <div class="grid grid-cols-12">
+        <div class="col-span-2 p-5 bg-black text-white min-h-screen">
+            <div class="mb-8">
+                <p class="text-3xl font-bold">Admin Dashboard</p>
+            </div>
+            <div class="mb-6">
+                <a href="{{ route('admin.home') }}" class="block text-xl 
+                    {{ request()->routeIs('admin.home', 'admin.orderdetails') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
+                    Orders
+                </a>
+            </div>
+            <div class="mb-6">
+                <a href="{{ route('admin.view feedback.index') }}" class="block text-xl 
+                    {{ request()->routeIs('admin.view feedback.index') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
+                    Feedback
+                </a>
+            </div>
+            <div class="mb-6">
+                <a href="{{ route('admin.featured products.index') }}" class="block text-xl 
+                    {{ request()->routeIs('admin.featured products.index', 'admin.featured products.create', 'admin.featured products.edit' ) ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
+                    Featured
+                </a>
+            </div>
+        </div>
 
           <div class="col-span-10 p-5">
             <div class="ml-6">
@@ -46,12 +49,20 @@
             <tbody>
                 @foreach ($featuredProducts as $product)
                     <tr class="even:bg-gray-100">
+                        
                         <td class="px-4 py-5 flex justify-center">
                             <div class="w-40 h-40 flex items-center justify-center">
-                                <img src="{{ asset('images/featured products/'.$product->image) }}"
-                                     class="w-full h-full object-cover object-center">
+                                @if ($product->image)
+                                    <img src="{{ asset('images/featured products/'.$product->image   ) }}"
+                                         class="w-full h-full object-cover object-center"
+                                         onclick="zoomImage('{{ asset('images/featured products/'.$product->image) }}', '{{ $product->image }}')"
+                                         style="cursor: pointer;">
+                                @else
+                                    <span class="text-gray-500">Image not available</span>
+                                @endif
                             </div>
                         </td>
+
                         <td class="px-4 py-5">{{ $product->title }}</td>
                         <td class="px-4 py-5">{{ $product->description }}</td>
                         <td class="px-4 py-5"><a href="{{$product->link}}">{{ $product->link }}</a></td>

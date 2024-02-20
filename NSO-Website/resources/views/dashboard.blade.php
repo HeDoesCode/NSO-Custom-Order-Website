@@ -28,12 +28,15 @@
                                 <div class="w-40 h-40 flex items-center justify-center">
                                     @if ($order->design_img)
                                         <img src="{{ asset('images/order design images/'.$order->design_img) }}"
-                                             class="w-full h-full object-cover object-center">
+                                             class="w-full h-full object-cover object-center"
+                                             onclick="zoomImage('{{ asset('images/order design images/'.$order->design_img) }}', '{{ $order->design_text }}')"
+                                             style="cursor: pointer;">
                                     @else
                                         <span class="text-gray-500">Image not available</span>
                                     @endif
                                 </div>
                             </td>
+                            
                             <td class="py-5">{{ $order->design_text }}</td>
                             <td class="py-5">{{ $order->price ? '₱' . $order->price : "Waiting For Seller" }}</td>
                             <td class="py-5">
