@@ -12,7 +12,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        $guard = $this->auth->getDefaultGuard();
+        $guard = $this->auth->getDefaultDriver();
 
         if ($guard == 'web') {
             return $request->expectsJson() ? null : route('login');
