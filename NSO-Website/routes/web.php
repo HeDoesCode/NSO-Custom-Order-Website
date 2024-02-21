@@ -41,7 +41,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
     Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
+    Route::controller(FeedbackController::class)->group(function() {
+        //view
+        Route::get('/feedback/create','create')->name('feedback.create');
+        //operation
+        Route::post('/feedback/store',  'store')->name('feedback.store');
+    });
 
+});
+
+
+Route::middleware('auth:admin')->group(function () {
     Route::controller(AdminController::class)->group(function() {
         // views
         Route::get('/admin/featured-products/', 'displayFeaturedProductsDashboard')->name('admin.featured products.index');
@@ -52,23 +62,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/orderdetails/{id}', 'showOrderDetail')->name('admin.orderdetails');
         
         
-        
         // operations
         Route::post('/admin/featured-products/save', 'save')->name('admin.featured products.save');
         Route::put('/admin/featured-products/update/{product}', 'update')->name('admin.featured products.update');
         Route::delete('/admin/featured-products/delete/{product}', 'delete')->name('admin.featured products.delete');
         Route::put('/admin/orders/update/{id}', 'updateOrder')->name('admin.updateOrder');
     });
-    
-    
-    
-    
-    Route::controller(FeedbackController::class)->group(function() {
-        //view
-        Route::get('/feedback/create','create')->name('feedback.create');
-        //operation
-        Route::post('/feedback/store',  'store')->name('feedback.store');
-    });
-    
 });
+
+
+
+
+
+
 
