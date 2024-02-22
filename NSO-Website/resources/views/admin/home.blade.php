@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
   @php
     function getStatusStyle($status) {
         switch ($status) {
@@ -82,4 +82,4 @@
           </div>
     </div>
 
-</x-app-layout>
+</x-admin-layout>

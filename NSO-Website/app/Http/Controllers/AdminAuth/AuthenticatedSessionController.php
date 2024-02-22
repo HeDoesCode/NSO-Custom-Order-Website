@@ -16,9 +16,15 @@ class AuthenticatedSessionController extends Controller
      * Display the login view.
      */
     public function create(): View
-    {
-        return view('admin.auth.login');
+{
+    if (auth()->guard('admin')->check()) {
+        return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
     }
+
+    // Otherwise, show the login view
+    return view('admin.auth.login');
+}
+
 
     /**
      * Handle an incoming authentication request.

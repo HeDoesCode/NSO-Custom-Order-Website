@@ -125,7 +125,7 @@
                   
                             <a href="{{ url('admin/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Home</a>
                             <a :href="route('profile.edit')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('admin.logout') }}">
                                     @csrf
                                     <x-responsive-nav-link :href="route('logout')"
                                         onclick="event.preventDefault();
