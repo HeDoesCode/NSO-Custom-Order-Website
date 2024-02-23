@@ -11,15 +11,24 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Admin;
 
 class NewPasswordController extends Controller
 {
     /**
      * Display the password reset view.
      */
-    public function create(Request $request): View
+    public function create(Request $request): View|RedirectResponse
     {
-        return view('auth.reset-password', ['request' => $request]);
+
+     
+
+    
+
+
+
+       
+        return view('admin.auth.reset-password', ['request' => $request]);
     }
 
     /**
@@ -35,21 +44,34 @@ class NewPasswordController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $admin = Admin::where('email', $request->email)->first();
+
+        if (!$admin) {
+            // Handle the case where the user with the provided email doesn't exist.
+            return back()->withErrors(['email' => __('User not found')]);
+        }
+
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
-        $status = Password::reset(
+         // Fetch the user based on the provided email
+  
+
+        $status = Password::broker('admin')->reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
-                $user->forceFill([
+            function ($admin) use ($request) {
+                $admin->forceFill([
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
                 ])->save();
 
-                event(new PasswordReset($user));
+                event(new PasswordReset($admin));
             }
         );
 
+        
+           
+        
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
