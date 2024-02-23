@@ -16,104 +16,133 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class>
+        <div>
             @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
                 </div>
             @endif
 
 
 
 
-    <nav class="navbar">
-            <div class="left-nav">
-                <a >HOME</a>
+            <nav class="navbar">
+                    <div class="left-nav">
+                        <a href="{{ url('/') }}" class="nav_links">HOME</a>
+                        <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+                    </div>
+                    <div class="center-nav">
+                        <a>NOT SO ORDINARY</a>
+                    </div>
+                    <div class="right-nav">
+                            <div class="dropdown">
+                                <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                                <div class="dropdown-content">
+                                    @auth
+                                    <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <x-responsive-nav-link :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-responsive-nav-link>
+                                        </form>
+                                    @else
+                                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-            </div>
-    
-            <div class="center-nav">
-                <a>NOT SO ORDINARY</a>
-            </div>
-    
-           
-
-            <div class="right-nav">
-                    <div class="dropdown">
-                        <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
-                        <div class="dropdown-content">
-                            @auth
-                            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <x-responsive-nav-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-responsive-nav-link>
-                                </form>
-                            @else
-                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                                @endif
-                            @endauth
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            </div>        
                         </div>
-                    </div>        
+                    </div>
                 </div>
+            </nav>
+
+
+
+    <div class="scroll-container">
+
+
+        <section class="home-welcome">
+            <div class="overlay">
+                <h1>YEAR II COLLECTION</h1>
             </div>
-        </div>
-    </nav>
-
-
-
-
-
-<section class="home-welcome">
-    <div class="overlay">
-        <h1>YEAR II COLLECTION</h1>
-    </div>
-</section>
+        </section>
 
     
 
-<section class="featured-products col">
-    <h2 class="featured-products-title">featured products </h2>
-
-    <div class="card-container wrap">
-        @foreach($featuredProducts as $product)
-            <div class="card col">
-                <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
-                <div class="card-content">
-                    <h2 class="card-title">{{ $product->title }}</h2>
-                    <p class="card-text">{{ $product->description }}</p>
-                </div>
+        <section class="featured-products col">
+            <h2 class="featured-products-title">featured products </h2>
+            <div class="card-container wrap">
+                @foreach($featuredProducts as $product)
+                    <div class="card col">
+                        <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
+                        <div class="card-content">
+                            <h2 class="card-title">{{ $product->title }}</h2>
+                            <p class="card-text">{{ $product->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-</section>
+        </section>
 
 
         
-        <footer>
-            <div class="footer-nav row">
-                <div class="footer-img row">
-                    <img class="footer-logo" src="/images/footer-logo.png" alt="">
+            <footer>
+                <div class="footer-nav row">
+                    <div class="footer-img row">
+                        <img class="footer-logo" src="/images/footer-logo.png" alt="">
+                    </div>
+                            
+                    <div class="footer-links row">
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Instagram</li>
+                            <li>Shopee</li>
+                        </ul>
+                    </div>
+
+                    <!-- <ul class="footer__nav">
+        <div class="contacts">
+            <li class="nav__item">
+            <h2 class="nav__title">Get Notified On</h2>
+            
+                <ul class="nav__ul">
+                    <li>
+                        <a href="#">facebook.com/notso.ordinaryyy</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">instagram.com/notso.ordinaryyy</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">shopee.ph/notso.ordinaryyy</a>
+                    </li>
+                    <li>
+                        <a href="#">notso.ordinaryyy@gmail.com</a>
+                    </li>
+
+                </ul>
+                
+            </li>
+        </div>
+    </ul> -->
+
+
+
+
                 </div>
-                        
-                <div class="footer-links row">
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Instagram</li>
-                        <li>Shopee</li>
-                    </ul>
+                
+                <hr>
+                <div class="welcome-copyright"> 
+                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="">Terms And Condition</a></p>
                 </div>
-            </div>
-            <hr>
-            <div class="welcome-copyright"> 
-                <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="">Terms And Condition</a></p>
-            </div>
-        </footer>
+            </footer>
+
+        </div>
     </body>
 </html>

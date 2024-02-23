@@ -102,7 +102,8 @@
     <nav>
         <div class="navbar">
             <div class="left-nav">
-                <a >HOME</a>
+                <a href="{{ url('/') }}" class="nav_links">HOME</a>
+                <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
             </div>
     
             <div class="center-nav">
@@ -127,8 +128,7 @@
                     <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
                     <div class="dropdown-content">
                         @auth
-                            <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Home</a>
-                            <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                            <a href="{{ route('profile.edit') }}" class=" text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-responsive-nav-link :href="route('logout')"
