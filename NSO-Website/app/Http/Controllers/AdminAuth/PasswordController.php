@@ -7,9 +7,25 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use App\Models\Admin;
 
 class PasswordController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest:admin');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    protected function broker()
+    {
+         return Password::broker('admin'); //set password broker name according to guard which you have set in config/auth.php
+    }
     /**
      * Update the user's password.
      */
@@ -20,7 +36,7 @@ class PasswordController extends Controller
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
-        $request->user()->update([
+        Admin::where('id', Auth::id())->update([
             'password' => Hash::make($validated['password']),
         ]);
 
