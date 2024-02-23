@@ -11,6 +11,19 @@ html {
     font-size: 16px;
     height: 100%;
     width: 100%;
+    overflow: hidden;
+}
+
+.scroll-container {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 0px;
+    box-sizing: content-box;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
 }
 
 :root {
@@ -601,6 +614,7 @@ button {
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
     margin: 60px 0;
+    color: #1d1d1d;
 }
 /* .featured-products .card-container {
     padding: 40px;
@@ -678,17 +692,18 @@ footer {
 }
 .footer-p {
     padding: 20px;
+    min-height: 100px;
 }
 .footer-links {
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none;
     list-style-type: none;
     color: white;
-    align-items: center; /* Center vertically */
+    align-items: center;
     justify-content: center;
 }
 .footer-links ul {
-    list-style: none; /* Remove default list bullets */
-    padding: 0; /* Remove default list padding */
+    list-style: none;
+    padding: 0;
 }
 .welcome-copyright {
     color: white;
@@ -788,11 +803,14 @@ nav {
 
 .card-title {
     text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.18em;
 }
 
 .card-text {
     text-align: center;
     margin: 15px;
+    font-family: Inter;
 }
 
 .clickbox-gr {
@@ -809,4 +827,16 @@ nav {
 
 .terms {
     width: 100%;
+}
+
+.nav_links {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: 0.07em;
+    color: #3d3d3d;
+    text-decoration: none;
+}
+
+.left_panel {
+    background-color: #1f1f1f;
 }

@@ -102,9 +102,8 @@
     <nav>
         <div class="navbar">
             <div class="left-nav">
-                <a >ANNIVERSARY</a>
-                <a >ESSENTIALS</a>
-                <a >CUSTOMS</a>
+                <a href="{{ url('/') }}" class="nav_links">HOME</a>
+                <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
             </div>
     
             <div class="center-nav">
@@ -124,34 +123,21 @@
 
 
             <div class="right-nav">
-                    <div class="dropdown">
-                        <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
-                        <div class="dropdown-content">
-                            @auth
-
-                            
-                            <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                            <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <x-responsive-nav-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-responsive-nav-link>
-                                </form>
-                            @else
-                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                                @endif
-                            @endauth
-                        </div>
-                    </div>        
-                </div>
+                <div class="dropdown">
+                    <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                    <div class="dropdown-content">
+                        @auth
+                            <a href="{{ route('profile.edit') }}" class=" text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-responsive-nav-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-responsive-nav-link>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
         </div>
     </nav>
