@@ -99,7 +99,7 @@
     <nav>
         <div class="navbar">
             <div class="left-nav">
-                <a >ADMIN</a>
+                <a >admin</a>
             </div>
     
             <div class="center-nav">
