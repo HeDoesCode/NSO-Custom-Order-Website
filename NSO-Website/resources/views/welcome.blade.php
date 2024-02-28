@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <head>
         <meta charset="utf-8">
         <title>Not So Ordinary</title>
@@ -11,9 +15,17 @@
         <!-- Styles -->
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/stylewise.css">
+        
+        
         <style>
-         
+            body{
+                overflow:hidden
+            }
         </style>
+
     </head>
     <body class="antialiased">
         <div>
@@ -22,16 +34,13 @@
                 </div>
             @endif
 
-
-
-
             <nav class="navbar">
                     <div class="left-nav">
                         <a href="{{ url('/') }}" class="nav_links">HOME</a>
                         <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
                     </div>
                     <div class="center-nav">
-                        <a>NOT SO ORDINARY</a>
+                        <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
                     </div>
                     <div class="right-nav">
                             <div class="dropdown">
@@ -66,13 +75,43 @@
     <div class="scroll-container">
 
 
-        <section class="home-welcome">
+        <!-- <section class="home-welcome">
             <div class="overlay">
                 <h1>YEAR II COLLECTION</h1>
-            </div>
-        </section>
+            </div> 
+        </section> -->
 
-    
+
+
+     
+            <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
+                <div class="overlay">
+                    <h1>YEAR II COLLECTION</h1>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')">
+        </div>
+            <div class="carousel-item" style="background-image: url('https://i.imgur.com/cpIrOo1.jpg')"></div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
 
         <section class="featured-products col">
             <h2 class="featured-products-title">featured products </h2>
@@ -145,4 +184,10 @@
 
         </div>
     </body>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 </html>
