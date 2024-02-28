@@ -62,7 +62,7 @@
                                 By ticking this box, you agree to our <a href="#"><b><em>Terms and Conditions</em></b></a> and <a href="#"><b><em>Data Privacy</em></b></a>.
                             </label>
                         </div>
-                    <div> 
+                    <div>  
 
                     
                     <br>
