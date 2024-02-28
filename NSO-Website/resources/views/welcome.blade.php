@@ -93,13 +93,16 @@
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
                 <div class="overlay">
-                    <h1>YEAR II COLLECTION</h1>
+                    <h1 class="carousel-caption">YEAR II COLLECTION</h1>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')">
-        </div>
-            <div class="carousel-item" style="background-image: url('https://i.imgur.com/cpIrOo1.jpg')"></div>
-        </div>
+            <div class="carousel-item" style="background-image: url('{{ asset('/images/NSO_f1.jpg') }}')">
+                <div class="overlay">
+                    <h1 class="carousel-caption">NSO F1 Collection!</h1>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')"></div>
+            </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon " aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
