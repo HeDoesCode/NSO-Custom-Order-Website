@@ -221,6 +221,7 @@ html {
 
 .buttonHolder {
     text-align: center;
+    margin-top: 20px;
 }
 
 .buttonHolderNextPage {
@@ -239,7 +240,7 @@ button {
 .btnLogin {
     background-color: #000000;
     color: white;
-    padding: 12px 18px;
+    padding: 12px 28px;
     border: none;
     cursor: pointer;
     width: 30%;
@@ -254,6 +255,7 @@ button {
 .btnLogin:hover {
     background-color: #1c1c1c;
 }
+
 .containerforgotpassword {
     display: flex;
     width: 100%;

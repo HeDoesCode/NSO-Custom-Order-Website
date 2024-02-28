@@ -1,3 +1,5 @@
+
+
 <x-guest-layout>
     
     <body class="BodyLogin">
@@ -33,6 +35,7 @@
 
                             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password"
                                 required autocomplete="current-password" />
+                                
 
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
@@ -50,7 +53,7 @@
                                
                                 <div class="col py-1">
                                 @if (Route::has('password.request'))
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                <a class="underline text-m text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                     href="{{ route('password.request') }}">
                                     {{ __('Forgot your password?') }}
                                 </a>
@@ -64,11 +67,15 @@
                             <button class="btnLogin">
                                 {{ __('Log in') }}
                             </button>
-                        
-
+                        </div>
+                        <div class="buttonHolder">  
+                        Don’t have an account?   
+                        <a href="{{ route('register') }}" class="underline text-m text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                {{ __('Sign Up') }}
+                            </a>
                             </div>
+
                     </div>
-                    
                 </form>
             </div>
         </div>

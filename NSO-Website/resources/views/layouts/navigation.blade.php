@@ -98,6 +98,7 @@
 
 
 
+
 <nav x-data="{ open: false }">
     <nav>
         <div class="navbar">
@@ -122,7 +123,7 @@
             </div> -->
 
 
-            <div class="right-nav">
+            <div class="right-nav ">
                 <div class="dropdown">
                     <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
                     <div class="dropdown-content">
