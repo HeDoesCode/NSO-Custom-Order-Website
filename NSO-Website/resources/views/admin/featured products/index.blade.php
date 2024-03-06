@@ -47,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($featuredProducts as $product)
+                @foreach ($featuredProducts->sortByDesc('created_at') as $product)
                     <tr class="even:bg-gray-100">
                         
                         <td class="px-4 py-5 flex justify-center">

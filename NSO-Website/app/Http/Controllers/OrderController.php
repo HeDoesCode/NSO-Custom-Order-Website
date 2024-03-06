@@ -14,7 +14,13 @@ class OrderController extends Controller
         $this->orderDesignImagePath = public_path('images\\order design images\\');
     }
     
-    // admin side
+
+    public function showOrderDetail($id)
+    {
+        $order = Order::find($id); 
+    
+        return view('order.orderdetails', ['order' => $order]);
+    }
     
     // user side
     public function displayOrderForm() {

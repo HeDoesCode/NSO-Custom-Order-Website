@@ -37,15 +37,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(OrderController::class)->group(function() {
         Route::get('/order/create', 'displayOrderForm')->name('order.create');
         Route::post('/order/place', 'place')->name('order.place');
+        Route::get('/order/orderdetails/{id}', 'showOrderDetail')->name('order.orderdetails');
         
     });
     Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
     Route::controller(FeedbackController::class)->group(function() {
         //view
-        Route::get('/feedback/create','create')->name('feedback.create');
+        Route::get('/feedback/create/{orderId}','create')->name('feedback.create');
         //operation
-        Route::post('/feedback/store',  'store')->name('feedback.store');
+        Route::post('/feedback/store/{orderId}',  'store')->name('feedback.store');
     });
 
 });

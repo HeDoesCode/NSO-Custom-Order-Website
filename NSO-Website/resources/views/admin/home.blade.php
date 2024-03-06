@@ -63,7 +63,7 @@
                 <tbody>
                   
                     
-                  @foreach ($orders as $order)
+                  @foreach ($orders->sortByDesc('created_at') as $order)
                   <tr class="even:bg-gray-100">
                       <td class="py-5">{{$order->username}}</td>
                       <td class="py-5">{{$order->deliveryAddress}}</td>

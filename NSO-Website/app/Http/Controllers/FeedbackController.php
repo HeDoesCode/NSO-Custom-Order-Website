@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class FeedbackController extends Controller
@@ -14,12 +16,14 @@ class FeedbackController extends Controller
         $this->feedbackImagesPath = public_path('images\\feedback images\\'); 
     }
 
-    public function create()
-{
-    return view('feedback.create');
-}
+    public function create($orderId)
+    {
+        $order = Order::findOrFail($orderId); // Fetch the order using the provided ID
+        return view('feedback.create', compact('orderId', 'order'));
+    }
 
-public function store(Request $request)
+
+public function store(Request $request, $orderId)
 {
     $request->validate([
         'image' => 'nullable|mimes:jpg,jpeg,png|max:5120', // max of 5mb image
@@ -38,11 +42,15 @@ public function store(Request $request)
         $request->image->move($this->feedbackImagesPath, $newImageName);
     }
 
-    Feedback::create([
-        'image' => $newImageName,
-        'rating' => $request->rating,
-        'message' => $request->message,
-    ]);
+    $userId = Auth::id();
+
+        Feedback::create([
+            'order_id' => $orderId,
+            'user_id' => $userId,
+            'image' => $newImageName,
+            'rating' => $request->rating,
+            'message' => $request->message,
+        ]);
 
     return redirect()->route('dashboard')->with('status', 'Feedback Submitted Successfully!');
 }

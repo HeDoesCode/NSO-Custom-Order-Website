@@ -22,8 +22,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($orders as $order)
-                        <tr class="even:bg-gray-100 -5">
+                    @foreach ($orders->sortByDesc('created_at') as $order)
+
+
+                        <tr class="even:bg-gray-100">
                             <td class="px-4 py-5 flex justify-center">
                                 <div class="w-40 h-40 flex items-center justify-center">
                                     @if ($order->design_img)
@@ -45,17 +47,30 @@
                             <td class="py-5">{{ $order->order_date }}</td>
                             
                             <td class="py-5 font-bold underline underline-offset-2">
-                                <a href="{{ route('admin.orderdetails', ['id' => $order->id]) }}">View Details</a>
+                                <a href="{{ route('order.orderdetails', ['id' => $order->id]) }}">View Details</a>
                             </td>
-                            <td>
-                                @if ($order->status == 'Order Completed' && !$order->feedback) <!-- Check status and if feedback is not given -->
-                                    <a href="{{ route('feedback.create') }}" class="ml-6 text-white bg-green-400 px-4 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
+                            <td class="text-center">
+                                @php
+                                    $hasFeedback = $order->feedbacks->isNotEmpty();
+                                @endphp
+                            
+                                @if ($order->status == 'Order Completed' && !$hasFeedback)
+                                    <a href="{{ route('feedback.create', ['orderId' => $order->id]) }}" class="ml-6 text-white bg-green-400 px-4 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
+                                @elseif ($hasFeedback)
+                                    <button class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <span class="mx-auto">Feedback Submitted</span>
+                                    </button>
                                 @else
-                                    <button class="ml-6 text-gray-400 bg-gray-200 px-4 py-2 rounded-md mb-4 inline-block" disabled>
-                                        Feedback Not Available
+                                    <button class="ml-6 text-gray-400 bg-gray-200 px-4 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <span class="mx-auto">Feedback Not Available</span>
                                     </button>
                                 @endif
                             </td>
+                            
+                            
+                            
+                            
+                            
                         </tr>
                     @endforeach
                 </tbody>

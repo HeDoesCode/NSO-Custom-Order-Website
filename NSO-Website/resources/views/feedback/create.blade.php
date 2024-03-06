@@ -23,11 +23,10 @@
                 @endforeach
             </ul>
     
-            <form action="{{ route('feedback.store') }}" method="post" enctype="multipart/form-data" class="space-y-6">
+            <form action="{{ route('feedback.store', ['orderId' => $orderId]) }}" method="post" enctype="multipart/form-data" class="space-y-6">
                 @csrf
-                <input type="hidden" name="username" value="{{ $user->username }}">
-                <input type="hidden" name="deliveryAddress" value="{{ $user->deliveryAddress }}">
-    
+                <input type="hidden" name="order_id" value="{{ $orderId }}">
+                <input type="hidden" name="user_id" value="{{ $user->id }}">
                 <div class="mb-4 flex items-center">
                     <label for="rating" class="block text-sm font-medium text-gray-600">Rating:</label>
                     <div x-data="starRating()" x-init="initStars({{ old('rating', 0) }})" class="ml-2">

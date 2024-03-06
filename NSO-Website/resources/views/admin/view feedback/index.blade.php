@@ -37,16 +37,19 @@
             <table class=" w-full bg-white shadow-md rounded-lg overflow-hidden  text-center">
                 <thead class="bg-gray-300">
                     <tr>
-                        <th class="px-4 py-2">Image</th>
+                        <th class="px-4 py-2">Ordered By</th>
+                        <th class="px-4 py-2">Feedback Image</th>
                         <th class="px-4 py-2">Rating</th>
                         <th class="px-4 py-2">Comment/Recommendation</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($feedbacks as $feedback)
+                    @foreach ($feedbacks->sortByDesc('created_at') as $feedback)
                         <tr class="even:bg-gray-100">
                             
-
+                            <td class="px-4 py-5">
+                                {{ $feedback->order->username }}
+                        </td>
                             <td class="px-4 py-5 flex justify-center">
                                 <div class="w-40 h-40 flex items-center justify-center">
                                     @if ($feedback->image)
@@ -70,6 +73,9 @@
                                 @endfor
                             </td>
                             <td class="px-4 py-5">{{ $feedback->message }}</td>
+
+
+
                         </tr>
                     @endforeach
                 </tbody>
