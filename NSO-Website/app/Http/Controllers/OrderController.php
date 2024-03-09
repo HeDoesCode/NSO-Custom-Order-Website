@@ -30,13 +30,16 @@ class OrderController extends Controller
     public function place(Request $request) {
         $request->validate([
             'type' => 'required',
-            'design_text' => 'required',
+            'design_text' => ['required', 'string', 'not_only_numeric'],
             'design_img' => 'nullable|mimes:jpg,jpeg,png|max:5120', // max of 5 mb image
             'size' => 'required',
-            'quantity' => 'required|integer',
-            'quantity' => 'required|integer',
+            'quantity' => 'required|integer|min:1|max:30',
             'mode_of_payment' => 'required'
+        ], [
+            'design_text.not_only_numeric' => 'The design description must contain non-numeric characters.',
         ]);
+        
+        
 
         if ($request->design_img != null) {
             if (!file_exists($this->orderDesignImagePath)) {

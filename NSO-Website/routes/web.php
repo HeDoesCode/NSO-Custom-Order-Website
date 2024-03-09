@@ -28,6 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/home', [AdminController::class, 'displayHomePage'])->name('home');
+
     Route::controller(ProfileController::class)->group(function() {
         Route::get('/profile', 'edit')->name('profile.edit');
         Route::patch('/profile', 'update')->name('profile.update');

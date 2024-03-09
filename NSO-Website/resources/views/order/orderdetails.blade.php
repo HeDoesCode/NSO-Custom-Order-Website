@@ -42,7 +42,7 @@
                     </div>
   
                       <div class="col-span-2">
-                        <p class="text-gray-600">Design Text:</p>
+                        <p class="text-gray-600">Design Description:</p>
                         <p class="font-bold">{{ $order->design_text }}</p>
                     </div>
                       <div>

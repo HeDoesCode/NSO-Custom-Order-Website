@@ -17,11 +17,7 @@
                 <a href="{{ route('dashboard') }}" class="bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-800" >Cancel</a>
             </div>
     
-            <ul class="text-red-500">
-                @foreach ($errors->all() as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
+            
     
             <form action="{{ route('order.place') }}" method="post" enctype="multipart/form-data" class="space-y-6">
                 @csrf
@@ -36,11 +32,17 @@
                         <option value="Regular">REGULAR</option>
                         <option value="Premium">PREMIUM</option>
                     </select>
+                    @error('type')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
                 </div>
     
                 <div class="mb-4">
                     <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:</label>
                     <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    @error('design_text')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
                 </div>
     
                 <div class="mb-4">
@@ -55,11 +57,17 @@
                 <div class="mb-4">
                     <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:</label>
                     <select name="size" id="size" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></select>
+                    @error('size')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
     
                 <div class="mb-4">
-                    <label for="qty" class="block text-sm font-medium text-gray-600">Quantity:</label>
-                    <input type="number" name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    <label for="qty" class="block text-sm font-medium text-gray-600">Quantity: (Maximum of 30 orders only)</label>
+    <input type="number" name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md" min="1">
+    @error('quantity')
+    <span class="text-red-500 text-sm">{{ $message }}</span>
+@enderror
                 </div>
     
                 <div class="mb-4">
@@ -68,6 +76,9 @@
                         <option value=""></option>
                         <option value="Gcash">{{ __('Gcash') }}</option>
                     </select>
+                    @error('mode_of_payment')
+    <span class="text-red-500 text-sm">{{ $message }}</span>
+@enderror
                 </div>
     
                 <div>
@@ -77,31 +88,45 @@
         </div>
     
         <script>
-            const regularSizes = ['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];        
-            const premiumSizes = ['Small', 'Medium', 'Large', 'XLarge'];
-    
+            const regularSizes = ['Select Size', 'Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];
+            const premiumSizes = ['Select Size', 'Small', 'Medium', 'Large', 'XLarge'];
+        
             const typeSelect = document.getElementById('type');
             const sizeSelect = document.getElementById('size');
-    
+        
             function populateSize() {
                 sizeSelect.innerHTML = "";
-    
+        
                 if (typeSelect.value === 'Regular') {
                     regularSizes.forEach(size => appendOption(size));
                 } else if (typeSelect.value === 'Premium') {
                     premiumSizes.forEach(size => appendOption(size));
+                }
+        
+                // Disable the "Select size" option if a type is selected
+                if (typeSelect.value !== '') {
+                    sizeSelect.removeAttribute('disabled');
                 } else {
-                    appendOption("Select a shirt type first");
+                    appendOption("Select a shirt type first", true); // Pass true to disable the option
+                    sizeSelect.setAttribute('disabled', 'disabled');
                 }
             }
-    
-            function appendOption(value) {
+        
+            function appendOption(value, disabled = false) {
                 const option = document.createElement("option");
                 option.textContent = value;
                 option.value = value;
+        
+                // Set the disabled attribute if specified
+                if (disabled) {
+                    option.setAttribute('disabled', 'disabled');
+                }
+        
                 sizeSelect.appendChild(option);
             }
         </script>
+        
+        
 
 
 

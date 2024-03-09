@@ -13,7 +13,7 @@
                 <thead class="bg-gray-300">
                     <tr>
                         <th class="px-4 py-2">Design Image</th>
-                        <th class="px-4 py-2">Design Text</th>
+                        <th class="px-4 py-2">Design Description</th>
                         <th class="px-4 py-2">Price</th>
                         <th class="px-4 py-2">Status</th>
                         <th class="px-4 py-2">Order Date</th>

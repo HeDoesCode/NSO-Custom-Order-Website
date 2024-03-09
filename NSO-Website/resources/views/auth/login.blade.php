@@ -20,6 +20,13 @@
                     <div class="container containerlogin">
                         <div class="login-formHolder">
                         <!-- Username -->
+
+                        @if(session('verified'))
+    <div class="alert alert-success text-green-500" role="alert">
+        Your email has been successfully verified. Please log in to continue.
+    </div>
+@endif
+
                         <div class="login-step">
                             <x-input-label for="username" :value="__('Username')" />
 
