@@ -55,8 +55,11 @@ class PasswordResetLinkController extends Controller
 
         if ($admin) {
             $status = Password::broker('admin')->sendResetLink(['email' => $admin->email]);
+            $request->session()->put('adminEmail', $admin->email);
+
+
         } else {
-            $status = Password::broker('admin')->INVALID_USER;
+            $status = "Admin Credential Invalid";
         }
 
         return $status == Password::RESET_LINK_SENT
