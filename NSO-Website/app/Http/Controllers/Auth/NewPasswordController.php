@@ -18,18 +18,18 @@ class NewPasswordController extends Controller
     /**
      * Display the password reset view.
      */
-    public function create(Request $request): View
-{
-    // Fetch the user based on the provided email
-    $user = User::where('email', $request->email)->first();
+    public function create(Request $request): View|RedirectResponse
+    {
 
-    if (!$user) {
-        // Handle the case where the user with the provided email doesn't exist.
-        return back()->withErrors(['email' => __('User not found')]);
+     
+
+    
+
+
+
+       
+        return view('auth.reset-password', ['request' => $request]);
     }
-
-    return view('auth.reset-password', ['request' => $request, 'username' => $user->username]);
-}
 
 
     /**
@@ -38,42 +38,47 @@ class NewPasswordController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-{
-    $request->validate([
-        'token' => ['required'],
-        'username' => ['required'],
-        'password' => ['required', 'confirmed', Rules\Password::defaults()],
-    ]);
+    {
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
 
-    // Fetch the user based on the provided email
-    $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
-    if (!$user) {
-        // Handle the case where the user with the provided email doesn't exist.
-        return back()->withErrors(['email' => __('User not found')]);
-    }
-
-    // Here we will attempt to reset the user's password.
-    $status = Password::reset(
-        $request->only('username', 'password', 'password_confirmation', 'token'),
-        function ($user) use ($request) {
-            // Update the user's password
-            $user->forceFill([
-                'password' => Hash::make($request->password),
-                'remember_token' => Str::random(60),
-            ])->save();
-
-            event(new PasswordReset($user));
+        if (!$user) {
+            // Handle the case where the user with the provided email doesn't exist.
+            return back()->withErrors(['email' => __('User not found')]);
         }
-    );
 
-    // If the password was successfully reset, we will redirect the user back to
-    // the application's home authenticated view. If there is an error, we can
-    // redirect them back to where they came from with their error message.
-    return $status == Password::PASSWORD_RESET
-        ? redirect()->route('login')->with('status', __($status))
-        : back()->withInput($request->only('username'))
-            ->withErrors(['username' => __($status)]);
-}
+        // Here we will attempt to reset the user's password. If it is successful we
+        // will update the password on an actual user model and persist it to the
+        // database. Otherwise we will parse the error and return the response.
+         // Fetch the user based on the provided email
+  
 
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user) use ($request) {
+                $user->forceFill([
+                    'password' => Hash::make($request->password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        
+           
+        
+        // If the password was successfully reset, we will redirect the user back to
+        // the application's home authenticated view. If there is an error we can
+        // redirect them back to where they came from with their error message.
+        return $status == Password::PASSWORD_RESET
+                    ? redirect()->route('login')->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                            ->withErrors(['email' => __($status)]);
+    }
 }

@@ -8,14 +8,14 @@
         <!-- Display Username -->
         <div>
             <x-input-label for="username" :value="__('Username')" />
-            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username', $username ?? '')" required  autocomplete="username" readonly />
+            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="session('userName')" required  autocomplete="username" readonly />
             <x-input-error :messages="$errors->get('username')" class="mt-2" />
         </div>
 
         <!-- Email Address (Hidden) -->
         <div class="mt-4" hidden>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required  autocomplete="username" hidden/>
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="session('userEmail')" required  autocomplete="username" hidden/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 

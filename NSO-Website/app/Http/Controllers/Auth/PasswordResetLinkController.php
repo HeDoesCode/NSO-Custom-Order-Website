@@ -42,6 +42,8 @@ class PasswordResetLinkController extends Controller
             $status = Password::sendResetLink([
                 'email' => $user->email,
             ]);
+            $request->session()->put('userEmail', $user->email);
+            $request->session()->put('userName', $user->username);
         } else {
             // Handle the case where the username doesn't exist.
             $status = Password::INVALID_USER;
