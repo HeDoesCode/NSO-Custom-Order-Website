@@ -27,7 +27,7 @@
         </style>
 
     </head>
-    <body class="antialiased overflow-hidden">
+    <body class="antialiased">
         <div>
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
