@@ -17,7 +17,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
-        <style>
+        <!-- <style>
             .modal-container {
                 position: fixed;
                 top: 50%;
@@ -36,7 +36,7 @@
                 max-width: 100%;
                 max-height: 100%;
             }
-        </style>
+        </style> -->
         
 
     </head>
@@ -44,6 +44,7 @@
         <div class="min-h-screen bg-gray-100">
             
             @include('layouts.adminnavigation')
+            
 
             <!-- Page Heading -->
             @if (isset($header))
