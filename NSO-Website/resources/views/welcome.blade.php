@@ -28,7 +28,7 @@
 
     </head>
     <body class="antialiased">
-        <!-- <div>
+        <div>
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
                 </div>
@@ -60,7 +60,7 @@
                                         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                            <a href="{{ route('register') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -149,7 +149,7 @@
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon " aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
-        </a>
+        </a> 
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
@@ -190,34 +190,29 @@
                         </ul>
                     </div>
 
-                    <!-- <ul class="footer__nav">
-        <div class="contacts">
-            <li class="nav__item">
-            <h2 class="nav__title">Get Notified On</h2>
-            
-                <ul class="nav__ul">
-                    <li>
-                        <a href="#">facebook.com/notso.ordinaryyy</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">instagram.com/notso.ordinaryyy</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">shopee.ph/notso.ordinaryyy</a>
-                    </li>
-                    <li>
-                        <a href="#">notso.ordinaryyy@gmail.com</a>
-                    </li>
-
-                </ul>
-                
-            </li>
-        </div>
-    </ul> -->
-
-
+            <!-- <ul class="footer__nav">
+                    <div class="contacts">
+                        <li class="nav__item">
+                        <h2 class="nav__title">Get Notified On</h2>
+                            <ul class="nav__ul">
+                                <li>
+                                    <a href="#">facebook.com/notso.ordinaryyy</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#">instagram.com/notso.ordinaryyy</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#">shopee.ph/notso.ordinaryyy</a>
+                                </li>
+                                <li>
+                                    <a href="#">notso.ordinaryyy@gmail.com</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul> -->
 
 
                 </div>

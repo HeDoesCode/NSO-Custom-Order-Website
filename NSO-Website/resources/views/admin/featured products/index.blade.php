@@ -1,6 +1,9 @@
 <x-admin-layout>
     <div class="grid grid-cols-12">
-        <div class="col-span-2 p-5 left_panel text-white min-h-screen">
+
+    @include('layouts.sidebar')
+
+        <!-- <div class="col-span-2 p-5 left_panel text-white min-h-screen">
             <div class="mb-8">
                 <p class="text-3xl font-bold">Admin Dashboard</p>
             </div>
@@ -22,7 +25,7 @@
                     Featured
                 </a>
             </div>
-        </div>
+        </div> -->
 
           <div class="col-span-10 p-5">
             <div class="ml-6">
