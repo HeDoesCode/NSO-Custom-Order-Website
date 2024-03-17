@@ -28,7 +28,7 @@
 
     </head>
     <body class="antialiased">
-        <div>
+        <!-- <div>
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
                 </div>
@@ -68,9 +68,52 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
 
+            <div>
+    @if (Route::has('login'))
+        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
+        </div>
+    @endif
 
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="{{ url('/') }}" class="nav_links">HOME</a>
+            <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+        </div>
+        <div class="center-nav">
+            <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
+        </div>
+        <div class="right-nav">
+            @auth
+                <div class="dropdown">
+                    <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                    <div class="dropdown-content">
+                        <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                </div>
+            @endauth
+
+            <div>
+                @guest
+                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                    @endif
+                @endguest
+            </div>
+        </div>
+    </div>
+</nav>
 
     <div class="scroll-container">
 
