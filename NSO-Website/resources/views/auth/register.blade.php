@@ -11,7 +11,9 @@
 
             <!-- Right side form holder -->
             <div class="register-formHolder">
+
                 <div class="login-title-bar">
+                    
                     <h2>NOT SO ORDINARY</h2>
                 </div>
                 <!-- Step 1: Username, Email, Password -->
@@ -33,6 +35,12 @@
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 
                     <button type="button" onclick="nextStep()">Next</button>
+                    
+
+                </div>
+
+                <div class="text-right mt-3 back_button">                    
+                    I already have an account.  &nbsp <ins><a href="{{ url('/login') }}" > Login in here!</a></ins>
                 </div>
 
                 <!-- Step 2: First Name, Last Name, Contact, Address -->
@@ -69,6 +77,7 @@
  
                     <button type="button" onclick="prevStep()">Back</button>
                     <button type="submit" id="btn-register" disabled>Register</button>
+
                 </div>
             </div>
         </form>

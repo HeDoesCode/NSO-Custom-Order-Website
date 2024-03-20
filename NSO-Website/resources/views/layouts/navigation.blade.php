@@ -103,12 +103,12 @@
     <nav>
         <div class="navbar">
             <div class="left-nav">
-                <a href="{{ url('/') }}" class="nav_links">HOME</a>
-                <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+                <a href="{{ url('/') }}" class="nav_links" id="linkanimation2">HOME</a>
+                <a href="{{ url('/dashboard') }}" class="nav_links" id="linkanimation2" >DASHBOARD</a>
             </div>
     
             <div class="center-nav">
-                <a>NOT SO ORDINARY</a>
+            <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
             </div>
     
             <!-- <div class="center right-nav">
@@ -124,11 +124,13 @@
 
 
             <div class="right-nav ">
+             @auth
                 <div class="dropdown">
+                <span class="username">{{ Auth::user()->username }}</span>
+
                     <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
                     <div class="dropdown-content">
-                        @auth
-                        <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                    <a href="{{ route('profile.edit') }}" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-responsive-nav-link :href="route('logout')"
@@ -143,9 +145,9 @@
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                             @endif
-                        @endauth
                     </div>
                 </div>        
+            @endauth
             </div>
 
         </div>

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
         <title>Not So Ordinary</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+        <!-- jQuery -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+        <!-- Bootstrap Touch Carousel JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touch-carousel/1.2.9/bootstrap-touch-carousel.js"></script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,10 +26,13 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="css/stylewise.css">
+
         
         
         <style>
@@ -28,11 +43,7 @@
 
     </head>
     <body class="antialiased">
-<<<<<<< HEAD
         <!-- <div>
-=======
-        <div>
->>>>>>> arvin19
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
                 </div>
@@ -82,16 +93,19 @@
 
     <nav class="navbar">
         <div class="left-nav">
-            <a href="{{ url('/') }}" class="nav_links">HOME</a>
-            <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+            <a href="{{ url('/') }}" class="nav_links" id="linkanimation2">HOME</a>
+            <a href="{{ url('/dashboard') }}" class="nav_links" id="linkanimation2">DASHBOARD</a>
         </div>
         <div class="center-nav">
             <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
         </div>
         <div class="right-nav">
             @auth
-                <div class="dropdown">
-                    <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+            <div class="dropdown">
+
+            <span class="username">{{ Auth::user()->username }}</span>
+
+                    <i class="pfp fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
                     <div class="dropdown-content">
                         <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -99,7 +113,7 @@
                             <x-responsive-nav-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Log Out') }} 
                             </x-responsive-nav-link>
                         </form>
                     </div>
@@ -108,11 +122,12 @@
 
             <div>
                 @guest
-                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
+                    <a href="{{ route('login') }}" class="nav_links font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" id="linkanimation">Log in</a>
+                    
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        <a href="{{ route('register') }}" class="nav_links ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" id="linkanimation">Register</a>
                     @endif
+                    
                 @endguest
             </div>
         </div>
@@ -130,44 +145,45 @@
 
 
 
-     
-            <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
-                <div class="overlay">
-                    <h1 class="carousel-caption">YEAR II COLLECTION</h1>
-                </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel" data-bs-ride="carousel" data-bs-touch="true">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
+            <div class="overlay">
+                <h1 class="carousel-caption">YEAR II COLLECTION</h1>
             </div>
-            <div class="carousel-item" style="background-image: url('{{ asset('/images/NSO_f1.jpg') }}')">
-                <div class="overlay">
-                    <h1 class="carousel-caption">NSO F1 Collection!</h1>
-                </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('{{ asset('/images/NSO_f1.jpg') }}')">
+            <div class="overlay">
+                <h1 class="carousel-caption">NSO F1 Collection!</h1>
             </div>
-            <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')"></div>
-            </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a> 
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        </div>
+        <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')"></div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a> 
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
 
 
-        <section class="featured-products col">
+
+        <section class="featured-products ">
             <h2 class="featured-products-title">featured products </h2>
             <div class="card-container wrap">
                 @foreach($featuredProducts as $product)
-                    <div class="card col">
+                    <div class="card ">
                         <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
                         <div class="card-content">
                             <h2 class="card-title">{{ $product->title }}</h2>

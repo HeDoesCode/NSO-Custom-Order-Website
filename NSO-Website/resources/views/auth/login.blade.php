@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <x-guest-layout>
     
@@ -11,21 +13,23 @@
 
             <div class="divider"></div>
 
+            <!-- Login Form -->
             <div class="half login-credentialsHolder">
+                <a href="{{ url('/') }}" class="back_button ">Go Back</a>
                 <form id="form1" class="form1" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="login-title-bar">
                         <h2 class=nso-header>NOT SO ORDINARY</h2>
                     </div>
                     <div class="container containerlogin">
-                        <div class="login-formHolder">
+                    <div class="login-formHolder">
                         <!-- Username -->
 
                         @if(session('verified'))
-    <div class="alert alert-success text-green-500" role="alert">
-        Your email has been successfully verified. Please log in to continue.
-    </div>
-@endif
+                            <div class="alert alert-success text-green-500" role="alert">
+                                Your email has been successfully verified. Please log in to continue.
+                            </div>
+                        @endif
 
                         <div class="login-step">
                             <x-input-label for="username" :value="__('Username')" />
