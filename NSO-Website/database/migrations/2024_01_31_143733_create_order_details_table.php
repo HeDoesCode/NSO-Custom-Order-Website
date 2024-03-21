@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->string('deliveryAddress');
             $table->string('type');
             $table->text('design_text');
             $table->string('design_img')->nullable();

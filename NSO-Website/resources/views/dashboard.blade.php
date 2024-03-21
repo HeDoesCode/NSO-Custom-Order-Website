@@ -7,7 +7,9 @@
         </div>
 
         <a href="{{ route('order.create') }}" class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-block">+ Create Order</a>
-  
+        @if (session()->has('success')) 
+        <span>{{ session('success') }}</span>
+    @endif
         @if ($orders)
             <table class="table-fixed w-full bg-white shadow-md rounded-lg overflow-hidden text-center">
                 <thead class="bg-gray-300">
@@ -79,9 +81,4 @@
             <p>No orders available.</p>
         @endif
     </div>
-
-    @if (session()->has('success')) 
-        <span>{{ session('success') }}</span>
-    @endif
-    
 </x-app-layout>

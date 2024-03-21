@@ -1,3 +1,6 @@
+<?php
+    $customer = $user[0];
+?>
 <x-admin-layout>
   <div class="grid grid-cols-12">
     <div class="col-span-2 p-5 left_panel text-white min-h-screen">
@@ -41,12 +44,12 @@
                 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <p class="text-gray-600">Username:</p>
-                        <p class="font-bold">{{ $order->username }}</p>
+                        <p class="text-gray-600">Customer:</p>
+                        <p class="font-bold">{{ $customer->lastName.", ".$customer->firstName }}</p>
                     </div>
                     <div>
                         <p class="text-gray-600">Delivery Address:</p>
-                        <p class="font-bold">{{ $order->deliveryAddress }}</p>
+                        <p class="font-bold">{{ $customer->deliveryAddress }}</p>
                     </div>
 
                     <div class="col-span-2">
