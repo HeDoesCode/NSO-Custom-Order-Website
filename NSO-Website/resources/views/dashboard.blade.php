@@ -7,9 +7,11 @@
         </div>
 
         <a href="{{ route('order.create') }}" class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-block">+ Create Order</a>
+
         @if (session()->has('success')) 
-        <span>{{ session('success') }}</span>
-    @endif
+            <span>{{ session('success') }}</span>
+        @endif
+
         @if ($orders)
             <table class="table-fixed w-full bg-white shadow-md rounded-lg overflow-hidden text-center">
                 <thead class="bg-gray-300">
@@ -25,8 +27,6 @@
                 </thead>
                 <tbody>
                     @foreach ($orders->sortByDesc('created_at') as $order)
-
-
                         <tr class="even:bg-gray-100">
                             <td class="px-4 py-5 flex justify-center">
                                 <div class="w-40 h-40 flex items-center justify-center">
@@ -68,11 +68,6 @@
                                     </button>
                                 @endif
                             </td>
-                            
-                            
-                            
-                            
-                            
                         </tr>
                     @endforeach
                 </tbody>

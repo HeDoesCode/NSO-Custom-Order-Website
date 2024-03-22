@@ -15,37 +15,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-7MTU7eL78BMce+q2QhBXJgvj4YMZVArvm+Uwf9vQ8DQyQVMfaz2qr0pME1PuT0bGE32Fmyts1w9bWGvt8Fj3GQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
-        <!-- <style>
-            .modal-container {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-                z-index: 1000; /* Ensure the modal is above other elements */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-            }
-        
-            .modal-container img {
-                max-width: 100%;
-                max-height: 100%;
-            }
-        </style> -->
-        
-
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            
             @include('layouts.adminnavigation')
             
-
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -86,7 +60,5 @@
                 });
             }
         </script>
-        
-
     </body>
 </html>

@@ -24,25 +24,26 @@ use App\Http\Controllers\FeedbackController;
 Route::get('/', [AdminController::class, 'displayHomePage'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function() {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::get('/home', [AdminController::class, 'displayHomePage'])->name('home');
+    Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
     Route::controller(ProfileController::class)->group(function() {
+        // view
         Route::get('/profile', 'edit')->name('profile.edit');
+        
+        // operation
         Route::patch('/profile', 'update')->name('profile.update');
         Route::delete('/profile', 'destroy')->name('profile.destroy');
     }); 
 
     Route::controller(OrderController::class)->group(function() {
+        // view
         Route::get('/order/create', 'displayOrderForm')->name('order.create');
-        Route::post('/order/place', 'place')->name('order.place');
         Route::get('/order/orderdetails/{id}', 'showOrderDetail')->name('order.orderdetails');
+
+        //operation
+        Route::post('/order/place', 'place')->name('order.place');
         
     });
-    Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
     Route::controller(FeedbackController::class)->group(function() {
         //view
