@@ -5,7 +5,7 @@
     <div class="left-nav">
         @auth
             <a href="{{ url('/') }}" class="nav_links" id="linkanimation2">HOME</a>
-            <a href="{{ url('/dashboard') }}" class="nav_links" id="linkanimation2">DASHBOARD</a>
+            <a href="{{ url('/dashboard') }}" class="nav_links" id="linkanimation2">ORDER DASHBOARD</a>
         @endauth
     </div>
 

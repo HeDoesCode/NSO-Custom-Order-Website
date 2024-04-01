@@ -19,12 +19,11 @@ class AdminController extends Controller
 
     //for featured products in home
     public function displayHomePage()
-{
-    $featuredProducts = FeaturedProducts::all(); 
+    {
+        $featuredProducts = FeaturedProducts::all(); 
 
-    return view('welcome', ['featuredProducts' => $featuredProducts]);
-}
-
+        return view('welcome', ['featuredProducts' => $featuredProducts]);
+    }
 
     //for featured products dashboard
     public function displayFeaturedProductsDashboard() {
@@ -110,14 +109,16 @@ class AdminController extends Controller
 
 
     //for orders
-
     public function displayOrdersDashboard() {
-        $orders = Order::all();
+        $orders = DB::table('order_details')
+            ->join('users', 'order_details.username', '=', 'users.username')
+            ->select('order_details.*', 'users.firstName', 'users.lastName')
+            ->get();
+
         return view('admin.home', ['orders' => $orders]);
     }
 
-    public function showOrderDetail($id)
-    {
+    public function showOrderDetail($id) {
         $order = Order::find($id); 
         $user = DB::table('users')
             ->select('firstName', 'lastName', 'contact', 'deliveryAddress')
@@ -127,22 +128,19 @@ class AdminController extends Controller
         return view('admin.orderdetails', ['order' => $order, 'user' => $user]);
     }
 
-    public function updateOrder(Request $request, $id)
-{
-    $request->validate([
-        'price' => 'numeric', 
-        'status' => 'in:Order Placed,Processing Order,To Ship,Order Completed,Order Cancelled', 
-    ]);
+    public function updateOrder(Request $request, $id) {
+        $request->validate([
+            'price' => 'nullable|numeric|gt:0', 
+            'status' => 'required|in:Order Placed,Processing Order,To Ship,Order Completed,Order Cancelled', 
+        ]);
 
-    $order = Order::findOrFail($id);
+        $order = Order::findOrFail($id);
 
-    $order->update([
-        'price' => $request->input('price'),
-        'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
-    ]);
+        $order->update([
+            'price' => $request->input('price'),
+            'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
+        ]);
 
-    return redirect()->back()->with('order_updated', 'Order updated successfully');
-}
-
-
+        return redirect()->back()->with('order_updated', 'Order updated successfully');
+    }
 }

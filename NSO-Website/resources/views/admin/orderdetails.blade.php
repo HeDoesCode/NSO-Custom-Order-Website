@@ -28,28 +28,26 @@
     </div>
 
           <div class="col-span-10 p-5 ">
-            <div class="ml-6">
-                <p class="text-3xl font-bold mb-7">
-                    Order Dashboard
-                </p>
-            </div>
-
-
               <div class="max-w-3xl mx-auto bg-white shadow-md p-6 rounded-md mb-4">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-2xl font-bold">Product Details</h2>
+                    <h2 class="text-2xl font-bold">Order Details</h2>
                     
                     <a href="#" class="bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-800" onclick="toggleEditForms()">Edit</a>
                 </div>
                 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <p class="text-gray-600">Customer:</p>
+                        <p class="text-gray-600">Customer Name:</p>
                         <p class="font-bold">{{ $customer->lastName.", ".$customer->firstName }}</p>
                     </div>
                     <div>
                         <p class="text-gray-600">Delivery Address:</p>
                         <p class="font-bold">{{ $customer->deliveryAddress }}</p>
+                    </div>
+
+                    <div>
+                        <p class="text-gray-600">Customer Contact:</p>
+                        <p class="font-bold">{{ $customer->contact }}</p>
                     </div>
 
                     <div class="col-span-2">

@@ -22,9 +22,11 @@
                 <div class="mb-4">
                     <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:</label>
                     <select name="type" id="type" onchange="populateSize()" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
-                        <option value=""></option>
-                        <option value="Regular">REGULAR</option>
-                        <option value="Premium">PREMIUM</option>
+                        @forEach (array("REGULAR", "PREMIUM") as $type) 
+                            <option value="{{ $type }}" @selected(old('type') == $type)>
+                                {{ $type }}
+                            </option>
+                        @endforeach
                     </select>
                     @error('type')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -41,7 +43,7 @@
     
                 <div class="mb-4">
                     <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:</label>
-                    <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md">{{ old('design_text') }}</textarea>
                     @error('design_text')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -57,7 +59,13 @@
     
                 <div class="mb-4">
                     <label for="qty" class="block text-sm font-medium text-gray-600">Quantity: (Maximum of 30 orders only)</label>
-                    <input type="number" name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md" min="1">
+                    <select name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        @for ($i = 1; $i <= 30; $i++) 
+                            <option value="{{ $i }}" @selected(old('quantity') == $i)>
+                                {{ $i }}
+                            </option>
+                        @endfor
+                    </select>
                     @error('quantity')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -66,8 +74,11 @@
                 <div class="mb-4">
                     <label for="MOD" class="block text-sm font-medium text-gray-600">Mode of Payment:</label>
                     <select name="mode_of_payment" id="MOD" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-                        <option value=""></option>
-                        <option value="Gcash">{{ __('Gcash') }}</option>
+                        @forEach (array("Gcash") as $MOD)
+                            <option value="{{ $MOD }}" @selected(old('mode_of_payment') == $MOD)>
+                                {{ $MOD }}
+                            </option>
+                        @endforeach
                     </select>
                     @error('mode_of_payment')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -75,7 +86,7 @@
                 </div>
     
                 <div>
-                    <input type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800" value="+ Add Product">
+                    <input type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800" value="Place Order">
                 </div>
             </form>
         </div>
@@ -90,9 +101,9 @@
             function populateSize() {
                 sizeSelect.innerHTML = "";
 
-                if (typeSelect.value === 'Regular') {
+                if (typeSelect.value === 'REGULAR') {
                     regularSizes.forEach(size => appendOption(size));
-                } else if (typeSelect.value === 'Premium') {
+                } else if (typeSelect.value === 'PREMIUM') {
                     premiumSizes.forEach(size => appendOption(size));
                 }
             }
