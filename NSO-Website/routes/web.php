@@ -24,6 +24,8 @@ use App\Http\Controllers\FeedbackController;
 Route::get('/', [AdminController::class, 'displayHomePage'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/home', [AdminController::class, 'displayHomePage'])->name('home');
+    
     Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
     Route::controller(ProfileController::class)->group(function() {
