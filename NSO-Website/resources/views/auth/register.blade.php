@@ -1,16 +1,16 @@
 <x-guest-layout>
-    <body class="BodyRegister">
+    <body class="BodyRegister animation">
         <form method="POST" action="{{ route('register') }}" id="registerForm" class="register-container">
             @csrf
 
             <!-- Left side image -->
-            <div class="register-imageHolder"></div>
+            <div class="half register-imageHolder"></div>
 
             <!-- Divider between image and form -->
             <div class="divider"></div>
 
             <!-- Right side form holder -->
-            <div class="register-formHolder">
+            <div class="half register-formHolder">
 
                 <div class="login-title-bar">
                     
@@ -35,13 +35,13 @@
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 
                     <button type="button" onclick="nextStep()">Next</button>
-                    
+                     <div class="text-right mt-3 back_reg">                    
+                    I already have an account.   <ins><a href="{{ url('/login') }}" >Login in here!</a></ins>
+                </div>
 
                 </div>
 
-                <div class="text-right mt-3 back_button">                    
-                    I already have an account.  &nbsp <ins><a href="{{ url('/login') }}" > Login in here!</a></ins>
-                </div>
+               
 
                 <!-- Step 2: First Name, Last Name, Contact, Address -->
                 <div class="register-step" id="step2" style="display: none;">
@@ -106,3 +106,4 @@
         </script>
     </body>
 </x-guest-layout>
+ 

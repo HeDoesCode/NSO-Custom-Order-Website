@@ -65,8 +65,9 @@ html {
     flex-direction: column;
 }
 .form1 {
-    margin: 50px;
+    margin: 30px;
 }
+
 .form1 input[type="text"],
 .form1 input[type="password"],
 .form1 input[type="email"],
@@ -108,11 +109,14 @@ html {
 .login-imageHolder {
     /* Style for the left image container */
     background: url("/images/Login-Backdrop.png") center/cover no-repeat; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    height: 100vh;
+    position: relative;
+    flex: 1;
 }
 
 .login-credentialsHolder {
     /* Style for the right login form container */
-    padding: 20px;
+    padding: 60px;
 }
 
 .divider {
@@ -187,14 +191,60 @@ html {
 .login-title-bar h2 {
     color: #1c1c1c;
     margin: 0;
-    font-size: 32px;
+    font-size: 3vw;
     font-family: Inter;
-    font-size: 44px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     text-align: center;
     margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .login-title-bar h2 {
+        color: #1c1c1c;
+        margin: 0;
+        font-size: 44px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .containerlogin {
+        width: 80%;
+    }
+    .container {
+        padding: 0;
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form1 {
+        margin: 10px;
+        margin-top: 20px;
+    }
+    .login-title-bar h2 {
+        color: #1c1c1c;
+        font-size: 2em;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .containerlogin {
+        width: 100%;
+    }
+    .container {
+        padding: 0;
+        width: 80%;
+        margin: auto;
+    }
 }
 .container {
     padding: 16px;
@@ -225,7 +275,7 @@ html {
 
 .buttonHolder {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .buttonHolderNextPage {
@@ -247,7 +297,7 @@ button {
     padding: 12px 28px;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: auto;
     border-radius: 18px;
     font-family: Inter;
     font-size: 16px;
@@ -258,6 +308,23 @@ button {
 }
 .btnLogin:hover {
     background-color: #1c1c1c;
+}
+
+@media (max-width: 768px) {
+    .half {
+        flex: 1;
+        width: 100%;
+        height: auto;
+    }
+    .login-container {
+        flex-direction: column;
+    }
+    .divider {
+        display: none;
+    }
+    .register-container {
+        flex-direction: column;
+    }
 }
 
 .containerforgotpassword {
@@ -611,53 +678,17 @@ button {
     letter-spacing: 0.25em;
 }
 
-.featured-products {
-    width: 100%;
-}
 .featured-products .featured-products-title {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
-    margin: 6vw 10px;
+    margin: 7vw 10px;
     color: #1d1d1d;
     font-weight: 800;
     letter-spacing: 0.19em;
     font-size: 2.8em;
 }
-/* .featured-products .card-container {
-    padding: 40px;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-}
-.featured-products .card-container .card {
-    background-color: rgba(240, 240, 240, 0.8666666667);
-    border-radius: 15px;
-    padding: 20px;
-    min-width: 300px;
-    max-width: 500px;
-    transition: 0.3s all;
-    cursor: pointer;
-}
-.featured-products .card-container .card img {
-    width: 100%;
-}
-.featured-products .card-container .card .card-content {
-    width: 100%;
-}
-.featured-products .card-container .card .card-content h2 {
-    font-family: "Inter", sans-serif;
-    text-align: center;
-}
-.featured-products .card-container .card .card-content p {
-    font-family: "Inter", sans-serif;
-    text-align: center;
-}
-.featured-products .card-container .card:hover {
-    transform: scale(1.1);
-} */
-
 .username {
     padding-right: 10px;
     display: inline-block; /* Ensure vertical alignment works */
@@ -778,6 +809,9 @@ nav {
     color: var(--black);
     text-decoration: none;
     cursor: default;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .center_font {
@@ -792,7 +826,6 @@ nav {
 .center_font:hover {
     font-family: "Inter", sans-serif;
     font-weight: 800;
-    font-size: 1.5vw;
     letter-spacing: 0.02em;
     color: var(--black);
     text-decoration: none;
@@ -807,21 +840,106 @@ nav {
     }
 
     .center-nav {
-        position: static;
-        transform: none;
+        position: absolute;
         width: 100%;
         text-align: center;
-        font-size: 3.5vw;
+        /* font-size: 1.5vw; */
+    }
+    .center_font {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 1.5vw;
+        letter-spacing: 0.02em;
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .center_font:hover {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        /* font-size: 1.5vw; */
+        letter-spacing: 0.02em;
+        color: var(--black);
+        text-decoration: none;
     }
 
     .left-nav a {
-        font-size: 3.5vw;
+        font-size: 2vw;
         margin: 10px;
-        margin-right: -10px;
+        margin-right: 10px;
     }
     .right-nav a {
-        font-size: 3.5vw;
+        font-size: 2vw;
         margin: 10px;
+    }
+
+    .featured-products .featured-products-title {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+        margin: 7vw 10px;
+        color: #1d1d1d;
+        font-weight: 800;
+        letter-spacing: 0.19em;
+        font-size: 2em;
+    }
+
+    .card {
+        width: 200px; /* Set a fixed width for the cards */
+        margin: 10px;
+        border-radius: 5px;
+        overflow: hidden; /* Ensure content overflow is hidden */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    .card img {
+        width: 100%; /* Ensure the image fills the container */
+        height: 100%; /* Set a fixed height for the image */
+        object-fit: cover; /* Ensure the image covers the entire container */
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+    }
+    .left-nav a {
+        font-size: 2.5vw;
+        padding: 0;
+    }
+
+    .center-nav {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-size: 2.5vw;
+        left: 51%;
+    }
+    .center_font {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 1.7em;
+        letter-spacing: 0.02em;
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .center_font:hover {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        /* font-size: 2.5vw; */
+
+        letter-spacing: 0.02em;
+        color: var(--black);
+        text-decoration: none;
+    }
+    .right-nav a {
+        font-size: 2vw;
+        margin: 1px;
     }
 }
 
@@ -841,7 +959,10 @@ nav {
 }
 
 .card {
-    width: 400px; /* Set a fixed width for the cards */
+    width: calc(
+        33.33% - 40px
+    ); /* Adjust the width to fit three cards per row with margins */
+    max-width: 400px; /* Set a maximum width for the cards */
     margin: 20px;
     border-radius: 5px;
     overflow: hidden; /* Ensure content overflow is hidden */
@@ -855,8 +976,9 @@ nav {
 
 .card img {
     width: 100%; /* Ensure the image fills the container */
-    height: 100%; /* Set a fixed height for the image */
+    height: auto; /* Let the browser calculate the height to maintain aspect ratio */
     object-fit: cover; /* Ensure the image covers the entire container */
+    max-width: 100%; /* Ensure the image does not exceed its container's width */
 }
 
 .card-content {
@@ -867,13 +989,28 @@ nav {
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 0.1em;
-    font-size: 1.5vw;
 }
 
 .card-text {
     text-align: center;
     margin-top: 10px;
     font-family: Inter;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(
+            50% - 40px
+        ); /* Adjust the width to fit two cards per row with margins */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(
+            100% - 40px
+        ); /* Adjust the width to fit one card per row with margins */
+    }
 }
 
 .clickbox-gr {
@@ -898,6 +1035,7 @@ nav {
     letter-spacing: 0.07em;
     color: #3d3d3d;
     text-decoration: none;
+    padding-right: 5px;
 }
 
 .nav_links:hover {
@@ -908,10 +1046,24 @@ nav {
     text-decoration: none;
 }
 
-.my-nav {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
+.register_btn {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: 0.07em;
+    color: #351b05;
+    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    /* border: #351b05 2px solid; */
+}
+
+.register_btn:hover {
+    color: #633b1b;
+    /* box-shadow: 0px 0px 1px 0px #000; */
+    background-color: #d6d6d6;
+    transition: 0.3s ease-in-out;
 }
 
 .carousel-item {
@@ -934,7 +1086,7 @@ nav {
     height: 2px;
     opacity: 1;
 }
-.overlay {
+.overlay_landing {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -1076,7 +1228,7 @@ nav {
 
 #linkanimation:hover {
     color: #633b1b;
-    bottom: 0.1vw;
+    /* bottom: 0.1vw; */
 }
 #linkanimation::before {
     position: absolute;
@@ -1111,11 +1263,198 @@ nav {
 } */
 
 .back_button {
-    display: flex; /* Use flexbox */
+    display: flex;
     justify-content: flex-end; /* Align the content to the end (right side) */
     padding-right: 20px;
     padding-top: 10px;
     text-decoration: none;
     font-family: "Inter";
     font-weight: 500;
+}
+
+/*============================== */
+
+.animation {
+    animation-name: move;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+
+.a1 {
+    animation-delay: 0.7s;
+}
+
+.a2 {
+    animation-delay: 0.9s;
+}
+
+.a3 {
+    animation-delay: 1s;
+}
+
+.a4 {
+    animation-delay: 1.1s;
+}
+
+.a5 {
+    animation-delay: 1.2s;
+}
+
+.a6 {
+    animation-delay: 1.3s;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        padding: 20px 40px;
+        width: 440px;
+    }
+}
+
+/* .back_reg {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-decoration: none;
+    font-family: "Inter";
+    font-weight: 500;
+} */
+
+@media screen and (min-width: 768px) {
+    .navbar_menu {
+        display: none;
+        margin: 10px;
+    }
+}
+
+/* Add any other styles for mobile menu here */
+
+/* Ensure the mobile-only class hides elements on larger screens */
+.mobile-only {
+    display: none;
+}
+
+/* Add styles for the burger menu icon and dropdown */
+.burger-menu {
+    display: block;
+    cursor: pointer;
+    /* Add styles for the burger icon bars */
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+    position: relative; /* Ensure proper positioning of the menu items */
+    border-radius: 1em;
+}
+
+#burger-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* Add styles for the burger icon bars */
+.bar {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Add styles for the menu items */
+.menu-items {
+    list-style: none;
+    padding: 0;
+    display: none; /* Hide menu items by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 999; /* Ensure menu items appear above other content */
+}
+
+.menu-items li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu-items a {
+    display: block;
+    margin: 0;
+    text-decoration: none;
+    color: #333;
+}
+
+#burger-toggle:checked + .burger-menu .menu-items {
+    display: block;
+}
+/* Add media query for mobile screens */
+@media screen and (max-width: 425px) {
+    .mobile-only {
+        display: inline-block;
+    }
+
+    .right-nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-items {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: #f9f9f9;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu-items li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .menu-items a {
+        display: block;
+        margin: 0;
+    }
+
+    #burger-toggle:checked + .burger-menu ~ .menu-items {
+        display: block;
+    }
 }

@@ -4,22 +4,22 @@
 
 <x-guest-layout>
     
-    <body class="BodyLogin">
+    <body class="BodyLogin animation">
         <!-- Session Status -->
         <x-auth-session-status :status="session('status')" />
 
         <div class="login-container">
             <div class="half login-imageHolder"></div>
 
-            <div class="divider"></div>
+            <div class="divider "></div>
 
             <!-- Login Form -->
             <div class="half login-credentialsHolder">
-                <a href="{{ url('/') }}" class="back_button ">Go Back</a>
+                <a href="{{ url('/') }}" class="back_button animation a1">Go Back</a>
                 <form id="form1" class="form1" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="login-title-bar">
-                        <h2 class=nso-header>NOT SO ORDINARY</h2>
+                        <h2 class="nso-header animation a1">NOT SO ORDINARY</h2>
                     </div>
                     <div class="container containerlogin">
                     <div class="login-formHolder">
@@ -32,19 +32,19 @@
                         @endif
 
                         <div class="login-step">
-                            <x-input-label for="username" :value="__('Username')" />
+                            <x-input-label for="username" :value="__('Username')" class="animation a2" />
 
-                            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
-                                :value="old('username')" required autofocus autocomplete="username" />
+                            <x-text-input id="username" class="block mt-1 w-full animation a2" type="text" name="username"
+                                :value="old('username')" required autofocus autocomplete="username"  />
 
-                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('username')" class="mt-2 animation a2" />
                         </div>
 
                         <!-- Password -->
                         <div class="login-step">
-                            <x-input-label for="password" :value="__('Password')" />
+                            <x-input-label for="password" :value="__('Password')" class="animation a3"/>
 
-                            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password"
+                            <x-text-input id="password" class="block mt-1 w-full animation a3" type="password" name="password"
                                 required autocomplete="current-password" />
                                 
 
@@ -53,7 +53,7 @@
                        
                         <!-- Remember Me -->
                         </div>
-                        <div class="row py-5">
+                        <div class="row py-5 animation a4">
                            <div class="col-md-6 d-flex justify-content-center">
                                 <label for="remember_me" class="inline-flex items-center">
                                     <input id="remember_me" type="checkbox"
@@ -74,12 +74,12 @@
                             </div>
                         </div>
                      
-                        <div class="buttonHolder">
+                        <div class="buttonHolder animation a5">
                             <button class="btnLogin">
                                 {{ __('Log in') }}
                             </button>
                         </div>
-                        <div class="buttonHolder">  
+                        <div class="buttonHolder animation a6">  
                         Don’t have an account?   
                         <a href="{{ route('register') }}" class="underline text-m text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 {{ __('Sign Up') }}

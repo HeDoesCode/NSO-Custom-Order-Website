@@ -85,7 +85,138 @@
                         </a>
                     @endforeach
                 </div>
-            </section>
+            </nav> -->
+
+            <div>
+    @if (Route::has('login'))
+        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
+        </div>
+    @endif
+
+    <nav class="navbar">
+        
+        <div class="left-nav">
+            @auth
+            <a href="{{ url('/') }}" class="nav_links">HOME</a>
+            <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+           @endauth 
+
+    <div class="navbar_menu">
+        <input type="checkbox" id="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </label>
+        <ul class="menu-items">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">DASHBOARD</a></li>
+            <li><a href="#">LOGIN REGISTER</a></li>
+        </ul>
+    </div>
+
+ 
+           </div>
+        <div class="center-nav">
+            <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
+        </div>
+        <div class="right-nav">
+            @auth
+            <div class="dropdown">
+
+            <span class="username">{{ Auth::user()->username }}</span>
+
+                    <i class="pfp fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                    <div class="dropdown-content">
+                        <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                {{ __('Log Out') }} 
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                </div>
+            @endauth
+
+            <div class="log_reg">
+                @guest
+                    <a href="{{ route('login') }}" class="nav_links font-semibold ">Log in </a>  / 
+                    
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="register_btn nav_links " >Register</a>
+                    @endif
+                    
+                @endguest
+            </div>
+        </div>
+    </div>    
+</nav>
+
+    <div class="scroll-container">
+
+
+        <!-- <section class="home-welcome">
+            <div class="overlay">
+                <h1>YEAR II COLLECTION</h1>
+            </div> 
+        </section> -->
+
+
+
+
+        <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel" data-bs-ride="carousel" data-bs-touch="true">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
+            <div class="overlay_landing">
+                <h1 class="carousel-caption">YEAR II COLLECTION</h1>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('{{ asset('/images/NSO_f1.jpg') }}')">
+            <div class="overlay_landing">
+                <h1 class="carousel-caption">NSO F1 Collection!</h1>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')"></div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a> 
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+        <section class="featured-products ">
+            <h2 class="featured-products-title ">featured products </h2>
+            <div class="card-container wrap">
+                @foreach($featuredProducts as $product)
+                    <div class="card ">
+                        <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
+                        <div class="card-content">
+                            <h2 class="card-title">{{ $product->title }}</h2>
+                            <p class="card-text">{{ $product->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+
+        
             <footer>
                 <div class="footer-nav row">
                     <div class="footer-img row">
