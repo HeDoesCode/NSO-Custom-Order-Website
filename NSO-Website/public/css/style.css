@@ -282,7 +282,7 @@ html {
     text-align: right;
 }
 
-button {
+/* button {
     background-color: #000000;
     color: white;
     padding: 10px 20px;
@@ -290,7 +290,8 @@ button {
     cursor: pointer;
     width: 25%;
     border-radius: 18px;
-}
+} */
+
 .btnLogin {
     background-color: #000000;
     color: white;
@@ -696,6 +697,10 @@ button {
     margin-bottom: 5px;
 }
 
+.nav_username {
+    font-size: 4em;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -759,6 +764,12 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+.footer_links {
+    color: white;
+    text-decoration: none;
+}
+
 .footer-links ul {
     list-style: none;
     padding: 0;
@@ -848,7 +859,7 @@ nav {
     .center_font {
         font-family: "Inter", sans-serif;
         font-weight: 800;
-        font-size: 1.5vw;
+        font-size: 1.5em;
         letter-spacing: 0.02em;
         color: var(--black);
         text-decoration: none;
@@ -905,7 +916,7 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 25px;
+        padding: 30px;
     }
     .left-nav a {
         font-size: 2.5vw;
@@ -1349,25 +1360,21 @@ nav {
     }
 }
 
-/* Add any other styles for mobile menu here */
-
-/* Ensure the mobile-only class hides elements on larger screens */
 .mobile-only {
     display: none;
 }
 
-/* Add styles for the burger menu icon and dropdown */
 .burger-menu {
     display: block;
     cursor: pointer;
-    /* Add styles for the burger icon bars */
     width: 35px;
     height: 5px;
     background-color: #333;
     margin: 6px 0;
     transition: 0.4s;
-    position: relative; /* Ensure proper positioning of the menu items */
-    border-radius: 1em;
+    position: relative;
+    border-radius: 5px; /* Apply border-radius directly */
+    z-index: 1000;
 }
 
 #burger-toggle {
@@ -1377,6 +1384,7 @@ nav {
     height: 1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+    z-index: 1001; /* Ensure the checkbox input is above other elements */
 }
 
 /* Add styles for the burger icon bars */
@@ -1400,7 +1408,8 @@ nav {
     background-color: #f9f9f9;
     padding: 10px 0;
     text-align: center;
-    z-index: 999; /* Ensure menu items appear above other content */
+    z-index: 9999; /* Ensure menu items appear above other content */
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .menu-items li {
@@ -1413,6 +1422,7 @@ nav {
     margin: 0;
     text-decoration: none;
     color: #333;
+    font-size: 4em;
 }
 
 #burger-toggle:checked + .burger-menu .menu-items {
@@ -1420,6 +1430,14 @@ nav {
 }
 /* Add media query for mobile screens */
 @media screen and (max-width: 425px) {
+    .nav_links {
+        display: none;
+    }
+
+    .left-nav {
+        padding-top: 30px;
+        margin-top: -50px;
+    }
     .mobile-only {
         display: inline-block;
     }

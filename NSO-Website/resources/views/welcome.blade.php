@@ -99,7 +99,8 @@
             <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
            @endauth 
 
-    <div class="navbar_menu">
+
+        <div class="navbar_menu">
         <input type="checkbox" id="burger-toggle">
         <label for="burger-toggle" class="burger-menu">
             <div class="bar"></div>
@@ -107,14 +108,24 @@
             <div class="bar"></div>
         </label>
         <ul class="menu-items">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">DASHBOARD</a></li>
-            <li><a href="#">LOGIN REGISTER</a></li>
+        @auth
+            <li class="nav_username">{{ Auth::user()->username }}</li>
+            <li><a href="{{ url('/') }}" class="nav_links">HOME</a></li>
+            <li><a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a></li>
+        @endauth 
+
+            <li>@guest
+                    <a href="{{ route('login') }}" class=" font-semibold">Log in </a>  / 
+                    
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="register_btn" >Register</a>
+                    @endif
+                    
+                @endguest</li>
         </ul>
     </div>
+ </div>
 
- 
-           </div>
         <div class="center-nav">
             <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
         </div>
@@ -141,10 +152,10 @@
 
             <div class="log_reg">
                 @guest
-                    <a href="{{ route('login') }}" class="nav_links font-semibold ">Log in </a>  / 
+                    <a href="{{ route('login') }}" class="nav_links font-semibold">Log in </a>  / 
                     
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="register_btn nav_links " >Register</a>
+                        <a href="{{ route('register') }}" class="register_btn nav_links" >Register</a>
                     @endif
                     
                 @endguest
@@ -223,9 +234,9 @@
                             
                     <div class="footer-links row">
                         <ul>
-                            <li>Facebook</li>
-                            <li>Instagram</li>
-                            <li>Shopee</li>
+                            <li><a href="{{ url('https://www.facebook.com/notso.ordinaryyy') }}" class="footer_links">Facebook</a></li>
+                            <li><a href="{{ url('https://www.instagram.com/notso.ordinaryyy/') }}" class="footer_links">Instagram</a></li>
+                            <li><a href="{{ url('https://shopee.ph/notso.ordinaryyy') }}" class="footer_links">Shopee</a></li>
                         </ul>
                     </div>
 
@@ -265,6 +276,14 @@
         </div>
     </body>
 
+
+    <script>
+        function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('show-menu');
+}
+
+        </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
