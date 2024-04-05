@@ -92,10 +92,29 @@
     @endif
 
     <nav class="navbar">
+        
         <div class="left-nav">
-            <a href="{{ url('/') }}" class="nav_links" id="linkanimation2">HOME</a>
-            <a href="{{ url('/dashboard') }}" class="nav_links" id="linkanimation2">DASHBOARD</a>
-        </div>
+            @auth
+            <a href="{{ url('/') }}" class="nav_links">HOME</a>
+            <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+           @endauth 
+
+    <div class="navbar_menu">
+        <input type="checkbox" id="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </label>
+        <ul class="menu-items">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">DASHBOARD</a></li>
+            <li><a href="#">LOGIN REGISTER</a></li>
+        </ul>
+    </div>
+
+ 
+           </div>
         <div class="center-nav">
             <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
         </div>
@@ -120,18 +139,18 @@
                 </div>
             @endauth
 
-            <div>
+            <div class="log_reg">
                 @guest
-                    <a href="{{ route('login') }}" class="nav_links font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" id="linkanimation">Log in</a>
+                    <a href="{{ route('login') }}" class="nav_links font-semibold ">Log in </a>  / 
                     
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="nav_links ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" id="linkanimation">Register</a>
+                        <a href="{{ route('register') }}" class="register_btn nav_links " >Register</a>
                     @endif
                     
                 @endguest
             </div>
         </div>
-    </div>
+    </div>    
 </nav>
 
     <div class="scroll-container">
@@ -154,12 +173,12 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active " style="background-image: url('{{ asset('images/NSO.png') }}')"> 
-            <div class="overlay">
+            <div class="overlay_landing">
                 <h1 class="carousel-caption">YEAR II COLLECTION</h1>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('{{ asset('/images/NSO_f1.jpg') }}')">
-            <div class="overlay">
+            <div class="overlay_landing">
                 <h1 class="carousel-caption">NSO F1 Collection!</h1>
             </div>
         </div>
@@ -180,7 +199,7 @@
 
 
         <section class="featured-products ">
-            <h2 class="featured-products-title">featured products </h2>
+            <h2 class="featured-products-title ">featured products </h2>
             <div class="card-container wrap">
                 @foreach($featuredProducts as $product)
                     <div class="card ">
