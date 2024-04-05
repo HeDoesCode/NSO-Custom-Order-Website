@@ -14,7 +14,7 @@
 
                 <div class="login-title-bar">
                     
-                    <h2>NOT SO ORDINARY</h2>
+                    <h2>Sign Up!</h2>
                 </div>
                 <!-- Step 1: Username, Email, Password -->
                 <div class="register-step" id="step1">
