@@ -10,7 +10,7 @@
                         <div class="center-div-content">
                         <h1 class="theTitle pb-1">Forgot Password?</h1>
                                 <div class="theDesc" >
-                                    {{ __('Enter the email address associated with your account') }}
+                                    {{ __('Enter the credentials associated with your admin account') }}
                                 </div>
 
                                 <!-- Session Status -->
@@ -24,7 +24,7 @@
                                         <div class="">
                                             
                                             
-                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter your name"/>
+                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Admin Credential"/>
                                             <hr class="edithr">
                                             <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                             
