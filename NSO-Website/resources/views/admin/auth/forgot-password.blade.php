@@ -1,34 +1,66 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 <x-guest-layout>
-    <div class="fp-form - col">
+   
+        <div class="container">
+            <div class="row"> 
+                <div class="col-sm-12">
+                    <div class="center-div">
+                        <div class="center-div-content">
+                        <h1 class="theTitle pb-1">Forgot Password?</h1>
+                                <div class="theDesc" >
+                                    {{ __('Enter the email address associated with your account') }}
+                                </div>
 
-        <h1 class="fp-title">Forgot Password?</h1>
-        <div >
-            {{ __('Forgot your password? No problem Betlog. Just let us know your username and we will email you a password reset link to your registered email that will allow you to choose a new one.') }}
-        </div>
-    
-        <!-- Session Status -->
-        <x-auth-session-status  :status="session('status')" />
-    
-        <form method="POST" action="{{ route('admin.password.email') }}">
-            @csrf
-    
-            <!-- Username -->
-            <div>
-                <div>
-                    <x-input-label for="username" :value="__('Username')" />
-                    <x-text-input id="username"  type="text" name="username" :value="old('username')" required autofocus />
-                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
-                    </div>
-                
-                
-                        <div>
-                            <x-primary-button class="fp-btn-reset">
-                                {{ __('Email Password Reset Link') }}
-                            </x-primary-button>
+                                <!-- Session Status -->
+                                <x-auth-session-status  :status="session('status')" />
+
+                                <form method="POST" action="{{ route('admin.password.email') }}">
+                                    @csrf
+
+                                    <!-- Username -->
+                                    <div>
+                                        <div class="">
+                                            
+                                            
+                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter your name"/>
+                                            <hr class="edithr">
+                                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                                            
+                                            
+                                            
+                                        </div>
+                                        
+                                                <br>
+                                                <div class="col d-flex py-3">
+                                                    <x-primary-button class="editButton text-align-center">
+                                                        {{ __('Next') }}
+                                                    </x-primary-button>
+                                                </div>
+                                                <div class="col d-flex">
+                                                <a href="{{ route('admin.login') }}" class="editButton2 border border-secondary border-2">Go Back</a>
+                                                </div>
+                                            
+                                    </div>
+
+                                </form>
+
+
                         </div>
-            </div>
-       
-        </form>
+                    </div>
+                </div>
 
-    </div>
+            </div>
+
+        </div>
+        
+        
+   
+    
+   
+
+
+
+   
 </x-guest-layout>

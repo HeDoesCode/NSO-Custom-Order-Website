@@ -16,6 +16,7 @@
                             required autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <hr>
         </div>
 
         <div class="flex justify-end mt-4">
