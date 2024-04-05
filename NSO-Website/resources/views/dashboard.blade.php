@@ -55,19 +55,19 @@
                                 <td class="py-5 font-bold underline underline-offset-2">
                                     <a href="{{ route('order.orderdetails', ['id' => $order->id]) }}">View Details</a>
                                 </td>
-                                <td class="text-center">
+                                <td class="py-5 flex items-center justify-center">
                                     @php
                                         $hasFeedback = $order->feedbacks->isNotEmpty();
                                     @endphp
                                 
                                     @if ($order->status == 'Order Completed' && !$hasFeedback)
-                                        <a href="{{ route('feedback.create', ['orderId' => $order->id]) }}" class="ml-6 text-white bg-green-400 px-4 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
+                                        <a href="{{ route('feedback.create', ['orderId' => $order->id]) }}" class="ml-6 text-white bg-green-400 px-2 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
                                     @elseif ($hasFeedback)
-                                        <button class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <button class="ml-6 text-white bg-gray-500 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
                                             <span class="mx-auto">Feedback Submitted</span>
                                         </button>
                                     @else
-                                        <button class="ml-6 text-gray-400 bg-gray-200 px-4 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <button class="ml-6 text-gray-400 bg-gray-200 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
                                             <span class="mx-auto">Feedback Not Available</span>
                                         </button>
                                     @endif
@@ -80,6 +80,8 @@
                 <p>No orders available.</p>
             @endif
         </div>
+
+        
 
         <div class="lg:hidden">
             <!-- Display as cards on smaller screens -->
@@ -113,7 +115,7 @@
                                     <div class="flex-1 text-right">{{ $order->order_date }}</div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="{{ route('order.orderdetails', ['id' => $order->id]) }}" class="text-blue-500 hover:underline">View Details</a>
+                                    <a href="{{ route('order.orderdetails', ['id']) }}" class="text-blue-500 hover:underline">View Details</a>
                                 </div>
                                 <div class="mt-2">
                                     @php
@@ -136,5 +138,25 @@
                 <p>No orders available.</p>
             @endif
         </div>
+
+        <!-- Pagination Links -->
+        @if ($orders && $orders->lastPage() > 1)
+            <div class="mt-8 flex justify-center">
+                <ul class="flex">
+                    <li class="mr-3">
+                        <a href="{{ $orders->previousPageUrl() }}" class="px-3 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">Previous</a>
+                    </li>
+                    @foreach ($orders->getUrlRange(1, $orders->lastPage()) as $page => $url)
+                        <li class="{{ $orders->currentPage() == $page ? 'text-bold' : '' }}">
+                            <a href="{{ $url }}" class="{{ $orders->currentPage() == $page ? 'px-3 py-2 bg-gray-500 text-white rounded-md' : 'px-3 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300' }}">{{ $page }}</a>
+                        </li>
+                    @endforeach
+                    <li class="ml-3">
+                        <a href="{{ $orders->nextPageUrl() }}" class="px-3 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">Next</a>
+                    </li>
+                </ul>
+            </div>
+        @endif
     </div>
 </x-app-layout>
+

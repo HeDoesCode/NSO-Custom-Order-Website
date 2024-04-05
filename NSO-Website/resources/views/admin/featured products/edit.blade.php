@@ -1,30 +1,8 @@
 <x-admin-layout>
     <div class="grid grid-cols-12">
-        <div class="col-span-2 p-5 left_panel text-white min-h-screen">
-            <div class="mb-8">
-                <p class="text-3xl font-bold">Admin Dashboard</p>
-            </div>
-            <div class="mb-6">
-                <a href="{{ route('admin.home') }}" class="block text-xl 
-                    {{ request()->routeIs('admin.home', 'admin.orderdetails') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
-                    Orders
-                </a>
-            </div>
-            <div class="mb-6">
-                <a href="{{ route('admin.view feedback.index') }}" class="block text-xl 
-                    {{ request()->routeIs('admin.view feedback.index') ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
-                    Feedback
-                </a>
-            </div>
-            <div class="mb-6">
-                <a href="{{ route('admin.featured products.index') }}" class="block text-xl 
-                    {{ request()->routeIs('admin.featured products.index', 'admin.featured products.create', 'admin.featured products.edit' ) ? 'text-black bg-white font-bold border-b-2 border-gray-500 pl-4 py-1' : 'pl-4 py-1' }}">
-                    Featured
-                </a>
-            </div>
-        </div>
+        
 
-        <div class="col-span-10 p-5">
+        <div class="col-span-12 p-5">
             <div class="ml-6">
                 <p class="text-3xl font-bold mb-7">
                     Edit Featured Products Dashboard
@@ -32,10 +10,10 @@
             </div>
 
             
-            <div class="container mx-auto p-6">
+            <div class="max-w-5xl mx-auto bg-white shadow-md p-6 rounded-md mb-4">
 
                 <form action="{{ route('admin.featured products.update', ['product' => $product]) }}" method="post"
-                    enctype="multipart/form-data" class="max-w-4xl mx-auto bg-white p-8 rounded-md shadow-md">
+                    enctype="multipart/form-data" >
 
                     @csrf
                     @method('put')

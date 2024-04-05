@@ -29,11 +29,7 @@
                 </header>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                
-                {{ $slot }}
-            </main> 
+            
         </div>
 
         <!-- Add this at the end of your body section, before the closing </body> tag -->

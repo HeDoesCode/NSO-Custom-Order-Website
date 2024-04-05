@@ -26,8 +26,10 @@ class AdminController extends Controller
     }
 
     //for featured products dashboard
-    public function displayFeaturedProductsDashboard() {
-        $featuredProducts = FeaturedProducts::all();
+    public function displayFeaturedProductsDashboard(Request $request) {
+        $featuredProducts = FeaturedProducts::paginate(5); 
+    
+    
         return view('admin.featured products.index', ['featuredProducts' => $featuredProducts]);
     }
 
@@ -103,9 +105,10 @@ class AdminController extends Controller
 
     //for view feedback
     public function displayFeedbackDashboard() {
-        $feedbacks = Feedback::all();
+        $feedbacks = Feedback::paginate(5); // Paginate with 10 feedbacks per page
         return view('admin.view feedback.index', ['feedbacks' => $feedbacks]);
     }
+    
 
 
     //for orders
@@ -113,8 +116,8 @@ class AdminController extends Controller
         $orders = DB::table('order_details')
             ->join('users', 'order_details.username', '=', 'users.username')
             ->select('order_details.*', 'users.firstName', 'users.lastName')
-            ->get();
-
+            ->paginate(10); // Paginate with 10 records per page
+    
         return view('admin.home', ['orders' => $orders]);
     }
 

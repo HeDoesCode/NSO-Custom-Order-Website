@@ -282,7 +282,7 @@ html {
     text-align: right;
 }
 
-button {
+/* button {
     background-color: #000000;
     color: white;
     padding: 10px 20px;
@@ -290,7 +290,7 @@ button {
     cursor: pointer;
     width: 25%;
     border-radius: 18px;
-}
+} */
 .btnLogin {
     background-color: #000000;
     color: white;
@@ -1144,16 +1144,16 @@ nav {
     max-height: 100%;
 }
 
-.sidebar-header {
+/* .sidebar-header {
     font-family: "Bebas Neue", sans-serif;
     font-size: 2vw;
     letter-spacing: 0.1em;
     color: var(--light-gray);
     text-decoration: none;
-}
+} */
 
 /* col-span-2 p-5 left_panel text-white min-h-screen */
-.left_panel {
+/* .left_panel {
     background-color: #1f1f1f;
     color: var(--light-gray);
 }
@@ -1171,7 +1171,7 @@ nav {
 
 .sidebar_links :hover {
     color: #d3c8b6;
-}
+} */
 
 /* .sidebar_links :active {
     background-color: #3e8e41;
