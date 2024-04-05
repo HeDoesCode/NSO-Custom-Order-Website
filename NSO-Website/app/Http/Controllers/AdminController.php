@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\FeaturedProducts;
 use App\Models\Feedback;
 use App\Models\Order;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -119,12 +118,8 @@ class AdminController extends Controller
     public function showOrderDetail($id)
     {
         $order = Order::find($id); 
-        $user = DB::table('users')
-            ->select('firstName', 'lastName', 'contact', 'deliveryAddress')
-            ->where('username','=',$order->username)
-            ->get();
-
-        return view('admin.orderdetails', ['order' => $order, 'user' => $user]);
+    
+        return view('admin.orderdetails', ['order' => $order]);
     }
 
     public function updateOrder(Request $request, $id)

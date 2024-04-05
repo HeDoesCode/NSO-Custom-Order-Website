@@ -13,6 +13,7 @@ class Order extends Model
 
     protected $fillable = [
         'username',
+        'deliveryAddress',
         'type',
         'design_text',
         'design_img',
