@@ -18,8 +18,8 @@
     }
     @endphp
     <div class="grid grid-cols-12">
-          @include('layouts.sidebar')
-          <div class="col-span-10 p-5">
+          
+          <div class="col-span-12 p-5">
             <div class="ml-6">
                 <p class="text-3xl font-bold mb-7">
                     Order Dashboard
