@@ -1432,6 +1432,21 @@ nav {
     
 }
 
+.theDesc2 {
+    width: 43vw;
+    font-family: 'Inter';
+    font-size: 1.4vw;
+    font-weight: 500;
+    color: #484848;
+
+
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    
+}
+
 .editedInput {
     margin-left: -0.5vw!important;
     width: 100%!important;
@@ -1552,6 +1567,17 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 25vw; 
+    padding: 20px; 
+    
+   
+}
+
+.center-div3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48vw; 
     padding: 20px; 
     
    
