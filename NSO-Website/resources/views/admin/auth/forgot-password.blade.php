@@ -2,8 +2,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <x-guest-layout>
-   
-        <div class="container">
+<body class="BodyRegister animation"> 
+<div class="container">
             <div class="row"> 
                 <div class="col-sm-12">
                     <div class="center-div">
@@ -25,7 +25,7 @@
                                             
                                             
                                             <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Admin Credential"/>
-                                            <hr class="edithr">
+                                            <hr class="edithr mb-4">
                                             <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                             
                                             
@@ -54,6 +54,8 @@
             </div>
 
         </div>
+</body>
+      
         
         
    

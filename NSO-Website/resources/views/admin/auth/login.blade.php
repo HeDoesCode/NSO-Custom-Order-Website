@@ -6,7 +6,7 @@
     <body>
         
 <x-guest-layout>
-<body class="BodyLogin">
+<body class="BodyLogin animation" > 
     
     <!-- Session Status -->
     <x-auth-session-status :status="session('status')" />
