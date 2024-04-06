@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\XMLRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,13 @@ Route::middleware('auth:admin')->group(function () {
     });
 });
 
+
+Route::controller(XMLRequestController::class)->group(function () {
+    Route::get('/region', 'getRegions');
+    Route::get('/province/{regcode}', 'getProvinces');
+    Route::get('/citymun/{provcode}', 'getCityMun');
+    Route::get('/brgy/{brgycode}', 'getBarangay');
+});
 
 
 
