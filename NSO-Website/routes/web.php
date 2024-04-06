@@ -45,6 +45,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         //operation
         Route::post('/order/place', 'place')->name('order.place');
         
+        //search
+        Route::get('/order/search', 'search')->name('admin.orders.search');
+
+
     });
 
     Route::controller(FeedbackController::class)->group(function() {

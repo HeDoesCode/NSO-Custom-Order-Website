@@ -112,14 +112,39 @@ class AdminController extends Controller
 
 
     //for orders
-    public function displayOrdersDashboard() {
+    public function displayOrdersDashboard(Request $request)
+{
+    
+    if ($request->has('query')) {
+        $query = $request->input('query');
+
         $orders = DB::table('order_details')
             ->join('users', 'order_details.username', '=', 'users.username')
             ->select('order_details.*', 'users.firstName', 'users.lastName')
-            ->paginate(10); // Paginate with 10 records per page
-    
-        return view('admin.home', ['orders' => $orders]);
+            ->where('order_details.username', 'like', '%' . $query . '%')
+            ->orWhere('order_details.type', 'like', '%' . $query . '%')
+            ->orWhere('order_details.size', 'like', '%' . $query . '%')
+            ->orWhere('order_details.design_text', 'like', '%' . $query . '%')
+            ->orWhere('order_details.price', 'like', '%' . $query . '%')
+            ->orWhere('order_details.mode_of_payment', 'like', '%' . $query . '%')
+            ->orWhere('order_details.status', 'like', '%' . $query . '%')
+            ->orderByDesc('order_details.created_at') 
+            ->paginate(10); 
+
+        
+        return view('admin.home', ['orders' => $orders, 'query' => $query]);
     }
+
+   
+    $orders = DB::table('order_details')
+        ->join('users', 'order_details.username', '=', 'users.username')
+        ->select('order_details.*', 'users.firstName', 'users.lastName')
+        ->orderByDesc('order_details.created_at') 
+        ->paginate(10); 
+
+    return view('admin.home', ['orders' => $orders]);
+}
+
 
     public function showOrderDetail($id) {
         $order = Order::find($id); 

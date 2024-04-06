@@ -1,9 +1,19 @@
 <x-app-layout>
     <div class="col-span-10 p-5">
-        <div class="ml-6">
-            <p class="text-3xl font-bold mb-7">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 ml-6">
+            <a href="{{ route('dashboard') }}" class="text-3xl font-bold mb-7">
                 My Custom Orders
-            </p>
+            </a>
+
+            
+                <div class="mb-6 mr-6 flex justify-end">
+                    <form action="{{ route('dashboard') }}" method="GET" class="w-full max-w-md">
+                        <div class="flex items-center border-b border-b-2 border-gray-500 py-2">
+                            <input type="text" name="query" placeholder="Search orders..." class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
+                            <button type="submit" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded">Search</button>
+                        </div>
+                    </form>
+                </div>
         </div>
 
         <a href="{{ route('order.create') }}" class="ml-6 text-white bg-gray-500 px-4 py-2 rounded-md mb-4 inline-block">+ Create Order</a>

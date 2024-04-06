@@ -27,6 +27,9 @@ class OrderController extends Controller
         return view('order.create');
     }
 
+    //search bar
+
+
     public function place(Request $request) {
         $request->validate([
             'type' => 'required',
