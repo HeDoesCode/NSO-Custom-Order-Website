@@ -109,9 +109,20 @@
         </label>
         <ul class="menu-items">
         @auth
-            <li class="nav_username">{{ Auth::user()->username }}</li>
+            <!-- <li class="nav_username"><i class="pfp fa-solid fa-circle-user" ></i>{{ Auth::user()->username }}</li> -->
             <li><a href="{{ url('/') }}" class="nav_links">HOME</a></li>
             <li><a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a></li>
+            <li><a href="{{ route('profile.edit') }}" class="nav_links">Profile</a>
+            <li><form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                {{ __('Log Out') }} 
+                            </x-responsive-nav-link>
+                        </form></a>
+            </li>
+
         @endauth 
 
             <li>@guest
@@ -129,16 +140,17 @@
         <div class="center-nav">
             <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
         </div>
+
         <div class="right-nav">
             @auth
             <div class="dropdown">
 
-            <span class="username">{{ Auth::user()->username }}</span>
+                    <span class="username">{{ Auth::user()->username }}</span>
 
-                    <i class="pfp fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+                    <i class="pfp fa-solid fa-circle-user" ></i>
                     <div class="dropdown-content">
-                        <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <a href="{{ route('profile.edit') }}" class="nav_links">Profile</a>
+                        <form method="POST" action="{{ route('logout') }}" class="nav_links">
                             @csrf
                             <x-responsive-nav-link :href="route('logout')"
                                 onclick="event.preventDefault();
@@ -165,6 +177,10 @@
 </nav>
 
     <div class="scroll-container">
+        <div class="chatbot-wrapper">
+            @include('layouts.chatbot')
+        </div>
+
 
 
         <!-- <section class="home-welcome">
@@ -272,6 +288,8 @@
                     <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="">Terms And Condition</a></p>
                 </div>
             </footer>
+
+
 
         </div>
     </body>

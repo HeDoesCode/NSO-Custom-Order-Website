@@ -201,6 +201,9 @@ html {
 }
 
 @media screen and (max-width: 768px) {
+    /* .nav_links {
+        display: none;
+    } */
     .login-title-bar h2 {
         color: #1c1c1c;
         margin: 0;
@@ -846,14 +849,14 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 20px;
     }
 
     .center-nav {
         position: absolute;
         width: 100%;
         text-align: center;
-        /* font-size: 1.5vw; */
+        font-size: 1.3em;
     }
     .center_font {
         font-family: "Inter", sans-serif;
@@ -876,11 +879,11 @@ nav {
     .left-nav a {
         font-size: 2vw;
         margin: 10px;
-        margin-right: 10px;
+        margin-right: 5px;
+        font-size: 1.5em;
     }
-    .right-nav a {
-        font-size: 2vw;
-        margin: 10px;
+    .dropdown {
+        font-size: 2em;
     }
 
     .featured-products .featured-products-title {
@@ -911,6 +914,17 @@ nav {
 }
 
 @media screen and (max-width: 425px) {
+    .pfp {
+        /* padding-top: 11px; */
+        font-size: 0.5em;
+        padding-right: 10px;
+    }
+    .nav_username {
+        font-size: 3.5em;
+        color: var(--black);
+        text-align: left;
+        padding-left: 5%;
+    }
     .navbar {
         display: flex;
         justify-content: space-between;
@@ -1025,8 +1039,8 @@ nav {
 
 .clickbox-gr {
     display: flex;
-    align-items: center;
-    width: 2vw;
+    width: 5px;
+    height: 5.5px;
 }
 
 .checkbox-container {
@@ -1035,8 +1049,21 @@ nav {
     width: auto;
 }
 
+.checkbox-label {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: 0.07em;
+    color: #3d3d3d;
+    padding-left: 30px;
+}
+
 .terms {
     width: 100%;
+}
+
+.terms_cond {
+    color: #8d5d16;
+    background-color: none;
 }
 
 .nav_links {
@@ -1268,9 +1295,10 @@ nav {
     }
 }
 
-/* .pfp {
-    padding-top: 11px;
-} */
+.pfp {
+    /* padding-top: 11px; */
+    font-size: 1.5em;
+}
 
 .back_button {
     display: flex;
@@ -1352,7 +1380,7 @@ nav {
     font-weight: 500;
 } */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 426px) {
     .navbar_menu {
         display: none;
         margin: 10px;
@@ -1432,7 +1460,6 @@ nav {
     .nav_links {
         display: none;
     }
-
     .left-nav {
         padding-top: 30px;
         margin-top: -50px;
@@ -1473,5 +1500,167 @@ nav {
 
     #burger-toggle:checked + .burger-menu ~ .menu-items {
         display: block;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding: 80px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 10px;
+    border: 1px solid #888;
+    width: auto; /* Could be more or less, depending on screen size */
+}
+
+@media screen and (max-width: 425px) {
+    .modal-content {
+        padding: 0;
+    }
+    .modal {
+        padding: 0px;
+        height: 100%; /* Full height */
+    }
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.terms-text {
+    font-family: "Inter";
+    font-size: 20px;
+    padding: 30px;
+}
+
+.terms-title {
+    font-family: "Inter";
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center;
+    padding: 30px;
+}
+
+.btnReg {
+    background-color: #000000;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    border-radius: 18px;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.68px;
+}
+.btnReg:hover {
+    background-color: #1c1c1c;
+}
+
+/* ========== Chat Bot Placeholder =========== */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 80px;
+    border-radius: 2em;
+    z-index: 1;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+    background-color: #04aa6d;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 425px) {
+    .chatbot-wrapper {
+        display: none;
     }
 }

@@ -21,8 +21,7 @@
         <div class="dropdown">
             <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
             <div class="dropdown-content">
-                <a href="{{ url('admin/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">admin dashboard</a>
-                <a :href="route('profile.edit')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
+                <a href="{{ url('admin/home') }}" >admin dashboard</a>
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <x-responsive-nav-link :href="route('logout')"
