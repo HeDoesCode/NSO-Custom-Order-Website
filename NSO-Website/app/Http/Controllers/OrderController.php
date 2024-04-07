@@ -54,7 +54,6 @@ class OrderController extends Controller
 
             Order::create([
                 'username' => $request->username,
-                'deliveryAddress' => $request->deliveryAddress,
                 'type' => $request->type,
                 'design_text' => $request->design_text,
                 'design_img' => $newImageName,
@@ -66,7 +65,6 @@ class OrderController extends Controller
         } else {
             Order::create([
                 'username' => $request->username,
-                'deliveryAddress' => $request->deliveryAddress,
                 'type' => $request->type,
                 'design_text' => $request->design_text,
                 'size' => $request->size,
