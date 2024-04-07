@@ -1,6 +1,3 @@
-<?php
-    $customer = $user[0];
-?>
 <x-admin-layout>
   <div class="grid grid-cols-12">
 
@@ -22,6 +19,8 @@
                     <div>
                         <p class="text-gray-600">Customer Contact:</p>
                         <p class="font-bold">{{ $customer->contact }}</p>
+                        <p class="text-gray-600">Delivery Address:</p>
+                        <p class="font-bold">{{ $customer->deliveryAddress }}</p>
                     </div>
 
                     <div class="col-span-2">

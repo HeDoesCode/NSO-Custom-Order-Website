@@ -1,38 +1,85 @@
 
 <x-guest-layout>
-    <form method="POST" action="{{ route('admin.password.store') }}">
-        @csrf
-
+    <body class="BodyRegister animation"> 
+    <form method="POST" action="{{ route('admin.password.store') }}" class="register-container">
+    @csrf
         <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
     
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('New Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+
+<!-- Left side image -->
+<div class="half register-formHolder justify-content-center ">
+    <img src="/images/notso1.png" class="notsoHolder">
+    <div class="login-title-bar">
         
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <h2 class="titleFont1">Change Password</h2>
+    </div>
+    <!-- Step 1: Username, Email, Password -->
+    <div class="register-step " id="step1">
+            <div class="">
+            
+                <div class="here">
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
+    <x-input-label for="email" :value="__('Admin Email')" class="labelFontSize "  />
+    <x-text-input class="editedInput2 shadow-none py-2" id="email"  type="email" name="email" :value="old('email')" required autocomplete="new-email" :value="session('adminEmail')" readonly="readonly"/>
+    <hr class="edithr hrSpace">
+    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+   
+    <x-input-label for="password" :value="__('Enter your new password')" class="labelFontSize " />
+    <x-text-input  class="editedInput2 shadow-none py-2" id="password"  type="password" name="password" required autocomplete="new-password" />
+    <hr class="edithr hrSpace">
+    
+    <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-            <x-text-input id="email" class="block mt-1 w-full"
-                                type="hidden"
-                                name="email" required autocomplete="new-email"
-                                :value="session('adminEmail')" />
-              <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <x-input-label for="password_confirmation" :value="__('Confirm new password')" class="labelFontSize"/>
+    <x-text-input class="editedInput2 shadow-none py-2" id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
+    <hr class="edithr hrSpace">
+    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
+    <x-primary-button class="editButton text-align-center">
                 {{ __('Reset Password') }}
             </x-primary-button>
+
+    
+     
+    
+
+
+               
+                
+            
+
+
+
+            </div>
+
         </div>
+
+       
+
+    </div>
+
+   
+
+    <!-- Step 2: First Name, Last Name, Contact, Address -->
+    <div class="register-step" id="step2" style="display: none;">
+
+    <x-input-label for="username" :value="__('Username')" />
+        
+        
+
+    </div>
+</div>
+
+
+<!-- Divider between image and form -->
+<div class="divider"></div>
+
+<!-- Right side form holder -->
+<div class="half register-imageHolder"></div>
+
+
     </form>
+    </body>
+
 </x-guest-layout>
