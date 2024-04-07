@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use App\Models\FeaturedProducts;
-use App\Models\Feedback;
-use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
