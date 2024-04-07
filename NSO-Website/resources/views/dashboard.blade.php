@@ -99,14 +99,17 @@
                 @foreach ($orders->sortByDesc('created_at') as $order)
                     <div class="bg-white shadow-md rounded-lg overflow-hidden text-left mb-4">
                         <div class="p-4">
-                            @if ($order->design_img)
+                            <div class="flex justify-center items-center">
+                                @if ($order->design_img)
                                 <img src="{{ asset('images/order design images/'.$order->design_img) }}"
-                                     class="w-full h-auto object-cover object-center mb-4"
+                                     class="w-60 h-60 object-cover object-center mb-4"
                                      onclick="zoomImage('{{ asset('images/order design images/'.$order->design_img) }}', '{{ $order->design_text }}')"
                                      style="cursor: pointer;">
                             @else
                                 <span class="text-gray-500">Image not available</span>
                             @endif
+                            </div>
+                            
                             <div class="text-left">
                                 <div class="flex justify-between items-center mb-2">
                                     <div class="font-bold">Design Description:</div>

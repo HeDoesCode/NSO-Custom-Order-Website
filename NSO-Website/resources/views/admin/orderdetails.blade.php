@@ -83,8 +83,18 @@
                     @if(session('order_updated'))
     <div class="col-span-2 bg-green-200 text-green-800 p-4 rounded-md mb-4">
         {{ session('order_updated') }}
+        
+
     </div>
 @endif
+
+@if($errors->has('price'))
+                        <div class="col-span-2 bg-red-200 text-red-800 p-4 rounded-md mb-4">
+                            {{ $errors->first('price') }}
+                        </div>
+                    @endif
+
+    
 
                  <!-- Combined Editing Form -->
     <div id="editForm" class="col-span-2" style="display: none;">

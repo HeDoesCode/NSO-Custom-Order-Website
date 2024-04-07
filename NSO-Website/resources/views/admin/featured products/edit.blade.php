@@ -34,7 +34,7 @@
                             class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('title') is-invalid @enderror"
                             value="{{ $product->title }}">
 
-                        @error('description')
+                        @error('title')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>

@@ -61,21 +61,24 @@
             <div class="lg:hidden">
                 <!-- Display as cards on smaller screens -->
                 @foreach ($featuredProducts->sortByDesc('created_at') as $product)
-                    <div class="bg-white shadow-md rounded-lg overflow-hidden text-left mb-4">
-                        <div class="p-4">
-                            <div class="flex justify-between items-center mb-2">
-                                <div class="font-bold">Image:</div>
-                                <div class="flex-1 text-right">
-                                    @if ($product->image)
-                                        <img src="{{ asset('images/featured products/'.$product->image) }}"
-                                             class="w-full h-auto object-cover object-center"
-                                             onclick="zoomImage('{{ asset('images/featured products/'.$product->image) }}', '{{ $product->image }}')"
-                                             style="cursor: pointer;">
-                                    @else
-                                        <span class="text-gray-500">Image not available</span>
-                                    @endif
-                                </div>
-                            </div>
+    <div class="bg-white shadow-md rounded-lg overflow-hidden text-left mb-4">
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-2">
+                <div class="font-bold">Image:</div>
+                <div class="flex-1 flex justify-end">
+                    @if ($product->image)
+                    <img src="{{ asset('images/featured products/'.$product->image) }}"
+                    class="w-40 h-40 object-cover object-center"
+                    onclick="zoomImage('{{ asset('images/featured products/'.$product->image) }}', '{{ $product->image }}')"
+                    style="cursor: pointer;">
+               
+                    @else
+                        <span class="text-gray-500">Image not available</span>
+                    @endif
+                </div>
+            </div>
+            
+            
                             <div class="flex justify-between items-center mb-2">
                                 <div class="font-bold">Title:</div>
                                 <div class="flex-1 text-right">{{ $product->title }}</div>

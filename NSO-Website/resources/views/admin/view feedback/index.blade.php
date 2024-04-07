@@ -61,10 +61,10 @@
                             </div>
                             <div class="flex justify-between items-center mb-2">
                                 <div class="font-bold">Feedback Image:</div>
-                                <div class="flex-1 text-right">
+                                <div class="flex-1 flex justify-end">
                                     @if ($feedback->image)
                                         <img src="{{ asset('images/feedback images/'.$feedback->image) }}"
-                                             class="w-full h-auto object-cover object-center"
+                                             class="w-40 h-40 object-cover object-center"
                                              onclick="zoomImage('{{ asset('images/feedback images/'.$feedback->image) }}', '{{ $feedback->image }}')"
                                              style="cursor: pointer;">
                                     @else

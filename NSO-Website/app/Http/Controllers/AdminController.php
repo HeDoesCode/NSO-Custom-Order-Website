@@ -44,8 +44,8 @@ class AdminController extends Controller
     public function save(Request $request) {
         $request->validate([
             'image' => 'required|mimes:jpg,jpeg,png|max:5120', 
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|max:200|unique:featured_products,title',
+            'description' => 'required|max:1500',
             'link' => 'required|url'
         ]);
 
@@ -69,8 +69,8 @@ class AdminController extends Controller
     public function update(FeaturedProducts $product, Request $request) {
         $request->validate([
             'image' => 'nullable|mimes:jpg,jpeg,png|max:5120', // max of 5mb image
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|max:200',
+            'description' => 'required|max:1500',
             'link' => 'required|url'
         ]);
 
@@ -158,17 +158,20 @@ class AdminController extends Controller
 
     public function updateOrder(Request $request, $id) {
         $request->validate([
-            'price' => 'nullable|numeric|gt:0', 
+            'price' => 'nullable|numeric|gt:0|max:500000', 
             'status' => 'required|in:Order Placed,Processing Order,To Ship,Order Completed,Order Cancelled', 
+        ], [
+            'price.gt' => 'The price must be greater than zero.',
         ]);
-
+    
         $order = Order::findOrFail($id);
-
+    
         $order->update([
             'price' => $request->input('price'),
             'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
         ]);
-
+    
         return redirect()->back()->with('order_updated', 'Order updated successfully');
     }
+    
 }
