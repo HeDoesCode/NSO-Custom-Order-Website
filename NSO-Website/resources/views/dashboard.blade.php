@@ -21,22 +21,6 @@
         @if (session()->has('success')) 
             <span>{{ session('success') }}</span>
         @endif
-  
-        @if ($orders)
-            <table class="table-fixed w-full bg-white shadow-md rounded-lg overflow-hidden text-center">
-                <thead class="bg-gray-300">
-                    <tr>
-                        <th class="px-4 py-2">Design Image</th>
-                        <th class="px-4 py-2">Design Description</th>
-                        <th class="px-4 py-2">Price</th>
-                        <th class="px-4 py-2">Status</th>
-                        <th class="px-4 py-2">Order Date</th>
-                        <th class="px-4 py-2">View</th>
-                        <th class="px-4 py-2">Feedback</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($orders->sortByDesc('created_at') as $order)
 
         <div class="hidden lg:block">
             <!-- Display as a table on larger screens -->
@@ -187,10 +171,5 @@
             </div>
         @endif
     </div>
-
-    @if (session()->has('success')) 
-        <span>{{ session('success') }}</span>
-    @endif
-    
 </x-app-layout>
 
