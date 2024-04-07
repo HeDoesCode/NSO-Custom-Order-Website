@@ -42,11 +42,15 @@
         
     
     </head>
-    <body class="font-sans antialiased scroll-container">
+    <body class="font-sans antialiased">
 
         <div class="min-h-screen bg-gray-100">
 
             @include('layouts.navigation')
+            <div class="chatbot-wrapper">
+        @include('layouts.chatbot')
+    </div>
+
 
             <!-- Page Heading -->
             @if (isset($header))

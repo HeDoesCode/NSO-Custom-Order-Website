@@ -17,6 +17,8 @@
         }
     }
     @endphp
+
+
     <div class="grid grid-cols-12">
       <div class="col-span-12 p-5">
           <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 ml-6">
@@ -125,5 +127,4 @@
         
       </div>
   </div>
-  
 </x-admin-layout>

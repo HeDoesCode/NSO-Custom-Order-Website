@@ -3,6 +3,8 @@
 ?>
 
 <x-app-layout>
+
+
     <div class="col-span-10 p-5">
         <div class="ml-6">
             <p class="text-3xl font-bold mb-7">
@@ -89,6 +91,7 @@
                     <input type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800" value="Place Order">
                 </div>
             </form>
+
         </div>
     
         <script>
