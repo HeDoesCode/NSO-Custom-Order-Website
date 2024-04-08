@@ -721,7 +721,7 @@ html {
     display: none;
     position: absolute;
     background-color: white;
-    width: 300rem;
+    width: 284px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left: -190px; /* Updated to position the menu to the left */
@@ -1452,93 +1452,83 @@ nav {
 }
 
 .theTitle {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-size: 4vw;
     font-weight: 700;
-    color: #1C1C1C;
+    color: #1c1c1c;
     text-shadow: 0px 3px 3px #7e7e7e;
 }
 
 .theDesc {
     width: 20vw;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-size: 1.4vw;
     font-weight: 500;
     color: #484848;
-    
 }
 
 .theDesc2 {
     width: 43vw;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-size: 1.4vw;
     font-weight: 500;
     color: #484848;
-
 
     height: auto;
     margin: 0 auto;
     padding: 10px;
     position: relative;
-    
 }
 
 .editedInput {
-    margin-left: -0.5vw!important;
-    width: 100%!important;
-    background: transparent!important;
-    border: none!important;
-    border-bottom: 3px #1C1C1C!important;
-    font-size: 1.2vw!important;
-    color: #616161!important; 
-    box-shadow: none!important;
-
-   
+    margin-left: -0.5vw !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 3px #1c1c1c !important;
+    font-size: 1.2vw !important;
+    color: #616161 !important;
+    box-shadow: none !important;
 }
 
 .editedInput2 {
-    margin-left: -0.5vw!important;
-    width: 100%!important;
-    background: transparent!important;
-    border: none!important;
-    border-bottom: 3px #1C1C1C!important;
-    font-size: 1vw!important;
-    color: #616161!important; 
-    box-shadow: none!important;
-
-   
+    margin-left: -0.5vw !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 3px #1c1c1c !important;
+    font-size: 1vw !important;
+    color: #616161 !important;
+    box-shadow: none !important;
 }
 
 .edithr {
-  height: 2px!important;
-  border: 0;
-  background-color: #1C1C1C;
- 
+    height: 2px !important;
+    border: 0;
+    background-color: #1c1c1c;
 }
 
 .editButton {
-    width: 100%!important;
-    height: 3vw!important;
+    width: 100% !important;
+    height: 3vw !important;
     border-radius: 0 !important;
-    background-color: #1A1A1A!important;
-    border: none!important;
-    text-align: center!important;
-    padding: 0px!important;
-    display: flex!important;
-    justify-content: center!important;
-    align-items: center!important; /* Optional: Align the text vertically within the button */
-    font-size: 1.4vw!important;
+    background-color: #1a1a1a !important;
+    border: none !important;
+    text-align: center !important;
+    padding: 0px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important; /* Optional: Align the text vertically within the button */
+    font-size: 1.4vw !important;
     text-transform: unset !important;
-    
 }
-
 
 .hrSpace {
     margin-bottom: 2vw;
 }
 .labelFontSize {
-    font-size: 1.2vw!important;
-    font-weight: 600!important;
+    font-size: 1.2vw !important;
+    font-weight: 600 !important;
 }
 
 .notsoHolder {
@@ -1551,42 +1541,41 @@ nav {
     height: 3vw;
     border-radius: 0 !important;
     background-color: transparent;
-    color: #1C1C1C;
-    border-color: #1C1C1C;
-    
-    text-align: center!important;
-    padding: 0px!important;
+    color: #1c1c1c;
+    border-color: #1c1c1c;
+
+    text-align: center !important;
+    padding: 0px !important;
     display: flex;
     justify-content: center;
     align-items: center; /* Optional: Align the text vertically within the button */
     font-size: 1.4vw;
     text-transform: unset !important;
     font-weight: 500;
-    
 }
 
-.editButton2:hover, .ditButton2:focus, .ditButton2:active, .ditButton2.active, .open>.dropdown-toggle.editButton2 {
+.editButton2:hover,
+.ditButton2:focus,
+.ditButton2:active,
+.ditButton2.active,
+.open > .dropdown-toggle.editButton2 {
     color: #ffffff;
-    background-color: #1C1C1C;
+    background-color: #1c1c1c;
     border-color: #000000; /*set the color you want here*/
 }
 
 .titleFont1 {
-    font-size: 3vw!important;
-    font-weight: 700!important;
+    font-size: 3vw !important;
+    font-weight: 700 !important;
 }
-
-
 
 .center-div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 28vw; 
-    padding: 20px; 
-    
-   
+    width: 28vw;
+    padding: 20px;
 }
 
 .here {
@@ -1602,10 +1591,8 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25vw; 
-    padding: 20px; 
-    
-   
+    width: 25vw;
+    padding: 20px;
 }
 
 .center-div3 {
@@ -1613,14 +1600,12 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 48vw; 
-    padding: 20px; 
-    
-   
+    width: 48vw;
+    padding: 20px;
 }
 
 .center-div-content {
-    max-height: calc(100vh - 40px); 
+    max-height: calc(100vh - 40px);
     overflow-y: auto;
 }
 

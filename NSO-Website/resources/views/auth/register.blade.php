@@ -113,18 +113,33 @@
 
                 {{-- terms and condition --}}
                 <div class="terms"> 
-                    <div class="clickbox">
-                        <div class="clickbox-gr">
-                            <input type="checkbox" id="terms_service" onclick="checkTermsService()">
+                        <div class="clickbox">
+                            <div class="clickbox-gr">
+                                <input type="checkbox" id="terms_service" onclick="checkTermsService()" >
+                            </div>
+                            <label for="terms_service" class="checkbox-label">
+                                By ticking this, you agree to our 
+                                <a id="terms_condition" href="#">Terms and Conditions and Data Privacy</a>.
+                            </label>
                         </div>
-                        <label for="terms_service" class="checkbox-label">
-                            By ticking this box, you agree to our <a href="#"><b><em>Terms and Conditions</em></b></a> and <a href="#"><b><em>Data Privacy</em></b></a>.
-                        </label>
-                    </div>
-                <div>
-                    
-                <button type="button" onclick="prevStep(4)">Back</button>
-                <button type="submit" id="btn-register" disabled>Register</button>
+                    </div>  
+
+                    <br>
+ 
+                    <button type="button" onclick="prevStep()">Back</button>
+                    <button type="submit" id="btn-register" class="btnReg" disabled>Register</button>
+
+                </div>
+            </form>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1 class="terms-title">Terms and Conditions</h1>
+                    <!-- Add your terms and conditions content here -->
+                    <p class="terms-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac placerat vestibulum lectus mauris ultrices eros in cursus turpis. Nullam non nisi est sit. Sapien eget mi proin sed libero enim sed faucibus turpis. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Mauris pellentesque pulvinar pellentesque habitant morbi. Fringilla est ullamcorper eget nulla facilisi etiam dignissim. Metus aliquam eleifend mi in nulla. Iaculis nunc sed augue lacus viverra. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Maecenas pharetra convallis posuere morbi leo urna molestie at elementum. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Vitae semper quis lectus nulla at volutpat diam. Malesuada pellentesque elit eget gravida cum sociis natoque. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Et netus et malesuada fames ac turpis egestas integer eget. Elit ut aliquam purus sit. Habitant morbi tristique senectus et netus. Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat.</p>
+                </div>
+            </div>
             </div>
         </div>
     </form>
