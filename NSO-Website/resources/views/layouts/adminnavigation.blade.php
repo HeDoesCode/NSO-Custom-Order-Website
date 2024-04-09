@@ -7,22 +7,22 @@
     <!-- Content of the original navbar -->
     <div class="left-nav">
         <button id="sidebar-toggle" class="text-xl focus:outline-none">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars admin_bars"></i>
         </button> 
-        <a class="pl-2">admin</a>
+        <p class="pl-2">admin</p>
         
     </div>
 
     <div class="center-nav">
-        <a>NOT SO ORDINARY</a>
+        <p class="center_font">NOT SO ORDINARY</p>
     </div>
 
     <div class="right-nav">
         <div class="dropdown">
-            <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
+            <i class="pfp-admin fa-solid fa-circle-user"></i>
             <div class="dropdown-content">
                 <a href="{{ url('admin/home') }}" >admin dashboard</a>
-                <form method="POST" action="{{ route('admin.logout') }}">
+                <form method="POST" action="{{ route('admin.logout') }}" >
                     @csrf
                     <x-responsive-nav-link :href="route('logout')"
                         onclick="event.preventDefault();
@@ -75,7 +75,7 @@
 
 
 <button id="reopen-sidebar" class="text-xl focus:outline-none">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-bars1 "></i>
 </button> 
 
 <script>
