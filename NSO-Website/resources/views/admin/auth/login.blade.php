@@ -9,7 +9,7 @@
 <body class="BodyLogin animation" > 
     
     <!-- Session Status -->
-    <x-auth-session-status :status="session('status')" />
+  <!-- <x-auth-session-status :status="session('status')" /> -->
     <div class="login-container">
         <div class="half login-imageHolder"></div>
 
@@ -22,8 +22,20 @@
                     <h2 class=nso-header>ADMIN LOGIN PAGE</h2>
                 </div>
 
+               
+
                 <div class="container containerlogin">
                     <div class="login-formHolder">
+
+
+                    @if(session('status'))
+                            <div class="alert alert-success text-green-500" role="alert">
+                                Your password has been reset.
+                            </div>
+                    @endif
+
+
+
                     <!-- Username -->
                     <div class="login-step">
                         <x-input-label for="username" :value="__('Admin Username')" />
