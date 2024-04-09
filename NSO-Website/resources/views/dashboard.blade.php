@@ -56,7 +56,11 @@
                                 </td>
                                 
                                 <td class="py-5">{{ $order->design_text }}</td>
-                                <td class="py-5">{{ $order->price ? '₱' . $order->price : "Waiting For Seller" }}</td>
+                                <td class="py-5">@if($order->price)
+                                    <p>₱{{ number_format($order->price, 2) }}</p>
+                                @else
+                                    <p">Waiting For Seller</p>
+                                @endif</td>
                                 <td class="py-5">
                                     <span >{{ $order->status }}</span>
                                 </td>

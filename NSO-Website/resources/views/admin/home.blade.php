@@ -57,7 +57,11 @@
                           <tr class="even:bg-gray-100">
                               <td class="py-5">{{$order->lastName.", ".$order->firstName}}</td>
                               <td class="py-5">{{$order->mode_of_payment}}</td>
-                              <td class="py-5">{{ $order->price ? '₱' . $order->price : "Not Yet Set" }}</td>
+                              <td class="py-5">@if($order->price)
+                                <p>₱{{ number_format($order->price, 2) }}</p>
+                            @else
+                                <p>Not Yet Set</p>
+                            @endif</td>
                               <td class="py-5">
                                   <span class="{{ getStatusStyle($order->status) }}">{{$order->status}}</span>
                               </td>

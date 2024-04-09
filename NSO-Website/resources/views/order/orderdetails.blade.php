@@ -66,9 +66,13 @@
   
                       <!-- Price Display -->
                       <div id="priceDisplay">
-                          <p class="text-gray-600">Price:</p>
-                          <p class="font-bold">{{ $order->price ? $order->price : "Not Yet Set" }}</p>
-                      </div>
+                        <p class="text-gray-600">Price:</p>
+                        @if($order->price)
+                            <p class="font-bold">₱{{ number_format($order->price, 2) }}</p>
+                        @else
+                            <p class="font-bold">Waiting For Seller</p>
+                        @endif
+                    </div>
   
                       <!-- Status Display -->
                       <div id="statusDisplay">
