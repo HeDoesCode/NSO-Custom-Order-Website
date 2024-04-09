@@ -1667,6 +1667,62 @@ nav {
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .center-div {
+        width: 90%; /* Adjust this value for smaller screens */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .theTitle {
+        font-size: 15vw;
+    }
+
+    .theDesc {
+        width: 60vw;
+        font-size: 6vw;
+    }
+
+    .editedInput {
+        font-size: 6vw!important;
+    }
+
+    /* Here, you're correctly adjusting editButton inside the media query */
+    .editButton {
+        height: 15vw!important;
+        font-size: 6vw!important;
+    }
+
+    /* editButton2 styling is outside media query */
+    .editButton2 {
+        height: 15vw;
+        font-size: 6vw;
+    }
+
+    .notsoHolder {
+        height: 30vw!important;
+        width: auto!important;
+
+    }
+
+    .titleFont1 {
+        font-size: 8vw!important;
+
+    }
+
+    .labelFontSize {
+        font-size: 4vw!important;
+    }
+
+    .editedInput2 {
+        font-size: 4vw!important;
+    }
+
+
+    .here {
+        width: 65vw!important;
+    }
+}
+
 .here {
     width: 25vw;
     height: auto;
