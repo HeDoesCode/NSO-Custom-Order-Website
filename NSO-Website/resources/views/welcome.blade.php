@@ -43,48 +43,6 @@
 
     </head>
     <body class="antialiased">
-        <!-- <div>
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
-                </div>
-            @endif
-
-            <nav class="navbar">
-                    <div class="left-nav">
-                        <a href="{{ url('/') }}" class="nav_links">HOME</a>
-                        <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
-                    </div>
-                    <div class="center-nav">
-                        <a href="{{ url('/') }}" class="center_font">NOT SO ORDINARY</a>
-                    </div>
-                    <div class="right-nav">
-                            <div class="dropdown">
-                                <i class="fa-solid fa-circle-user" style="font-size: 2.5vw;"></i>
-                                <div class="dropdown-content">
-                                    @auth
-                                    <a href="{{ route('profile.edit') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 ">Profile</a>
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <x-responsive-nav-link :href="route('logout')"
-                                                onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                                {{ __('Log Out') }}
-                                            </x-responsive-nav-link>
-                                        </form>
-                                    @else
-                                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                                        @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                                        @endif
-                                    @endauth
-                                </div>
-                            </div>        
-                        </div>
-                    </div>
-                </div>
-            </nav> -->
-
             <div>
     @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> 
@@ -181,17 +139,6 @@
             @include('layouts.chatbot')
         </div>
 
-
-
-        <!-- <section class="home-welcome">
-            <div class="overlay">
-                <h1>YEAR II COLLECTION</h1>
-            </div> 
-        </section> -->
-
-
-
-
         <div id="carouselExampleIndicators" class="carousel slide my-carousel my-carousel" data-ride="carousel" data-bs-ride="carousel" data-bs-touch="true">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -229,13 +176,13 @@
             <h2 class="featured-products-title ">featured products </h2>
             <div class="card-container wrap">
                 @foreach($featuredProducts as $product)
-                    <div class="card ">
+                    <a class="card" href="{{ $product->link }}" target="_blank">
                         <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
                         <div class="card-content">
                             <h2 class="card-title">{{ $product->title }}</h2>
                             <p class="card-text">{{ $product->description }}</p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </section>
@@ -255,31 +202,6 @@
                             <li><a href="{{ url('https://shopee.ph/notso.ordinaryyy') }}" class="footer_links">Shopee</a></li>
                         </ul>
                     </div>
-
-            <!-- <ul class="footer__nav">
-                    <div class="contacts">
-                        <li class="nav__item">
-                        <h2 class="nav__title">Get Notified On</h2>
-                            <ul class="nav__ul">
-                                <li>
-                                    <a href="#">facebook.com/notso.ordinaryyy</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#">instagram.com/notso.ordinaryyy</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#">shopee.ph/notso.ordinaryyy</a>
-                                </li>
-                                <li>
-                                    <a href="#">notso.ordinaryyy@gmail.com</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </div>
-                </ul> -->
-
 
                 </div>
                 

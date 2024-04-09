@@ -40,7 +40,7 @@
 
         <div>
             <x-input-label for="contact" :value="__('Contact Number')" />
-            <x-text-input id="contact" name="contact" type="text" class="mt-1 block w-full" :value="old('contact', $user->contact)" required autofocus autocomplete="contact" />
+            <x-text-input id="contact" name="contact" type="number" class="mt-1 block w-full" :value="old('contact', $user->contact)" required autofocus autocomplete="contact" />
             <x-input-error class="mt-2" :messages="$errors->get('contact')" />
         </div>
 

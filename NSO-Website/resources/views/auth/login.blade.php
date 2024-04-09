@@ -3,11 +3,7 @@
 
 
 <x-guest-layout>
-    
     <body class="BodyLogin animation">
-        <!-- Session Status -->
-        <x-auth-session-status :status="session('status')" />
-
         <div class="login-container">
             <div class="half login-imageHolder"></div>
 
@@ -28,6 +24,10 @@
                         @if(session('verified'))
                             <div class="alert alert-success text-green-500" role="alert">
                                 Your email has been successfully verified. Please log in to continue.
+                            </div>
+                        @elseif(session('status'))
+                            <div class="alert alert-success text-green-500" role="alert">
+                                Your password has been reset.
                             </div>
                         @endif
 

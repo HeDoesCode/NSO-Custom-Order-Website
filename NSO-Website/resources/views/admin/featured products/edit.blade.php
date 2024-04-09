@@ -69,7 +69,7 @@
                 </form>
             </div>
             <div class="flex justify-end">
-                <a href="{{ route('admin.featured products.index') }}" class=" mr-5 bg-gray-700 text-white font-bold py-2 px-4 rounded hover:bg-gray-900">Return to Orders</a>
+                <a href="{{ route('admin.featured products.index') }}" class=" mr-5 bg-gray-700 text-white font-bold py-2 px-4 rounded hover:bg-gray-900">Return to Featured Products</a>
               </div>
         </div>
     </div>

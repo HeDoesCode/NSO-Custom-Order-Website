@@ -18,6 +18,10 @@
                         <p class="font-bold">{{ $customer->lastName.", ".$customer->firstName }}</p>
                     </div>
                     
+                    <div>
+                        <p class="text-gray-600">Customer Delivery Address:</p>
+                        <p class="font-bold">{{ $customer->deliveryAddress }}</p>
+                    </div>
 
                     <div>
                         <p class="text-gray-600">Customer Contact:</p>
@@ -26,43 +30,40 @@
 
                     <div class="col-span-2">
                       <p class="text-gray-600">Design Image:</p>
-                      <div class="flex justify-center">
-                        
-
-                        <div class="w-60 h-60 flex items-center justify-center border border-gray-300 rounded-md">
-                          @if ($order->design_img)
-                              <img src="{{ asset('images/order design images/'.$order->design_img) }}"
-                                   class="w-full h-full object-cover object-center"
-                                   onclick="zoomImage('{{ asset('images/order design images/'.$order->design_img) }}', '{{ $order->design_text }}')"
-                                   style="cursor: pointer;">
-                          @else
-                              <span class="text-gray-500">Image not available</span>
-                          @endif
+                        <div class="flex justify-center">
+                            <div class="w-60 h-60 flex items-center justify-center border border-gray-300 rounded-md">
+                                @if ($order->design_img)
+                                    <img src="{{ asset('images/order design images/'.$order->design_img) }}"
+                                        class="w-full h-full object-cover object-center"
+                                        onclick="zoomImage('{{ asset('images/order design images/'.$order->design_img) }}', '{{ $order->design_text }}')"
+                                        style="cursor: pointer;">
+                                @else
+                                    <span class="text-gray-500">Image not available</span>
+                                @endif
+                            </div>
                       </div>
-
-                      </div>
-                      
-                      
-                  </div>
+                    </div>
 
                     <div class="col-span-2">
                       <p class="text-gray-600">Design Text:</p>
                       <p class="font-bold">{{ $order->design_text }}</p>
-                  </div>
+                    </div>
+
                     <div>
                         <p class="text-gray-600">T-shirt Type:</p>
                         <p class="font-bold">{{ $order->type }}</p>
                     </div>
-                    
-            
-                    <div >
+
+                    <div>
                         <p class="text-gray-600">Size:</p>
                         <p class="font-bold">{{ $order->size }}</p>
                     </div>
+
                     <div>
                       <p class="text-gray-600">Quantity:</p>
                       <p class="font-bold">{{ $order->quantity }}</p>
-                  </div>
+                    </div>
+                    
                     <div>
                         <p class="text-gray-600">Mode of Payment:</p>
                         <p class="font-bold">{{ $order->mode_of_payment }}</p>
@@ -81,14 +82,12 @@
                     </div>
 
                     @if(session('order_updated'))
-    <div class="col-span-2 bg-green-200 text-green-800 p-4 rounded-md mb-4">
-        {{ session('order_updated') }}
-        
+                        <div class="col-span-2 bg-green-200 text-green-800 p-4 rounded-md mb-4">
+                            {{ session('order_updated') }}
+                        </div>
+                    @endif
 
-    </div>
-@endif
-
-@if($errors->has('price'))
+                    @if($errors->has('price'))
                         <div class="col-span-2 bg-red-200 text-red-800 p-4 rounded-md mb-4">
                             {{ $errors->first('price') }}
                         </div>
