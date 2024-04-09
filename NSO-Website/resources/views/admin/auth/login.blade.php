@@ -48,12 +48,12 @@
                     </div>
                     <div class="row py-5"> 
                        <div class="col-md-6 d-flex justify-content-center">
-                            <label for="remember_me" class="inline-flex items-center">
+                            <!-- <label for="remember_me" class="inline-flex items-center">
                                 <input id="remember_me" type="checkbox"
                                     class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                     name="remember">
                                 <span class="ms-2">{{ __('Remember me') }}</span>
-                            </label>
+                            </label> -->
                            
                             <div class="col py-1">
                           
