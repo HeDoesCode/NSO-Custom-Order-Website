@@ -10,7 +10,7 @@
                         <div class="center-div-content">
                         <h1 class="theTitle pb-1">Forgot Password?</h1>
                                 <div class="theDesc" >
-                                    {{ __('Enter the email address associated with your account') }}
+                                    {{ __('Enter the username associated with your account') }}
                                 </div>
 
                                 <!-- Session Status -->
