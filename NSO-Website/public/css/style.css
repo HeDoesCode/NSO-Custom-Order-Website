@@ -1058,6 +1058,14 @@ nav {
     height: auto;
     box-shadow: 0px 0px 10px #212121;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
 .card-container a {
     display: flex;
     flex-wrap: wrap;
@@ -1065,6 +1073,7 @@ nav {
     text-decoration: none;
     color: #000;
 }
+
 .card-container a:hover {
     color: black; /* Change color on hover if needed */
 }
