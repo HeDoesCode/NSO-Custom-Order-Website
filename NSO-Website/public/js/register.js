@@ -209,3 +209,15 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
+
+function validateContact() {
+    var contactInput = document.getElementById("contact");
+    var contactValue = contactInput.value;
+
+    if (!contactValue.match(/^09\d{9}$/)) {
+        alert('Contact number must start with "09" and have 11 digits.');
+        return false;
+    }
+
+    return true;
+}

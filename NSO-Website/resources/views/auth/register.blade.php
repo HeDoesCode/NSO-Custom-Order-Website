@@ -1,6 +1,6 @@
 <x-guest-layout>
     <body class="BodyRegister animation">
-        <form method="POST" action="{{ route('register') }}" id="registerForm" class="register-container">
+        <form method="POST" action="{{ route('register') }}" id="registerForm" class="register-container" onsubmit="return validateContact();">
             @csrf
 
             <!-- Left side image -->
@@ -55,7 +55,7 @@
                 <x-input-error :messages="$errors->get('lastName')" class="mt-2 animation a3" />
 
                 <x-input-label for="contact" :value="__('Contact Number')" class="animation a4" />
-                <x-text-input id="contact" class="block mt-1 w-full" type="number" name="contact" :value="old('contact')" required autofocus autocomplete="name" class="animation a4"/>
+                <x-text-input id="contact" class="block mt-1 w-full" type="number" name="contact" :value="old('contact')" required autofocus autocomplete="name" pattern="09\d{9}" class="animation a4"/>
                 <x-input-error :messages="$errors->get('contact')" class="mt-2 animation a4" />
 
                 <button type="button" onclick="prevStep(2)" class="animation a5">Back</button>
