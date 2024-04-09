@@ -17,7 +17,7 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             'deliveryAddress' => ['required', 'string', 'max:255'],
-            'contact' => ['required', 'string', 'max:255'],
+            'contact' => ['required', 'numeric', 'regex:/^09\d{9}$/'],
         ];
     }
 }
