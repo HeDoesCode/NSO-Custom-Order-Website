@@ -32,6 +32,7 @@
 
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="css/stylewise.css">
+        
 
         
         
@@ -209,7 +210,11 @@
                 <h1 class="carousel-caption">NSO F1 Collection!</h1>
             </div>
         </div>
-        <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')"></div>
+        <div class="carousel-item" style="background-image: url('{{ asset('images/YEAR1.jpg') }}')">
+        <div class="overlay_landing">
+                <h1 class="carousel-caption">NOT SO ORDINARY</h1>
+            </div>
+    </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -250,47 +255,23 @@
                             
                     <div class="footer-links row">
                         <ul>
-                            <li><a href="{{ url('https://www.facebook.com/notso.ordinaryyy') }}" class="footer_links">Facebook</a></li>
-                            <li><a href="{{ url('https://www.instagram.com/notso.ordinaryyy/') }}" class="footer_links">Instagram</a></li>
-                            <li><a href="{{ url('https://shopee.ph/notso.ordinaryyy') }}" class="footer_links">Shopee</a></li>
+                            <li><a href="{{ url('https://www.facebook.com/notso.ordinaryyy') }}" class="footer_links"><i class="fa-brands fa-facebook fa-lg"></i> Facebook</a></li>
+                            <li><a href="{{ url('https://www.instagram.com/notso.ordinaryyy/') }}" class="footer_links"><i class="fa-brands fa-instagram fa-lg "></i> Instagram</a></li>
+                            <li><a href="{{ url('https://shopee.ph/notso.ordinaryyy') }}" class="footer_links"><img class="shopee_icon" src="/images/shopee.png" alt=""> Shopee</a></li>
+                            <li><a class="footer_links"><i class="fa-regular fa-envelope"></i> notso.ordinaryyy@gmail.com</a></li>
+
                         </ul>
                     </div>
-
-            <!-- <ul class="footer__nav">
-                    <div class="contacts">
-                        <li class="nav__item">
-                        <h2 class="nav__title">Get Notified On</h2>
-                            <ul class="nav__ul">
-                                <li>
-                                    <a href="#">facebook.com/notso.ordinaryyy</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#">instagram.com/notso.ordinaryyy</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#">shopee.ph/notso.ordinaryyy</a>
-                                </li>
-                                <li>
-                                    <a href="#">notso.ordinaryyy@gmail.com</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </div>
-                </ul> -->
-
-
                 </div>
                 
                 <hr>
                 <div class="welcome-copyright"> 
-                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="">Terms And Condition</a></p>
+                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="" id="terms_condition" class="footer_links"> <u>Terms And Condition </u></a></p>
                 </div>
             </footer>
 
 
-
+            @include('layouts.terms')
         </div>
     </body>
 
@@ -306,5 +287,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="{{asset('js/terms.js')}}"></script>
 
 </html>

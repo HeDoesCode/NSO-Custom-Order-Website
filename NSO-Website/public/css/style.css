@@ -40,6 +40,12 @@ html {
     --font: #3d3d3d;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -191,7 +197,7 @@ html {
 .login-title-bar h2 {
     color: #1c1c1c;
     margin: 0;
-    font-size: 3vw;
+    font-size: 4vw;
     font-family: Inter;
     font-style: normal;
     font-weight: 900;
@@ -740,6 +746,10 @@ html {
     background-color: #ddd;
 }
 
+.dropdown-content-admin {
+    display: block;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -754,10 +764,11 @@ footer {
 .welcome-copyright {
     text-align: center;
 }
+
 .footer-p {
-    padding: 20px;
+    /* padding: 20px; */
     min-height: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .footer-links {
     text-decoration: none;
@@ -767,6 +778,13 @@ footer {
     justify-content: center;
 }
 
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    display: inline-block; /* Add this line */
+}
+
 .footer_links {
     color: white;
     text-decoration: none;
@@ -774,13 +792,16 @@ footer {
 
 .footer-links ul {
     list-style: none;
-    padding: 0;
 }
 .welcome-copyright {
     color: white;
 }
 .footer-nav {
     justify-content: space-around;
+}
+
+.shopee_icon {
+    width: 20px;
 }
 
 /* Nav Bar */
@@ -882,7 +903,10 @@ nav {
         margin-right: 5px;
         font-size: 1.5em;
     }
-    .dropdown {
+    /* .dropdown {
+        font-size: 2em;
+    } */
+    .pfp-admin {
         font-size: 2em;
     }
 
@@ -914,10 +938,21 @@ nav {
 }
 
 @media screen and (max-width: 425px) {
+    .admin_bars1 {
+        padding-top: 20px;
+    }
     .pfp {
         /* padding-top: 11px; */
         font-size: 0.5em;
         padding-right: 10px;
+    }
+    .pfp-admin {
+        font-size: 5em;
+        padding-left: 50px;
+        align-items: right;
+    }
+    .dropdown {
+        font-size: 3em;
     }
     .nav_username {
         font-size: 3.5em;
@@ -934,6 +969,14 @@ nav {
     .left-nav a {
         font-size: 2.5vw;
         padding: 0;
+    }
+    .left-nav p {
+        display: none;
+    }
+
+    .left-nav i {
+        font-size: 1.4em;
+        padding-top: 30px;
     }
 
     .center-nav {
@@ -962,8 +1005,46 @@ nav {
         text-decoration: none;
     }
     .right-nav a {
-        font-size: 2vw;
-        margin: 1px;
+        font-size: 5vw;
+    }
+
+    .dropdown-content-admin {
+        display: none;
+        position: absolute;
+        background-color: white;
+        width: 284px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        left: -190px; /* Updated to position the menu to the left */
+        transition: display 0.3s; /* Add transition property */
+    }
+
+    .dropdown-content-admin a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s; /* Add transition property */
+    }
+
+    .dropdown-content-admin a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s; /* Add transition property */
+    }
+
+    .dropdown-content-admin a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content-admin {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
     }
 }
 
@@ -1059,6 +1140,7 @@ nav {
 
 .terms {
     width: 100%;
+    padding-top: 40px;
 }
 
 .terms_cond {
@@ -1298,6 +1380,9 @@ nav {
     /* padding-top: 11px; */
     font-size: 1.5em;
 }
+.pfp-admin {
+    font-size: 1.5em;
+}
 
 .back_button {
     display: flex;
@@ -1319,27 +1404,31 @@ nav {
 }
 
 .a1 {
-    animation-delay: 0.7s;
+    animation-delay: 0.3s;
 }
 
 .a2 {
-    animation-delay: 0.9s;
+    animation-delay: 0.5s;
 }
 
 .a3 {
-    animation-delay: 1s;
+    animation-delay: 0.6s;
 }
 
 .a4 {
-    animation-delay: 1.1s;
+    animation-delay: 0.7s;
 }
 
 .a5 {
-    animation-delay: 1.2s;
+    animation-delay: 0.8s;
 }
 
 .a6 {
-    animation-delay: 1.3s;
+    animation-delay: 0.9s;
+}
+
+.a7 {
+    animation-delay: 1s;
 }
 
 @keyframes move {
@@ -1678,7 +1767,7 @@ nav {
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #888;
     width: auto; /* Could be more or less, depending on screen size */
 }
@@ -1694,17 +1783,24 @@ nav {
 }
 
 /* Close Button */
+.close_btn {
+    width: 100%;
+}
 .close {
-    color: #aaa;
-    float: right;
+    /* position: absolute; */
+    /* top: 15px; */
+    padding-right: 20px;
+    text-align: right;
+    color: #000; /* Set the color of the close button */
     font-size: 50px;
     font-weight: bold;
-    padding: 30px;
+    transition: 0.3s;
 }
 
+/* Style the close button on hover */
 .close:hover,
 .close:focus {
-    color: black;
+    color: red; /* Change the color on hover if needed */
     text-decoration: none;
     cursor: pointer;
 }
@@ -1720,7 +1816,7 @@ nav {
     font-weight: 800;
     font-size: 50px;
     text-align: center;
-    padding: 30px;
+    padding: 0px 30px 30px 30px;
 }
 
 .btnReg {
