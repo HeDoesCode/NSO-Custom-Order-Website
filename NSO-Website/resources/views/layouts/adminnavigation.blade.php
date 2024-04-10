@@ -75,7 +75,7 @@
 
 
 <button id="reopen-sidebar" class="text-xl focus:outline-none">
-    <i class="fas fa-bars1 "></i>
+    <i class="fas fa-bars admin_bars "></i>
 </button> 
 
 <script>

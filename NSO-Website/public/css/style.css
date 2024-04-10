@@ -397,7 +397,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 70%;
 }
 
 .register-step button {
@@ -697,6 +697,7 @@ ul {
     font-weight: 800;
     letter-spacing: 0.19em;
     font-size: 2.8em;
+    text-decoration: none;
 }
 .username {
     padding-right: 10px;
@@ -802,6 +803,8 @@ footer {
 
 .shopee_icon {
     width: 20px;
+    padding-right: 1px;
+    padding-bottom: 1px;
 }
 
 /* Nav Bar */
@@ -921,25 +924,14 @@ nav {
         letter-spacing: 0.19em;
         font-size: 2em;
     }
-
-    .card {
-        width: 200px; /* Set a fixed width for the cards */
-        margin: 10px;
-        border-radius: 5px;
-        overflow: hidden; /* Ensure content overflow is hidden */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    .card img {
-        width: 100%; /* Ensure the image fills the container */
-        height: 100%; /* Set a fixed height for the image */
-        object-fit: cover; /* Ensure the image covers the entire container */
-    }
 }
 
 @media screen and (max-width: 425px) {
-    .admin_bars1 {
-        padding-top: 20px;
+    .admin_bars {
+        /* padding-top: 20px; */
+        top: 30px;
+        position: absolute;
+        z-index: inherit;
     }
     .pfp {
         /* padding-top: 11px; */
@@ -976,7 +968,9 @@ nav {
 
     .left-nav i {
         font-size: 1.4em;
-        padding-top: 30px;
+        position: relative;
+        z-index: 9;
+        top: 15px;
     }
 
     .center-nav {
@@ -1057,13 +1051,29 @@ nav {
     height: auto;
     box-shadow: 0px 0px 10px #212121;
 }
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+.card-container a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.card-container a:hover {
+    color: black; /* Change color on hover if needed */
 }
 
 .card {
+    position: relative; /* Add position relative to enable absolute positioning within */
+
     width: calc(
         33.33% - 40px
     ); /* Adjust the width to fit three cards per row with margins */
@@ -1079,11 +1089,21 @@ nav {
     box-shadow: 3px 12px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card img {
-    width: 100%; /* Ensure the image fills the container */
-    height: auto; /* Let the browser calculate the height to maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the entire container */
-    max-width: 100%; /* Ensure the image does not exceed its container's width */
+.image-container {
+    width: 100%; /* Make the container fill the card width */
+    padding-top: 100%; /* Set the aspect ratio (1:1 for a square) */
+
+    position: relative; /* Establishes containing block for absolute positioning */
+}
+
+.image-container img {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
+    object-fit: cover; /* Zoom in on the image */
+    object-position: center; /* Center the image within the container */
 }
 
 .card-content {
