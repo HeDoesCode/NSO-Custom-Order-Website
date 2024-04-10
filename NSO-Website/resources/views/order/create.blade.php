@@ -24,24 +24,30 @@
                 <div class="mb-4">
                     <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:</label>
                     <select name="type" id="type" onchange="populateSize()" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
-                        @forEach (array("REGULAR", "PREMIUM") as $type) 
-                            <option value="{{ $type }}" @selected(old('type') == $type)>
+                        <option value="" disabled selected>Select Shirt Type</option>
+                        @foreach (array("REGULAR", "PREMIUM") as $type) 
+                            <option value="{{ $type }}" @if(old('type') == $type) selected @endif>
                                 {{ $type }}
                             </option>
                         @endforeach
                     </select>
+
                     @error('type')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="mb-4">
-                    <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:</label>
-                    <select name="size" id="size" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></select>
-                    @error('size')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
+                <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:</label>
+                <select name="size" id="size" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    <option value="" disabled selected>Select Shirt Size</option>
+                    <!-- Add other size options here if needed -->
+                </select>
+                @error('size')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
     
                 <div class="mb-4">
                     <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:</label>
@@ -95,8 +101,8 @@
         </div>
     
         <script>
-            const regularSizes = ['Select Size', 'Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];
-            const premiumSizes = ['Select Size', 'Small', 'Medium', 'Large', 'XLarge'];
+            const regularSizes = ['Select Shirt Size', 'Small', 'Medium', 'Large', 'XLarge', 'XXLarge'];
+            const premiumSizes = ['Select Shirt Size', 'Small', 'Medium', 'Large', 'XLarge'];
         
             const typeSelect = document.getElementById('type');
             const sizeSelect = document.getElementById('size');

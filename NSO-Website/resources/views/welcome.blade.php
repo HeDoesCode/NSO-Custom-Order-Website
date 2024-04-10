@@ -178,10 +178,10 @@
 
 
         <section class="featured-products ">
-            <h2 class="featured-products-title ">featured products </h2>
+            <h2 class="featured-products-title animation a5">featured products </h2>
             <div class="card-container wrap">
                 @foreach($featuredProducts as $product)
-                    <a class="card" href="{{ $product->link }}" target="_blank">
+                    <a class="card animation a7" href="{{ $product->link }}" target="_blank">
                         <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
                         <div class="card-content">
                             <h2 class="card-title">{{ $product->title }}</h2>
@@ -213,7 +213,7 @@
                 
                 <hr>
                 <div class="welcome-copyright"> 
-                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="" id="terms_condition" class="footer_links"> <u>Terms And Condition </u></a></p>
+                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="" id="terms_condition" class="footer_links"> <u>Terms and Condition </u></a></p>
                 </div>
             </footer>
 
