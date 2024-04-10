@@ -924,20 +924,6 @@ nav {
         letter-spacing: 0.19em;
         font-size: 2em;
     }
-
-    .card {
-        width: 200px; /* Set a fixed width for the cards */
-        margin: 10px;
-        border-radius: 5px;
-        overflow: hidden; /* Ensure content overflow is hidden */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    .card img {
-        width: 100%; /* Ensure the image fills the container */
-        height: 100%; /* Set a fixed height for the image */
-        object-fit: cover; /* Ensure the image covers the entire container */
-    }
 }
 
 @media screen and (max-width: 425px) {
@@ -1098,12 +1084,21 @@ nav {
     box-shadow: 3px 12px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card img {
-    width: 100%;
-    height: auto;
+.image-container {
+    width: 100%; /* Make the container fill the card width */
+    padding-top: 100%; /* Set the aspect ratio (1:1 for a square) */
+
+    position: relative; /* Establishes containing block for absolute positioning */
+}
+
+.image-container img {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
     object-fit: cover; /* Zoom in on the image */
-    object-position: center; /* Center the image within the card */
-    max-width: 100%;
+    object-position: center; /* Center the image within the container */
 }
 
 .card-content {

@@ -177,20 +177,23 @@
 
 
 
-        <section class="featured-products ">
-            <h2 class="featured-products-title animation a5">featured products </h2>
-            <div class="card-container wrap">
-                @foreach($featuredProducts as $product)
-                    <a class="card animation a7" href="{{ $product->link }}" target="_blank">
-                        <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
-                        <div class="card-content">
-                            <h2 class="card-title">{{ $product->title }}</h2>
-                            <p class="card-text">{{ $product->description }}</p>
-                        </div>
-                    </a>
-                @endforeach
+<section class="featured-products">
+    <h2 class="featured-products-title animation a5">featured products </h2>
+    <div class="card-container wrap">
+        @foreach($featuredProducts as $product)
+        <a class="card animation a7" href="{{ $product->link }}" target="_blank">
+            <div class="image-container"> <!-- Add a container for the image -->
+                <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
             </div>
-        </section>
+            <div class="card-content">
+                <h2 class="card-title">{{ $product->title }}</h2>
+                <p class="card-text">{{ $product->description }}</p>
+            </div>
+        </a>
+        @endforeach
+    </div>
+</section>
+
 
 
         
