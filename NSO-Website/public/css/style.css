@@ -942,7 +942,10 @@ nav {
 
 @media screen and (max-width: 425px) {
     .admin_bars {
-        padding-top: 20px;
+        /* padding-top: 20px; */
+        top: 30px;
+        position: absolute;
+        z-index: inherit;
     }
     .pfp {
         /* padding-top: 11px; */
@@ -979,7 +982,9 @@ nav {
 
     .left-nav i {
         font-size: 1.4em;
-        padding-top: 30px;
+        position: relative;
+        z-index: 9;
+        top: 15px;
     }
 
     .center-nav {
