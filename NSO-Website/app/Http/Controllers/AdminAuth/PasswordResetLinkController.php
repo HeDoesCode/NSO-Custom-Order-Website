@@ -51,7 +51,8 @@ class PasswordResetLinkController extends Controller
         // need to show to the user. Finally, we'll send out a proper response.
        
       
-        $admin = Admin::where('username', $request->username)->first();
+        $admin = Admin::where('email', $request->username)->orWhere('username', $request->username)
+        ->first();
 
         if ($admin) {
             $status = Password::broker('admin')->sendResetLink(['email' => $admin->email]);

@@ -24,7 +24,7 @@
                                         <div class="">
                                             
                                             
-                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Admin Credential"/>
+                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Admin Credential (Email or Username)"/>
                                             <hr class="edithr mb-4">
                                             <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                             
