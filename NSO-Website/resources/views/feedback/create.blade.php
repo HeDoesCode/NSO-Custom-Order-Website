@@ -16,6 +16,7 @@
                 
                 <a href="{{ route('dashboard') }}" class="bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-800">Cancel</a>
             </div>
+            <h4 class="text-md">Note: The feedback that will be submitted will be sent and will be visible to Not So Ordinary ONLY. Any feedback will not be visible to other customers. Once submitted, the form can not be changed or edited.</h4>
     
             <ul class="text-red-500">
                 @foreach ($errors->all() as $message)

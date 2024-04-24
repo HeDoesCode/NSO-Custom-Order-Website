@@ -22,7 +22,7 @@
                 @method('post')
                 <input type="hidden" name="username" value="{{ $user->username }}">
                 <div class="mb-4">
-                    <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:</label>
+                    <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:*</label>
                     <select name="type" id="type" onchange="populateSize()" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Select Shirt Type</option>
                         @foreach (array("REGULAR", "PREMIUM") as $type) 
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="mb-4">
-                <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:</label>
+                <label for="size" class="block text-sm font-medium text-gray-600">Shirt Size:*</label>
                 <select name="size" id="size" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
                     <option value="" disabled selected>Select Shirt Size</option>
                     <!-- Add other size options here if needed -->
@@ -50,7 +50,7 @@
 
     
                 <div class="mb-4">
-                    <label for="desc" class="block text-sm font-medium text-gray-600">Design Description: ("Ex. You can put an example image or idea and just highlight or explain what are the changes you want to make. You can also provide image or link of one of the design that is available on Shopee and describe what are the things to change or add.")</label>
+                    <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:* ("Ex. You can put an example image or idea and just highlight or explain what are the changes you want to make. You can also provide image or link of one of the design that is available on Shopee and describe what are the things to change or add.")</label>
                     <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md">{{ old('design_text') }}</textarea>
                     @error('design_text')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -66,7 +66,7 @@
                 </div>
     
                 <div class="mb-4">
-                    <label for="qty" class="block text-sm font-medium text-gray-600">Quantity: (Maximum of 30 orders only)</label>
+                    <label for="qty" class="block text-sm font-medium text-gray-600">Quantity:* (Maximum of 30 orders only)</label>
                     <select name="quantity" id="qty" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
                         @for ($i = 1; $i <= 30; $i++) 
                             <option value="{{ $i }}" @selected(old('quantity') == $i)>
@@ -80,7 +80,7 @@
                 </div>
     
                 <div class="mb-4">
-                    <label for="MOD" class="block text-sm font-medium text-gray-600">Mode of Payment:</label>
+                    <label for="MOD" class="block text-sm font-medium text-gray-600">Mode of Payment:*</label>
                     <select name="mode_of_payment" id="MOD" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
                         @forEach (array("Gcash") as $MOD)
                             <option value="{{ $MOD }}" @selected(old('mode_of_payment') == $MOD)>

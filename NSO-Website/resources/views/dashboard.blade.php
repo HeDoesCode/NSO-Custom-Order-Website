@@ -85,13 +85,13 @@
                                     @endphp
                                 
                                     @if ($order->status == 'Order Completed' && !$hasFeedback)
-                                        <a href="{{ route('feedback.create', ['orderId' => $order->id]) }}" class="ml-6 text-white bg-green-400 px-2 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
+                                        <a href="{{ route('feedback.create', ['orderId' => $order->id]) }}" class=" text-white bg-green-400 px-2 py-2 rounded-md mb-4 inline-block">Create Feedback</a>
                                     @elseif ($hasFeedback)
-                                        <button class="ml-6 text-white bg-gray-500 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <button class=" text-white bg-gray-500 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
                                             <span class="mx-auto">Feedback Submitted</span>
                                         </button>
                                     @else
-                                        <button class="ml-6 text-gray-400 bg-gray-200 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
+                                        <button class=" text-gray-400 bg-gray-200 px-2 py-2 rounded-md mb-4 inline-flex items-center" disabled>
                                             <span class="mx-auto">Feedback Not Available</span>
                                         </button>
                                     @endif
