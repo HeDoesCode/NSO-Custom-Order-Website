@@ -1,17 +1,27 @@
 <x-app-layout>
-    <div class="col-span-10 p-5">
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 ml-6">
+    <div class="col-span-12 p-5">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ml-6">
             <a href="{{ route('dashboard') }}" class="text-3xl font-bold mb-7">
                 My Custom Orders
             </a>
 
             
-                <div class="mb-6 mr-6 flex justify-end">
-                    <form action="{{ route('dashboard') }}" method="GET" class="w-full max-w-md">
-                        <div class="flex items-center border-b border-b-2 border-gray-500 py-2">
-                            <input type="text" name="query" placeholder="Search orders..." class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
-                            <button type="submit" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded">Search</button>
+                <div class="col-span-2 mb-6 mr-6 flex justify-end">
+                    <form action="{{ route('dashboard') }}" method="GET" class="w-full">
+                        <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  items-center border-b border-b-2 border-gray-500 py-2">
+                            <input type="text" name="query" placeholder="Search orders..." class="mx-3 mb-2 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
+                            <select name="status" class="mx-3 mb-2">
+                                <option value="">All Status</option>
+                                <option value="Order Placed">Order Placed</option>
+                                <option value="Processing Order">Processing Order</option>
+                                <option value="To Ship">To Ship</option>
+                                <option value="Order Completed">Order Completed</option>
+                                <option value="Order Cancelled">Order Cancelled</option>
+                            </select>
+                            <input type="date" name="order_date" class="mx-3 mb-2">
+                            <button type="submit" class="mx-3 mb-2 flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded">Search</button>
                         </div>
+                        
                     </form>
                 </div>
         </div>
@@ -31,7 +41,7 @@
                         <tr>
                             <th class="px-4 py-2">Design Image</th>
                             <th class="px-4 py-2">Design Description</th>
-                            <th class="px-4 py-2">Price</th>
+                            <th class="px-4 py-2">Total Price</th>
                             <th class="px-4 py-2">Status</th>
                             <th class="px-4 py-2">Order Date</th>
                             <th class="px-4 py-2">View</th>
@@ -57,7 +67,7 @@
                                 
                                 <td class="py-5">{{ $order->design_text }}</td>
                                 <td class="py-5">@if($order->price)
-                                    <p>₱{{ number_format($order->price, 2) }}</p>
+                                    <p>₱{{ number_format($order->price * $order->quantity, 2) }}</p>
                                 @else
                                     <p">Waiting For Seller</p>
                                 @endif</td>
@@ -120,8 +130,8 @@
                                     <div class="flex-1 text-right">{{ $order->design_text }}</div>
                                 </div>
                                 <div class="flex justify-between items-center mb-2">
-                                    <div class="font-bold">Price:</div>
-                                    <div class="flex-1 text-right">{{ $order->price ? '₱' . $order->price : "Waiting For Seller" }}</div>
+                                    <div class="font-bold">Total Price:</div>
+                                    <div class="flex-1 text-right">{{ $order->price ? '₱' . $order->price * $order->quantity : "Waiting For Seller" }}</div>
                                 </div>
                                 <div class="flex justify-between items-center mb-2">
                                     <div class="font-bold">Status:</div>

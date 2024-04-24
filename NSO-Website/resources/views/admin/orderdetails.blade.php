@@ -71,9 +71,19 @@
 
                     <!-- Price Display -->
                     <div id="priceDisplay">
-                        <p class="text-gray-600">Price:</p>
+                        <p class="text-gray-600">Price per Shirt:</p>
                         @if($order->price)
                             <p class="font-bold">₱{{ number_format($order->price, 2) }}</p>
+                        @else
+                            <p class="font-bold">Not Yet Set</p>
+                        @endif
+                    </div>
+
+                    <!-- Price Display -->
+                    <div id="priceDisplay">
+                        <p class="text-gray-600">Total Price:</p>
+                        @if($order->price)
+                            <p class="font-bold">₱{{ number_format($order->price * $order->quantity, 2) }}</p>
                         @else
                             <p class="font-bold">Not Yet Set</p>
                         @endif

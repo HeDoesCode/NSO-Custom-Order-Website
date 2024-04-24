@@ -50,7 +50,7 @@
 
     
                 <div class="mb-4">
-                    <label for="desc" class="block text-sm font-medium text-gray-600">Design Description:</label>
+                    <label for="desc" class="block text-sm font-medium text-gray-600">Design Description: ("Ex. You can put an example image or idea and just highlight or explain what are the changes you want to make. You can also provide image or link of one of the design that is available on Shopee and describe what are the things to change or add.")</label>
                     <textarea name="design_text" id="desc" cols="30" rows="10" class="mt-1 p-2 w-full border border-gray-300 rounded-md">{{ old('design_text') }}</textarea>
                     @error('design_text')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -58,7 +58,7 @@
                 </div>
     
                 <div class="mb-4">
-                    <label for="img" class="block text-sm font-medium text-gray-600">{{ __('Design (if applicable):') }}</label>
+                    <label for="img" class="block text-sm font-medium text-gray-600">{{ __('Design Image (if applicable):') }}</label>
                     <input type="file" name="design_img" id="img" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('design_img') is-invalid @enderror">
                     @error('design_img')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
