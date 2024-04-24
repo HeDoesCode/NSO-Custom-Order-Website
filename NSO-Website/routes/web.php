@@ -24,14 +24,19 @@ use App\Http\Controllers\XMLRequestController;
 
 Route::get('/', [AdminController::class, 'displayHomePage'])->name('home');
 
+Route::view('/faqs', 'faqs')->name('faqs');
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [AdminController::class, 'displayHomePage'])->name('home');
     
     Route::get('/dashboard', [UserController::class, 'displayOrdersDashboard'])->name('dashboard');
 
+
     Route::controller(ProfileController::class)->group(function() {
         // view
         Route::get('/profile', 'edit')->name('profile.edit');
+
         
         // operation
         Route::patch('/profile', 'update')->name('profile.update');

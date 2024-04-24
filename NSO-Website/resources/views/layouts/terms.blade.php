@@ -65,8 +65,73 @@
 
     By placing an order with Not So Ordinary Apparel Store, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you have any questions or concerns, please contact us at notso.ordinaryyy@gmail.com, or directly in the website's Messenger system.
     
+<br><br><br><br> <div class="terms-title "><strong >Data Privacy Policy</strong><br></div>
+<br><br>
+<div class="modal-body">
+    <p class="terms-text">
+This Data Privacy Policy outlines how Not So Ordinary Apparel Store collects, uses, and protects your personal information in accordance with applicable data protection laws.
+<br><br>
+1. Collection of Personal Information
+<br><br>
+We collect personal information from you when you place an order or interact with our website. This information may include:
+<br><br>
+Name<br>
+Contact information (such as email address, phone number, and shipping address)<br>
+Payment details (processed exclusively through the GCash app, or "Buy for Me" services in LalaMove, or other similar applications)<br>
+<br><br>
+2. Use of Personal Information
+<br><br>
+We use the personal information collected for the following purposes:
+<br><br>
+Processing and fulfilling your orders<br>
+Communicating with you regarding your orders, including order confirmation, shipment updates, and customer support inquiries<br>
+Ensuring the security of our website and preventing fraud<br>
+Complying with legal obligations<br>
+<br><br>
+3. Disclosure of Personal Information
+<br><br>
+We may disclose your personal information to third parties in the following circumstances:
+<br><br>
+To our payment processing partners for the purpose of completing transactions<br>
+To shipping carriers to facilitate the delivery of your orders<br>
+To comply with legal obligations or respond to lawful requests from government authorities<br>
+We do not sell, trade, or otherwise transfer your personal information to third parties for marketing or advertising purposes.
+<br><br>
+4. Data Security
+<br><br>
+We take appropriate technical and organizational measures to safeguard your personal information against unauthorized access, disclosure, alteration, or destruction. However, please note that no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.
+<br><br>
+5. Data Retention
+<br><br>
+We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
+<br><br>
+6. Your Rights
+<br><br>
+You have the right to:
+<br><br>
+Access, correct, or delete your personal information<br>
+Object to the processing of your personal information<br>
+Withdraw your consent for processing your personal information<br>
+Lodge a complaint with a supervisory authority<br>
+<br><br>
+7. Governing Law
+<br><br>
+This Data Privacy Policy shall be governed by and construed in accordance with the laws of the Philippines.
+<br><br>
+8. Changes to the Privacy Policy
+<br><br>
+We reserve the right to update or modify this Privacy Policy at any time without prior notice. Changes will be effective immediately upon posting on our website.
+<br><br>
+9. Contact Us
+<br><br>
+If you have any questions or concerns regarding this Privacy Policy or our privacy practices, please contact us at notso.ordinaryyy@gmail.com or through the website's Messenger system.
+<br><br>
+
+
     </p>
     </div>
+</div>
+</div>
                 </div>
             </div>
             </div>

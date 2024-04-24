@@ -182,7 +182,7 @@
     <div class="card-container wrap">
         @foreach($featuredProducts as $product)
         <a class="card animation a7" href="{{ $product->link }}" target="_blank">
-            <div class="image-container"> <!-- Add a container for the image -->
+            <div class="image-container"> 
                 <img src="{{ asset('images/featured products/'.$product->image) }}" alt="{{ $product->title }}">
             </div>
             <div class="card-content">
@@ -216,11 +216,9 @@
                 
                 <hr>
                 <div class="welcome-copyright"> 
-                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="" id="terms_condition" class="footer_links"> <u>Terms and Condition </u></a></p>
+                    <p class="footer-p">&#169;Copyright 2023 Not So Ordinary. All rights reserved. <a href="" id="terms_condition" class="footer_links"> <u>Terms and Condition and Data Privacy</u>.</a><a href="{{ url('/faqs') }}" class="footer_links"> FAQs</a></p>
                 </div>
             </footer>
-
-
             @include('layouts.terms')
         </div>
     </body>

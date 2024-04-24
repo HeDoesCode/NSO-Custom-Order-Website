@@ -927,6 +927,10 @@ nav {
 }
 
 @media screen and (max-width: 425px) {
+    .username {
+        display: none;
+    }
+
     .admin_bars {
         /* padding-top: 20px; */
         top: 30px;
@@ -1068,19 +1072,16 @@ nav {
 }
 
 .card-container a:hover {
-    color: black; /* Change color on hover if needed */
+    color: black;
 }
-
 .card {
-    position: relative; /* Add position relative to enable absolute positioning within */
+    position: relative;
 
-    width: calc(
-        33.33% - 40px
-    ); /* Adjust the width to fit three cards per row with margins */
-    max-width: 400px; /* Set a maximum width for the cards */
+    width: calc(33.33% - 40px);
+    max-width: 400px;
     margin: 20px;
     border-radius: 5px;
-    overflow: hidden; /* Ensure content overflow is hidden */
+    overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -1703,13 +1704,13 @@ nav {
     }
 
     .editedInput {
-        font-size: 6vw!important;
+        font-size: 6vw !important;
     }
 
     /* Here, you're correctly adjusting editButton inside the media query */
     .editButton {
-        height: 15vw!important;
-        font-size: 6vw!important;
+        height: 15vw !important;
+        font-size: 6vw !important;
     }
 
     /* editButton2 styling is outside media query */
@@ -1719,27 +1720,24 @@ nav {
     }
 
     .notsoHolder {
-        height: 30vw!important;
-        width: auto!important;
-
+        height: 30vw !important;
+        width: auto !important;
     }
 
     .titleFont1 {
-        font-size: 8vw!important;
-
+        font-size: 8vw !important;
     }
 
     .labelFontSize {
-        font-size: 4vw!important;
+        font-size: 4vw !important;
     }
 
     .editedInput2 {
-        font-size: 4vw!important;
+        font-size: 4vw !important;
     }
 
-
     .here {
-        width: 65vw!important;
+        width: 65vw !important;
     }
 }
 
@@ -1888,6 +1886,7 @@ nav {
 }
 
 .terms-title {
+    text-align: center;
     font-family: "Inter";
     font-weight: 800;
     font-size: 50px;
@@ -1992,4 +1991,108 @@ nav {
     .chatbot-wrapper {
         display: none;
     }
+}
+
+/* .faq_container {
+    background-color: var(--beige);
+} */
+
+.faq_title {
+    font-weight: 600;
+    font-size: 6em;
+}
+
+.card_faq {
+    display: flex;
+    max-width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq_img {
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 1);
+    width: 10%;
+    height: 10%;
+}
+
+.faq_content_container {
+    flex: 1;
+}
+
+.faq_card_title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: 1.68px;
+    text-align: center;
+    color: #633b1b;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.faq_content {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 1.7em;
+    letter-spacing: 1.68px;
+    color: #382311;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 100%;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1.68px;
+    text-align: center;
+    background-color: var(--beige);
+}
+
+th,
+td {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--beige);
+    font-weight: 500;
+    font-size: 1.6em;
+}
+
+th {
+    background-color: var(--beige);
+}
+
+.card_faq_sec {
+    display: flex;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--beige);
+}
+
+.table_border {
+    border-left: 3px solid #030303;
+}
+
+.table_border_bottom {
+    border-bottom: 3px solid #030303;
+}
+
+.faq2_title {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1.68px;
+    font-size: 3em;
+    width: 600px;
+}
+
+.faq2_span {
+    color: #633b1b;
+}
+
+.faq3_content {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1.68px;
+    font-size: 2.5em;
+    /* text-align: center; */
 }

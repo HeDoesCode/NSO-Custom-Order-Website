@@ -9,7 +9,6 @@
         <button id="sidebar-toggle" class="text-xl focus:outline-none">
             <i class="fas fa-bars admin_bars"></i>
         </button> 
-        <p class="pl-2">admin</p>
         
     </div>
 
@@ -19,6 +18,8 @@
 
     <div class="right-nav">
         <div class="dropdown">
+        <p class="username">admin</p>
+
             <i class="pfp-admin fa-solid fa-circle-user"></i>
             <div class="dropdown-content">
                 <a href="{{ url('admin/home') }}" >admin dashboard</a>
@@ -69,7 +70,7 @@
             </div>
         </div>
     </div>
-</nav> 
+</nav>
 
 <!-- Button for toggling the sidebar -->
 
