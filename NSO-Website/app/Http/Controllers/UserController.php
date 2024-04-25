@@ -24,7 +24,7 @@ class UserController extends Controller
               ->orWhere('price', 'like', '%' . $query . '%')
               ->orWhere('status', 'like', '%' . $query . '%')
               ->orWhere('order_date', 'like', '%' . $query . '%')
-              ->orWhere('received_date', 'like', '%' . $query . '%');
+              ->orWhere('recieved_date', 'like', '%' . $query . '%');
         });
     }
 

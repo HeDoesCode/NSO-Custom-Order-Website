@@ -26,7 +26,7 @@ class FeedbackAvailable extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -40,6 +40,12 @@ class FeedbackAvailable extends Notification
                     ->action('Go to Dashboard', url('/dashboard'));
     }
 
+    public function toDatabase() {
+        return [
+            'message' => "Your latest order has been completed! You can now provide a feedback.",
+            'link' => '/dashboard',
+        ];
+    }
     /**
      * Get the array representation of the notification.
      *

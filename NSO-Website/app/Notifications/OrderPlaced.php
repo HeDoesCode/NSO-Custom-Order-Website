@@ -10,15 +10,14 @@ use Illuminate\Notifications\Notification;
 class OrderPlaced extends Notification
 {
     use Queueable;
-    private $orderID;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public $orderID
+    )
+    {}
 
     /**
      * Get the notification's delivery channels.
@@ -27,7 +26,7 @@ class OrderPlaced extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -41,6 +40,13 @@ class OrderPlaced extends Notification
                     ->action('See Orders', url("/admin/home"));
     }
 
+    public function toDatabase()
+    {
+        return [
+            'message' => "A new order has been placed.",
+            'link' => "/admin/orderdetails/".$this->orderID,
+        ];
+    }
     /**
      * Get the array representation of the notification.
      *

@@ -180,7 +180,7 @@ class AdminController extends Controller
             'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
         ]);
     
-        $user->notify(new OrderUpdated());
+        $user->notify(new OrderUpdated($id));
         
         if ($order->status == "Order Completed") {
             $user->notify(new FeedbackAvailable());

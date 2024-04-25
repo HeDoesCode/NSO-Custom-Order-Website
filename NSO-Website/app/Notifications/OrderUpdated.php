@@ -14,7 +14,9 @@ class OrderUpdated extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(
+        public $orderID
+    )
     {
         //
     }
@@ -26,7 +28,7 @@ class OrderUpdated extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -40,6 +42,14 @@ class OrderUpdated extends Notification
                         ->action('See Orders', url('/dashboard'));
     }
 
+    public function toDatabase() 
+    {
+        return [
+            'data' => 'test',
+            'message' => "Your order has been updated!",
+            'link' => '/order/orderdetails/'.$this->orderID,
+        ];
+    }
     /**
      * Get the array representation of the notification.
      *

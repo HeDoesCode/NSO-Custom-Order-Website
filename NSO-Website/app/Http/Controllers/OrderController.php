@@ -54,7 +54,7 @@ class OrderController extends Controller
             $newImageName = time() . "_" . uniqid("", true). "." . $request->design_img->extension();
             $request->design_img->move($this->orderDesignImagePath, $newImageName);
 
-            Order::create([
+            $order = Order::create([
                 'username' => $request->username,
                 'type' => $request->type,
                 'design_text' => $request->design_text,
@@ -65,7 +65,7 @@ class OrderController extends Controller
                 'order_date' => date("Y-m-d"),
             ]);
         } else {
-            Order::create([
+            $order = Order::create([
                 'username' => $request->username,
                 'type' => $request->type,
                 'design_text' => $request->design_text,
@@ -76,7 +76,7 @@ class OrderController extends Controller
             ]);
         }
         
-        Admin::first()->notify(new OrderPlaced());
+        Admin::first()->notify(new OrderPlaced($order->id));
         return redirect(route('dashboard'))->with('success', 'Order successfully placed');
     }
 }

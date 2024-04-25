@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,5 +37,11 @@ class XMLRequestController extends Controller
             ->where('municipality_id', '=', $citymuncode)
             ->get()
             ->toJson();
+    }
+
+    public function readNotifs($id) {
+        $user = User::find($id);
+        $user->unreadNotifications->markAsRead();
+        // return json_encode($user->unreadNotifications);
     }
 }

@@ -64,6 +64,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/feedback/store/{orderId}',  'store')->name('feedback.store');
     });
 
+    Route::get('/readNotifications/{id}', [XMLRequestController::class, 'readNotifs']);
 });
 
 
