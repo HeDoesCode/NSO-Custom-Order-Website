@@ -2041,7 +2041,7 @@ nav {
     color: #382311;
 }
 
-table {
+.faq_table {
     border-collapse: collapse;
     max-width: 100%;
     font-family: "Bebas Neue", sans-serif;
@@ -2050,8 +2050,8 @@ table {
     background-color: var(--beige);
 }
 
-th,
-td {
+.faq_th,
+.faq_td {
     text-align: center;
     padding: 30px;
     background-color: var(--beige);
@@ -2059,7 +2059,7 @@ td {
     font-size: 1.6em;
 }
 
-th {
+.faq_th {
     background-color: var(--beige);
 }
 

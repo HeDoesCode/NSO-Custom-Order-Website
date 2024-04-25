@@ -145,31 +145,31 @@
   <table class="faq_table ">
     <thead>
       <tr>
-        <th class="table_border_bottom"> </th>
-        <th class="table_border table_border_bottom">Regular Tee</th>
-        <th class="table_border table_border_bottom">Premium Tee</th>
+        <th class="table_border_bottom faq_th"> </th>
+        <th class="table_border table_border_bottom faq_th">Regular Tee</th>
+        <th class="table_border table_border_bottom faq_th">Premium Tee</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="faq2_span">Sizing</td>
-        <td class="table_border">Regular Fit</td>
-        <td class="table_border">Oversized Box Fit</td>
+        <td class="faq2_span faq_td">Sizing</td>
+        <td class="table_border faq_td">Regular Fit</td>
+        <td class="table_border faq_td">Oversized Box Fit</td>
       </tr>
       <tr>
-        <td class="faq2_span">Fabric</td>
-        <td class="table_border">Regular Cotton</td>
-        <td class="table_border">100% High-Grade Combed and Ring-Spun Cotton</td>
+        <td class="faq2_span faq_td">Fabric</td>
+        <td class="table_border faq_td">Regular Cotton</td>
+        <td class="table_border faq_td">100% High-Grade Combed and Ring-Spun Cotton</td>
       </tr>
       <tr>
-        <td class="faq2_span">Print</td>
-        <td class="table_border">Direct-to-Film</td>
-        <td class="table_border">Direct-to-Garment</td>
+        <td class="faq2_span faq_td">Print</td>
+        <td class="table_border faq_td">Direct-to-Film</td>
+        <td class="table_border faq_td">Direct-to-Garment</td>
       </tr>
       <tr>
-        <td class="faq2_span">Sticker</td>
-        <td class="table_border">Matte-Finished Sticker</td>
-        <td class="table_border">Matte-Finished Sticker</td>
+        <td class="faq2_span faq_td">Sticker</td>
+        <td class="table_border faq_td">Matte-Finished Sticker</td>
+        <td class="table_border faq_td">Matte-Finished Sticker</td>
       </tr>
     </tbody>
   </table>
