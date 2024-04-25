@@ -56,6 +56,7 @@
             @auth
             <a href="{{ url('/') }}" class="nav_links">HOME</a>
             <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+            <a href="{{ url('/faqs') }}" class="nav_links">FAQS</a>
            @endauth 
 
 
@@ -71,6 +72,7 @@
             <!-- <li class="nav_username"><i class="pfp fa-solid fa-circle-user" ></i>{{ Auth::user()->username }}</li> -->
             <li><a href="{{ url('/') }}" class="nav_links">HOME</a></li>
             <li><a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a></li>
+            <li><a href="{{ url('/faqs') }}" class="nav_links">FAQS</a></li>
             <li><a href="{{ route('profile.edit') }}" class="nav_links">Profile</a>
             <li><form method="POST" action="{{ route('logout') }}">
                             @csrf

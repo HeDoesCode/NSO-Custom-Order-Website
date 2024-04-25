@@ -6,6 +6,7 @@
             @auth
             <a href="{{ url('/') }}" class="nav_links">HOME</a>
             <a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a>
+            <a href="{{ url('/faqs') }}" class="nav_links">FAQS</a>
             @endauth
 
             <div class="navbar_menu">
@@ -19,6 +20,7 @@
                     @auth
                     <li><a href="{{ url('/') }}" class="nav_links">HOME</a></li>
                     <li><a href="{{ url('/dashboard') }}" class="nav_links">DASHBOARD</a></li>
+                    <li><a href="{{ url('/faqs') }}" class="nav_links">FAQS</a></li>
                     <li><a href="{{ route('profile.edit') }}" class="nav_links">Profile</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
@@ -34,6 +36,7 @@
 
                     <li>
                         @guest
+                        
                         <a href="{{ route('login') }}" class=" font-semibold">Log in </a>  / 
                         
                         @if (Route::has('register'))
@@ -52,6 +55,7 @@
 
     <div class="right-nav">
             @auth
+            <x-notifications/>
             <div class="dropdown">
                 <span class="username">{{ Auth::user()->username }}</span>
                 <i class="pfp fa-solid fa-circle-user" ></i>
