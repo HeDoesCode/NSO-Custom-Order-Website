@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Order;
+use App\Notifications\OrderPlaced;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -74,6 +76,7 @@ class OrderController extends Controller
             ]);
         }
         
+        Admin::first()->notify(new OrderPlaced());
         return redirect(route('dashboard'))->with('success', 'Order successfully placed');
     }
 }

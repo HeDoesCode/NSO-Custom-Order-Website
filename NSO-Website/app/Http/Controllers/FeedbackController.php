@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Order;
 use App\Models\Feedback;
+use App\Notifications\FeedbackPosted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -52,6 +54,7 @@ public function store(Request $request, $orderId)
             'message' => $request->message,
         ]);
 
+    Admin::first()->notify(new FeedbackPosted());
     return redirect()->route('dashboard')->with('status', 'Feedback Submitted Successfully!');
 }
 
