@@ -10,11 +10,11 @@ class UserController extends Controller
     public function displayOrdersDashboard(Request $request)
 {
     $query = $request->input('query');
+    $status = $request->input('status');
+    $orderDate = $request->input('order_date');
 
-    
     $userOrders = auth()->user()->orders()->latest();
 
-    
     if ($query) {
         $userOrders->where(function($q) use ($query) {
             $q->where('design_text', 'like', '%' . $query . '%')
@@ -24,14 +24,22 @@ class UserController extends Controller
               ->orWhere('price', 'like', '%' . $query . '%')
               ->orWhere('status', 'like', '%' . $query . '%')
               ->orWhere('order_date', 'like', '%' . $query . '%')
-              ->orWhere('recieved_date', 'like', '%' . $query . '%');
+              ->orWhere('received_date', 'like', '%' . $query . '%');
         });
     }
 
-    
+    if ($status) {
+        $userOrders->where('status', $status);
+    }
+
+    if ($orderDate) {
+        $userOrders->whereDate('order_date', $orderDate);
+    }
+
     $userOrders = $userOrders->paginate(5);
 
     return view('dashboard', ['orders' => $userOrders]);
 }
+
 
 }

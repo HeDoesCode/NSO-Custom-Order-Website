@@ -114,36 +114,41 @@ class AdminController extends Controller
     //for orders
     public function displayOrdersDashboard(Request $request)
 {
-    
-    if ($request->has('query')) {
-        $query = $request->input('query');
+    $searchQuery = $request->input('query');
+    $status = $request->input('status');
+    $orderDate = $request->input('order_date');
 
-        $orders = DB::table('order_details')
-            ->join('users', 'order_details.username', '=', 'users.username')
-            ->select('order_details.*', 'users.firstName', 'users.lastName')
-            ->where('order_details.username', 'like', '%' . $query . '%')
-            ->orWhere('order_details.type', 'like', '%' . $query . '%')
-            ->orWhere('order_details.size', 'like', '%' . $query . '%')
-            ->orWhere('order_details.design_text', 'like', '%' . $query . '%')
-            ->orWhere('order_details.price', 'like', '%' . $query . '%')
-            ->orWhere('order_details.mode_of_payment', 'like', '%' . $query . '%')
-            ->orWhere('order_details.status', 'like', '%' . $query . '%')
-            ->orderByDesc('order_details.created_at') 
-            ->paginate(10); 
+    $ordersQuery = DB::table('order_details')
+        ->join('users', 'order_details.username', '=', 'users.username')
+        ->select('order_details.*', 'users.firstName', 'users.lastName');
 
-        
-        return view('admin.home', ['orders' => $orders, 'query' => $query]);
+    if ($searchQuery) {
+        $ordersQuery->where(function ($query) use ($searchQuery) {
+            $query->where('order_details.username', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.type', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.size', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.design_text', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.price', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.mode_of_payment', 'like', '%' . $searchQuery . '%')
+                ->orWhere('order_details.status', 'like', '%' . $searchQuery . '%');
+        });
     }
 
-   
-    $orders = DB::table('order_details')
-        ->join('users', 'order_details.username', '=', 'users.username')
-        ->select('order_details.*', 'users.firstName', 'users.lastName')
-        ->orderByDesc('order_details.created_at') 
-        ->paginate(10); 
+    if ($status) {
+        $ordersQuery->where('order_details.status', $status);
+    }
 
-    return view('admin.home', ['orders' => $orders]);
+    if ($orderDate) {
+        $ordersQuery->whereDate('order_details.created_at', $orderDate);
+    }
+
+    $orders = $ordersQuery->orderByDesc('order_details.created_at')
+        ->paginate(10);
+
+    return view('admin.home', ['orders' => $orders, 'searchQuery' => $searchQuery]);
 }
+
+
 
 
     public function showOrderDetail($id) {
