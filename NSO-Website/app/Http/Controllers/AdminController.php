@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\FeaturedProducts;
 use App\Models\Feedback;
 use App\Models\Order;
+use App\Models\User;
+use App\Notifications\FeedbackAvailable;
+use App\Notifications\OrderUpdated;
 
 class AdminController extends Controller
 {
@@ -170,12 +173,19 @@ class AdminController extends Controller
         ]);
     
         $order = Order::findOrFail($id);
+        $user = User::where('username','=',$order->username)->first();
     
         $order->update([
             'price' => $request->input('price'),
             'status' => $request->has('status') ? $request->input('status') : 'Order Placed',
         ]);
     
+        $user->notify(new OrderUpdated());
+        
+        if ($order->status == "Order Completed") {
+            $user->notify(new FeedbackAvailable());
+        }
+        
         return redirect()->back()->with('order_updated', 'Order updated successfully');
     }
     
