@@ -118,7 +118,7 @@
             <div class="flex items-center justify-between">
                 <!-- Price Editing Input -->
                 <div class="flex-1">
-                    <p class="text-gray-600">Price:</p>
+                    <p class="text-gray-600">Price per Shirt:</p>
                     <input type="text" name="price" value="{{ $order->price }}" class="font-bold">
                 </div>
 

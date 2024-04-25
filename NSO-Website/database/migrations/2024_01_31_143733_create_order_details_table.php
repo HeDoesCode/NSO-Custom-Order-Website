@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->text('design_text');
             $table->string('design_img')->nullable();
-            $table->string('size');
+            $table->string('size'); 
             $table->integer('quantity');
             $table->float('price')->nullable();
             $table->string('mode_of_payment');

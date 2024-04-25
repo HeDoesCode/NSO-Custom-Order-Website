@@ -17,6 +17,7 @@
     </div>
 
     <div class="right-nav">
+        <x-notifications/>
         <div class="dropdown">
         <p class="username">admin</p>
 
