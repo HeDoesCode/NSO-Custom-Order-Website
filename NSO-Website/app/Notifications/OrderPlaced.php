@@ -37,7 +37,7 @@ class OrderPlaced extends Notification
         return (new MailMessage)
                     ->greeting("Hello!")
                     ->line('A new order has been placed.')
-                    ->action('See Orders', url("/admin/home"));
+                    ->action('See Orders', url("/admin/orderdetails/".$this->orderID));
     }
 
     public function toDatabase()

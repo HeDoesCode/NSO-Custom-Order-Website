@@ -39,7 +39,7 @@ class OrderUpdated extends Notification
         return (new MailMessage)
                         ->greeting("Hello!")
                         ->line('Your order has been updated.')
-                        ->action('See Orders', url('/dashboard'));
+                        ->action('See Orders', url('/order/orderdetails/'.$this->orderID));
     }
 
     public function toDatabase() 

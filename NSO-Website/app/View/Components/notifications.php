@@ -14,7 +14,7 @@ class notifications extends Component
      */
     
     public function __construct( 
-        public User $user)
+        public $user)
     {}
 
     /**

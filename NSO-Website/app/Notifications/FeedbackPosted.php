@@ -26,7 +26,7 @@ class FeedbackPosted extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -38,6 +38,14 @@ class FeedbackPosted extends Notification
                     ->greeting("Hello!")
                     ->line('A new feedback has been posted!')
                     ->action('View Feedbacks', url('/admin/view-feedback/'));
+    }
+
+    public function toDatabase() 
+    {
+        return [
+            'message' => "A new feedback has been posted!",
+            'link' => '/admin/view-feedback/',
+        ];
     }
 
     /**

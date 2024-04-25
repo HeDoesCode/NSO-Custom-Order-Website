@@ -17,7 +17,7 @@
     </div>
 
     <div class="right-nav">
-        <x-notifications/>
+        <x-notifications :user="auth()->user()" />
         <div class="dropdown">
         <p class="username">admin</p>
 
