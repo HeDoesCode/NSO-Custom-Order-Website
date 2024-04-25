@@ -35,7 +35,7 @@ class PasswordResetLinkController extends Controller
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
         // need to show to the user. Finally, we'll send out a proper response.
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->orWhere('email', $request->username)->first();
 
         if ($user) {
             // Send the password reset link using the user's email
@@ -46,7 +46,7 @@ class PasswordResetLinkController extends Controller
             $request->session()->put('userName', $user->username);
         } else {
             // Handle the case where the username doesn't exist.
-            $status = Password::INVALID_USER;
+            $status = "User Credential Invalid";
         }
 
         return $status == Password::RESET_LINK_SENT

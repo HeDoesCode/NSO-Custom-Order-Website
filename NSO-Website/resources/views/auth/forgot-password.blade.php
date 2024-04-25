@@ -10,7 +10,7 @@
                         <div class="center-div-content">
                         <h1 class="theTitle pb-1">Forgot Password?</h1>
                                 <div class="theDesc" >
-                                    {{ __('Enter the username associated with your account') }}
+                                    {{ __('Enter the username / email associated with your account') }}
                                 </div>
 
                                 <!-- Session Status -->
@@ -24,7 +24,7 @@
                                         <div class="">
                                             
                                             
-                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Registered Username"/>
+                                            <x-text-input id="username" class="editedInput shadow-none py-4" type="text" name="username" :value="old('username')" required placeholder="Enter Registered Username/Email"/>
                                             <hr class="edithr mb-4">
                                             <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                             
