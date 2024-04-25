@@ -19,7 +19,8 @@
                     @method('put')
 
                     <div class="mb-6">
-                        <label for="img" class="block text-sm font-medium text-gray-600">Image:</label>
+                         <p class="mb-2">Required Fields (*)</p>
+                        <label for="img" class="block text-sm font-medium text-gray-600">Image*:</label>
                         <input type="file" name="image" id="img"
                             class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('image') is-invalid @enderror">
 
@@ -29,7 +30,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="title" class="block text-sm font-medium text-gray-600">Title:</label>
+                        <label for="title" class="block text-sm font-medium text-gray-600">Title*:</label>
                         <input type="text" name="title" id="title"
                             class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('title') is-invalid @enderror"
                             value="{{ $product->title }}">
@@ -40,7 +41,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="desc" class="block text-sm font-medium text-gray-600">Description:</label>
+                        <label for="desc" class="block text-sm font-medium text-gray-600">Description*:</label>
                         <input type="text" name="description" id="desc"
                             class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('description') is-invalid @enderror"
                             value="{{ $product->description }}">
@@ -51,7 +52,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="link" class="block text-sm font-medium text-gray-600">Link:</label>
+                        <label for="link" class="block text-sm font-medium text-gray-600">Link*:</label>
                         <input type="text" name="link" id="link"
                             class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 @error('link') is-invalid @enderror"
                             value="{{ $product->link }}">

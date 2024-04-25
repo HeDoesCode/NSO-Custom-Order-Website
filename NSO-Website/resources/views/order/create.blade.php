@@ -22,6 +22,7 @@
                 @method('post')
                 <input type="hidden" name="username" value="{{ $user->username }}">
                 <div class="mb-4">
+                    <p class="mb-2">Required Fields (*)</p>
                     <label for="type" class="block text-sm font-medium text-gray-600">Shirt Type:*</label>
                     <select name="type" id="type" onchange="populateSize()" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Select Shirt Type</option>

@@ -17,7 +17,7 @@
                 <a href="{{ route('dashboard') }}" class="bg-black text-white font-bold py-2 px-4 rounded hover:bg-gray-800">Cancel</a>
             </div>
             <h4 class="text-md">Note: The feedback that will be submitted will be sent and will be visible to Not So Ordinary ONLY. Any feedback will not be visible to other customers. Once submitted, the form can not be changed or edited.</h4>
-    
+            <p class="my-4">Required Fields (*)</p>
             <ul class="text-red-500">
                 @foreach ($errors->all() as $message)
                     <li>{{ $message }}</li>
@@ -29,7 +29,8 @@
                 <input type="hidden" name="order_id" value="{{ $orderId }}">
                 <input type="hidden" name="user_id" value="{{ $user->id }}">
                 <div class="mb-4 flex items-center">
-                    <label for="rating" class="block text-sm font-medium text-gray-600">Rating:</label>
+                    
+                    <label for="rating" class="block text-sm font-medium text-gray-600">Rating*:</label>
                     <div x-data="starRating()" x-init="initStars({{ old('rating', 0) }})" class="ml-2">
                         <template x-for="star in stars" :key="star">
                             <i x-on:mouseover="highlight(star)" x-on:click="setRating(star)"
@@ -41,13 +42,13 @@
                 </div>
     
                 <div class="mb-4">
-                    <label for="image" class="block text-sm font-medium text-gray-600">Image (if applicable):</label>
+                    <label for="image" class="block text-sm font-medium text-gray-600">Image (if applicable)*:</label>
                     <input type="file" name="image" accept="image/*"
                            class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
                 </div>
     
                 <div class="mb-4">
-                    <label for="message" class="block text-sm font-medium text-gray-600">Message:</label>
+                    <label for="message" class="block text-sm font-medium text-gray-600">Message*:</label>
                     <textarea name="message"
                               class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"></textarea>
                 </div>

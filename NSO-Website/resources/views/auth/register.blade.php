@@ -19,19 +19,20 @@
             <div class="login-title-bar animation a1">
                 <h2>Sign Up!</h2>
             </div>
-                <x-input-label for="username" :value="__('Username')" class="animation a2"/>
+                <p>Required Fields (*)</p>
+                <x-input-label for="username" :value="__('Username*')" class="animation a2"/>
                 <x-text-input id="username"  type="text" name="username" :value="old('username')" required autofocus autocomplete="name" class="animation a2"/>
                 <x-input-error :messages="$errors->get('username')" class="mt-2 animation a2" />
 
-                <x-input-label for="email" :value="__('Email')" class="animation a3"/>
+                <x-input-label for="email" :value="__('Email*')" class="animation a3"/>
                 <x-text-input id="email"  type="email" name="email" :value="old('email')" required autocomplete="username" class="animation a3"/>
                 <x-input-error :messages="$errors->get('email')" class="mt-2 animation a3" />
 
-                <x-input-label for="password" :value="__('Password')" class="animation a4"/>
+                <x-input-label for="password" :value="__('Password*')" class="animation a4"/>
                 <x-text-input id="password"  type="password" name="password" required autocomplete="new-password" class="animation a4"/>
                 <x-input-error :messages="$errors->get('password')" class="mt-2 animation a4" />
 
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" class="animation a5"/>
+                <x-input-label for="password_confirmation" :value="__('Confirm Password*')" class="animation a5"/>
                 <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" class="animation a5" />
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 animation a5" />
 
@@ -46,15 +47,15 @@
             <div class="login-title-bar animation a1">
                 <h2>Sign Up!</h2>
             </div>
-                <x-input-label for="firstName" :value="__('First Name')" class="animation a2" />
+                <x-input-label for="firstName" :value="__('First Name*')" class="animation a2" />
                 <x-text-input id="firstName" class="block mt-1 w-full" type="text" name="firstName" :value="old('firstName')" required autofocus autocomplete="name" class="animation a2"/>
                 <x-input-error :messages="$errors->get('firstName')" class="mt-2 animation a2" />
 
-                <x-input-label for="lastName" :value="__('Last Name')" class="animation a3"/>
+                <x-input-label for="lastName" :value="__('Last Name*')" class="animation a3"/>
                 <x-text-input id="lastName" class="block mt-1 w-full" type="text" name="lastName" :value="old('lastName')" required autofocus autocomplete="name" class="animation a3" />
                 <x-input-error :messages="$errors->get('lastName')" class="mt-2 animation a3" />
 
-                <x-input-label for="contact" :value="__('Contact Number')" class="animation a4" />
+                <x-input-label for="contact" :value="__('Contact Number*')" class="animation a4" />
                 <x-text-input id="contact" class="block mt-1 w-full" type="number" name="contact" :value="old('contact')" required autofocus autocomplete="name" pattern="09\d{9}" class="animation a4"/>
                 <x-input-error :messages="$errors->get('contact')" class="mt-2 animation a4" />
 
@@ -69,25 +70,25 @@
                 <h2>Sign Up!</h2>
             </div>
                 <x-text-input id="deliveryAddress" class="block mt-1 w-full" type="hidden" name="deliveryAddress" :value="old('deliveryAddress')" required autofocus autocomplete="name" class="animation a2"/>
-                <label for="addressLine1" class="animation a2">Building/House No., Street Name, Subd.</label>
+                <label for="addressLine1" class="animation a2">Building/House No., Street Name, Subd. *</label>
                 <input type="text" class="block mt-1 w-full animation a2" name="addressLine1" id="addressLine1" value="{{old('addressLine1')}}" required>
                 <x-input-error :messages="$errors->get('addressLine1')" class="mt-2 animation a2" />
                 <ul>
                 <div class="animation a3">
-                    <x-address-selector id="region" />
+                    <x-address-selector id="region*" />
                 </div>
                 <div class="animation a4">
-                    <x-address-selector id="province" />
+                    <x-address-selector id="province*" />
                 </div>
                 <div class="animation a5">
-                    <x-address-selector id="cityMun" />
+                    <x-address-selector id="cityMun*" />
                 </div>
                 <div class="animation a6">
-                    <x-address-selector id="brgy" />
+                    <x-address-selector id="brgy*" />
                 </div>
                 </ul>
 
-                <label for="postalCode" class="animation a7">Postal Code</label>
+                <label for="postalCode" class="animation a7">Postal Code*</label>
                 <input type="text" class="block mt-1 w-full animation a7" name="postalCode" id="postalCode" value="{{old('postalCode')}}" required>
                 <x-input-error :messages="$errors->get('postalCode')" class="mt-2 animation a7" />
 
