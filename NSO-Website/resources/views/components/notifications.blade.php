@@ -34,6 +34,7 @@
 
 <script>
 function markAsRead(user) {
+  document.getElementById("redDot").style.display="none";
   const xml = new XMLHttpRequest();
 
   xml.open("GET", `/readNotifications/${user.id}`);
