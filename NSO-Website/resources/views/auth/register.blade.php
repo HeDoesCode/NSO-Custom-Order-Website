@@ -75,16 +75,16 @@
                 <x-input-error :messages="$errors->get('addressLine1')" class="mt-2 animation a2" />
                 <ul>
                 <div class="animation a3">
-                    <x-address-selector id="region*" />
+                    <x-address-selector id="region" />
                 </div>
                 <div class="animation a4">
-                    <x-address-selector id="province*" />
+                    <x-address-selector id="province" />
                 </div>
                 <div class="animation a5">
-                    <x-address-selector id="cityMun*" />
+                    <x-address-selector id="cityMun" />
                 </div>
                 <div class="animation a6">
-                    <x-address-selector id="brgy*" />
+                    <x-address-selector id="brgy" />
                 </div>
                 </ul>
 
