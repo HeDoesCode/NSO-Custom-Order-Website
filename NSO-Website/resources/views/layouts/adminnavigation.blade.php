@@ -10,14 +10,18 @@
             <i class="fas fa-bars admin_bars"></i>
         </button> 
         
+        
     </div>
+
 
     <div class="center-nav">
         <p class="center_font">NOT SO ORDINARY</p>
     </div>
 
+
     <div class="right-nav">
-        <x-notifications :user="auth()->user()" />
+    <x-notifications :user="auth()->user()" />
+
         <div class="dropdown">
         <p class="username">admin</p>
 

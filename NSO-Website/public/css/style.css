@@ -210,6 +210,12 @@ ul {
     /* .nav_links {
         display: none;
     } */
+
+    /* Notification */
+    .notification-icon {
+        left: 20px;
+    }
+
     .login-title-bar h2 {
         color: #1c1c1c;
         margin: 0;
@@ -944,7 +950,8 @@ nav {
     }
     .pfp-admin {
         font-size: 5em;
-        padding-left: 50px;
+        left: 50px;
+        margin-left: -15px;
         align-items: right;
     }
     .dropdown {
